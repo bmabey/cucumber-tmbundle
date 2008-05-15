@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Rspec Story</string>
+	<key>ordering</key>
+	<array>
+		<string>85E2C52C-9B36-4A54-81E7-6D8D3ADAEFA8</string>
+		<string>75E08730-A1D7-4D0F-B594-EAFD9DD49B4D</string>
+		<string>8B547854-6A6A-4E45-B51E-9324F0E9D364</string>
+		<string>E6FBAE52-8B70-47EE-8F22-3A58D4A088F9</string>
+		<string>FEB590E8-C0CB-4DF2-95C9-3E7B56C7758E</string>
+	</array>
+	<key>uuid</key>
+	<string>10DCDBF3-71B9-424F-AE90-17BFB8C4CD69</string>
+</dict>
+</plist>

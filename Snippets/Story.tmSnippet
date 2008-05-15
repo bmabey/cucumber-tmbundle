@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>Story: ${1:title}
+
+  As a ${2:role}
+  I want ${3:feature}
+  So that ${4:value}
+
+  $0
+	
+		
+</string>
+	<key>name</key>
+	<string>Story</string>
+	<key>tabTrigger</key>
+	<string>sto</string>
+	<key>uuid</key>
+	<string>E6FBAE52-8B70-47EE-8F22-3A58D4A088F9</string>
+</dict>
+</plist>
