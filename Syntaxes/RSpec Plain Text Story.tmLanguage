@@ -35,9 +35,26 @@
 			<key>include</key>
 			<string>#strings</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#comments</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>comments</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>comment</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\s*(#.*)</string>
+		</dict>
 		<key>description</key>
 		<dict>
 			<key>captures</key>
