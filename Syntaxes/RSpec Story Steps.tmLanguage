@@ -12,7 +12,7 @@
 	<array>
 		<dict>
 			<key>match</key>
-			<string>(Given|When|Then)</string>
+			<string>\b(GivenScenario|Given|When|Then)\b</string>
 			<key>name</key>
 			<string>keyword</string>
 		</dict>

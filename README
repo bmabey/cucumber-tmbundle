@@ -22,7 +22,7 @@ Caveats about running stories:
 		
 
 TODO:
-  * Make running a story more robust to work with any configuration.
+  * Improve HTML output to show failing information.
   * Run All Stories command.
   * Run Selected Stories command.
   * Switch Command
@@ -30,6 +30,7 @@ TODO:
 		* Switch between story and it's specific step matcher file.
   * Step Navigation
     * Be able to quickly navigate to the step files that are being used for the current story.
+    * Automatically go to the selected step or create it if it does not exist.
   
 		
 
