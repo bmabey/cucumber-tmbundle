@@ -1,6 +1,8 @@
-dir = File.dirname(__FILE__)
-$LOAD_PATH.unshift "#{dir}/../../../rspec/lib" 
+# dir = File.dirname(__FILE__)
+# $LOAD_PATH.unshift "#{dir}/rspec/lib" 
+require 'rubygems'
 require 'spec'
+require 'spec/story'
 require 'stringio'
 
 module Spec::Example::ExampleMethods
