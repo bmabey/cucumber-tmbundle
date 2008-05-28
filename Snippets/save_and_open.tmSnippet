@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>save_and_open</string>
+	<string>save_and_open_page</string>
 	<key>name</key>
-	<string>save_and_open</string>
+	<string>save_and_open_page</string>
 	<key>scope</key>
 	<string>source.ruby.steps</string>
 	<key>tabTrigger</key>

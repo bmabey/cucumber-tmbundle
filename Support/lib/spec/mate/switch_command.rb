@@ -11,7 +11,7 @@ module Spec
           relative = other[project_directory.length+1..-1]
           file_type = file_type(other)
           if create?(relative, file_type)
-            content = content_for(file_type, relative)
+            content = content_for(file_type, filepath)
             write_and_open(other, content)
           end
         end
@@ -47,12 +47,12 @@ module Spec
         answer.to_s.chomp == "1"
       end
 
-      def content_for(file_type, relative_path)
+      def content_for(file_type, filepath)
         case file_type
           when /story$/ then
-            story(relative_path)
+            story(filepath)
           else
-            steps(relative_path)
+            steps(filepath)
         end
       end
       
@@ -63,15 +63,16 @@ module Spec
         xml.match(/<key>content<\/key>\s*<string>([^<]*)<\/string>/m)[1]
       end
       
-      def story(path)
+      def story(filepath)
         snippet('Story.tmSnippet')
       end
 
-      def steps(relative_path)
+      def steps(filepath)
+        filepath =~ /([^\/]*).story/
         content = <<-STEPS
-steps_for(:${1:steps}) do
+steps_for(:${1:#{$1}}) do
   Given "${2:condition}" do
-
+    $0
   end
 end
 STEPS
