@@ -26,7 +26,7 @@ module Spec
               path = path.gsub(/\/steps\//, '/stories/')
               path = path.gsub(/_steps\.rb$/, '.story')
             when 'stories' then
-              path = path.gsub(/\/stories\/([^\/]*)\.story$/, '/steps/\1_steps.rb')
+              path = path.gsub(/\/stories\/([^\/]*)\.(story|txt)$/, '/steps/\1_steps.rb')
           end
           return path
         end

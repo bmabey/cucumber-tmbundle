@@ -7,27 +7,50 @@ Features:
   * Predefined completions (escape key) for common story keywords
   * Spellchecking turned on by default for the plaintext stories
   * Run the current plain text story and display in HTML (see caveats)
+  * Switch between plain text story and corresponding step matcher file (see caveats)
 
 Caveats about running stories:
   * Requires edge rspec (not 1.1.3)
-  * Currently, the running of stories relies on the following directory structure:
-     /project_root/stories
-		   |-feature_one
-		   |--- some_story.rb
-		   |---stories
-		   |----- some_story.story (extension does not matter)
-			 |-feature_two
-			 |....
-		So, the story runner file needs to be in the directory below the stories dir for that feature.
+  * Currently, the running of stories and file switching relies on the following directory structure:
+     Basic stories (no sub-directories):
+     
+       /project_root/stories
+   		   |- basic_story.rb
+   		   |- stories
+   		   |   |- basic_story.story (extension does not matter)
+   		   |
+   		   |- steps
+   		       |- basic_story_steps.rb
+     
+     Using feature sub-directories:
+     
+       /project_root/stories
+  		   |- feature_one
+  		   |   |- some_story.rb
+  		   |   |- stories
+  		   |   |   |- some_story.story (extension does not matter)
+  		   |   |
+  		   |   |- steps
+  		   |       |- some_story_steps.rb
+  		   |
+  		   |- feature_two
+  		   | .....
+  	
+  	These directory structures can be used together (basic stories can reside in the root stories directory,
+  	and feature sets can be put in sub directories).
 		
 
 TODO:
   * Improve HTML output to show failing information.
+  * POSSIBLE - Make SHIFT-CTRL-DOWN use goto_specific_step if on a step (no need for SHIFT-CTRIL-OPTION-DOWN)
+  * If in story file, and step file doesn't exist, and going to specific step - make snippets work correctly
+      - currently inserts new step and tag name of step file - steps_for(:Given "blah blah" ...)
+  * When in step file - if doing SHIFT-CTRL-OPTION-DOWN - go to first step that mat
+  * Make running a story more robust to work with any configuration.
   * Run All Stories command.
   * Run Selected Stories command.
   * Switch Command
 		* Easily switch between a plain text story and it's runner ruby file.
-		* Switch between story and it's specific step matcher file.
   * Step Navigation
     * Be able to quickly navigate to the step files that are being used for the current story.
     * Automatically go to the selected step or create it if it does not exist.

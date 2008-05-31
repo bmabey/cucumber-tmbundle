@@ -61,7 +61,7 @@ module Spec
     describe SwitchCommand, "in a regular app" do
       include Spec::Mate
       def twin(expected)
-        Twin.new(expected, false)
+        Twin.new(expected)
       end
       
       it do
@@ -79,16 +79,13 @@ module Spec
 
       it "should create story for story files" do
         story_file = <<-STORY
-Story: title
+Story: ${1:title}
 
-  As a role
-  I want feature
-  So that value
+  As a ${2:role}
+  I want ${3:feature}
+  So that ${4:value}
 
-  Scenario: title
-    Given context
-    When event
-    Then outcome
+  $0
 STORY
         SwitchCommand.new.content_for('story', "stories/stories/basic.story").should == story_file
         SwitchCommand.new.content_for('story', "stories/foo/stories/basic.story").should == story_file

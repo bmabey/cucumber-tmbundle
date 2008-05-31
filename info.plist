@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>mainMenu</key>
+	<dict>
+		<key>items</key>
+		<array>
+			<string>1530D367-DCDF-4F89-8BDB-896FAA16830E</string>
+			<string>E6FBAE52-8B70-47EE-8F22-3A58D4A088F9</string>
+			<string>FEB590E8-C0CB-4DF2-95C9-3E7B56C7758E</string>
+			<string>6AD6154B-3EE8-43D0-B87F-6261C859AD07</string>
+			<string>2BCE4864-D70A-4C52-B49D-FB3220130B74</string>
+		</array>
+		<key>submenus</key>
+		<dict/>
+	</dict>
 	<key>name</key>
 	<string>RSpec Story Runner</string>
 	<key>ordering</key>
@@ -26,8 +39,13 @@
 		<string>0F7FB1AF-BF0F-4427-A886-1BAECFC09FB7</string>
 		<string>18E3A4FD-1B21-4776-A8CB-8908FB296630</string>
 		<string>FEB590E8-C0CB-4DF2-95C9-3E7B56C7758E</string>
+		<string>40F55EDF-4743-4055-89BE-11A25A0A59D7</string>
 		<string>6AD6154B-3EE8-43D0-B87F-6261C859AD07</string>
+		<string>2BCE4864-D70A-4C52-B49D-FB3220130B74</string>
 		<string>B269B8F3-3A6D-4069-9E70-DD89A679416A</string>
+		<string>8E056A1E-AF51-4CFB-949F-47B6BCE6E6EC</string>
+		<string>21F53BA7-59E2-4284-A989-96D68D39D530</string>
+		<string>32B65923-8303-4635-BA62-1D8860E59EE4</string>
 	</array>
 	<key>uuid</key>
 	<string>10DCDBF3-71B9-424F-AE90-17BFB8C4CD69</string>

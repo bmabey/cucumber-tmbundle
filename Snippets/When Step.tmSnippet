@@ -3,19 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>Story: ${1:title}
-
-  As a ${2:role}
-  I want ${3:feature}
-  So that ${4:value}
-
+	<string>When "${1:step name}" do
   $0
+end
+
 </string>
 	<key>name</key>
-	<string>Story</string>
-	<key>tabTrigger</key>
-	<string>sto</string>
+	<string>When Step</string>
 	<key>uuid</key>
-	<string>E6FBAE52-8B70-47EE-8F22-3A58D4A088F9</string>
+	<string>21F53BA7-59E2-4284-A989-96D68D39D530</string>
 </dict>
 </plist>
