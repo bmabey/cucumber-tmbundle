@@ -6,6 +6,9 @@ module Spec
     module Story
       
       describe StoryHelper do
+        before(:each) do
+          Spec::Mate::TextMateHelper.stub!(:open_or_prompt)
+        end
         
         describe "#goto_alternate_file" do
           it "should determine alternate file for a story file" do
