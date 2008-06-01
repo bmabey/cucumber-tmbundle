@@ -74,26 +74,6 @@ module Spec
           # Get all currently defined steps (from relevent files)
           step_hashes = all_steps_for_file(file_path)
           
-          # runner_file_path = story_runner_file_for(file_path)
-          # 
-          # create_runner_file_for(file_path) unless File.file?(runner_file_path)
-          # # # Create runner file if necessary and wanted
-          # # 
-          # # if !File.file?(runner_file_path) && ::Spec::Mate::TextMateHelper.open_or_prompt(runner_file_path)
-          # #   ::Spec::Mate::TextMateHelper.insert_text(runner_content(runner_file_path))
-          # # end
-          # 
-          # # Get all currently defined steps (from relevent files)
-          # step_hashes = []
-          # if File.file?(runner_file_path)
-          #   step_group_tags = parse_step_group_tags(File.read(runner_file_path))
-          #   step_group_tags.each do |step_group_tag|
-          #     step_tag_file_path = full_path_for_step_name(step_group_tag)
-          #     next unless step_tag_file_path && File.file?(step_tag_file_path)
-          #     step_hashes += all_steps_for_file(step_tag_file_path)
-          #   end
-          # end
-          
           # Get all plain text steps from story file
           story_text_steps = all_text_steps_in_story(file_path)
           
@@ -142,19 +122,6 @@ module Spec
         
         def find_matching_step(current_step_type, current_step_name)
           all_steps_for_file(full_file_path)
-          # return unless File.file?(story_runner_file_for(full_file_path))
-          # step_group_tags = parse_step_group_tags(File.read(story_runner_file_for(full_file_path)))
-          # 
-          # @steps = []
-          # @step_file_contents = {}
-          # 
-          # step_group_tags.each do |step_group_tag|
-          #   @current_step_group_tag = step_group_tag
-          #   @full_steps_file_path = full_path_for_step_name(@current_step_group_tag)
-          #   
-          #   @step_file_contents[@current_step_group_tag] = File.read(@full_steps_file_path)
-          #   eval(@step_file_contents[@current_step_group_tag])
-          # end
           
           # Find matching step
           @steps.detect{|s| s[:type] == current_step_type && s[:step].matches?(current_step_name) }
@@ -177,30 +144,6 @@ module Spec
           else
             open_or_create_steps_file(alternate_file(full_file_path),
               [["#{current_step_type[0...1].upcase}#{current_step_type[1..-1].downcase}", current_step_name]])
-            #   
-            #   
-            #   create_return_value = ::Spec::Mate::TextMateHelper.open_or_prompt(file_path, :line_number => 2, :column_number => 3)
-            #   if create_return_value == true # File was created
-            #     ::Spec::Mate::TextMateHelper.insert_text(steps_content(file_path, step_types_and_names_to_create))
-            #   elsif create_return_value != false # File already existed
-            #     #text = ::Spec::Mate::TextMateHelper.snippet_text_for("#{proper_case_step_type} Step", current_step_name)
-            #     ::Spec::Mate::TextMateHelper.insert_text(steps_content(nil, step_types_and_names_to_create))
-            #   end
-            # end
-            # 
-            # # COPIED ELSEWHERE - refactor out
-            # alt_file_path = alternate_file(full_file_path)
-            # proper_case_step_type = "#{current_step_type[0...1].upcase}#{current_step_type[1..-1].downcase}"
-            # 
-            # create_return_value = ::Spec::Mate::TextMateHelper.open_or_prompt(alt_file_path, :line_number => 2, :column_number => 3)
-            # if create_return_value == true
-            #   ::Spec::Mate::TextMateHelper.insert_text(steps_content(alt_file_path, proper_case_step_type, current_step_name))
-            # elsif create_return_value != false
-            #   text = ::Spec::Mate::TextMateHelper.snippet_text_for("#{proper_case_step_type} Step", current_step_name)
-            #   ::Spec::Mate::TextMateHelper.insert_text(text)
-            # end
-            # # COPIED ELSEWHERE - refactor out
-            
           end
         end
         
@@ -259,9 +202,13 @@ EOF
           
           content = ""
           content = %Q{steps_for(:${1:#{step_file_name}}) do\n} if create_wrapper_content
+          
+          already_included_snippet_selection = false
           %w(Given When Then).each do |step_type|
             sorted_steps[step_type].each do |step_name|
-              content += %Q{  #{step_type} "#{step_name}" do\n    pending\n  end\n  \n}
+              step_name_text = already_included_snippet_selection ? step_name : "${1:#{step_name}}"
+              content += %Q{  #{step_type} "#{step_name_text}" do\n    pending\n  end\n  \n}
+              already_included_snippet_selection = true
             end
           end
           content += "end\n" if create_wrapper_content
@@ -302,13 +249,6 @@ EOF
           else # steps path
             path.gsub(/\/steps\/([^\.\/]*)_steps\.rb$/, '/\1.rb')
           end
-          
-          # return unless is_story_file?(path)
-          # path.gsub(/\/stories\/([^\.\/]*)\.story$/, '/\1.rb')
-          
-          # runner_file_path = path.gsub(/\/stories\/([^\.\/]*)\.story$/, '/\1.rb')
-          # create_runner_file_for(path) unless File.file?(runner_file_path)
-          # runner_file_path
         end
         
         def parse_step_group_tags(content)
@@ -333,9 +273,6 @@ EOF
         def steps_for(*args)
           yield if block_given?
         end
-        # def method_missing(method, args)
-        #   yield if block_given?
-        # end
         
         def Given(pattern)
           add_step('given', pattern)
