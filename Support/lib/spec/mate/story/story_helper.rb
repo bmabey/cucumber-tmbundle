@@ -234,13 +234,11 @@ EOF
         def related_step_files
           if is_story_file?(full_file_path)
             story_name = full_file_path.match(/\/([^\.\/]*)\.(story|txt)$/).captures.first
-            steps_file_path = File.dirname(full_file_path) + "/../#{story_name}.rb"
-            
-            parse_step_group_tags(File.read(steps_file_path))
-          else
-            step_files = Dir["#{project_root}/stories/**/*_steps.rb"]
-            step_files.collect{|f| f.match(/([^\/]*)_steps.rb$/).captures.first }.sort
+            runner_file_path = File.dirname(full_file_path) + "/../#{story_name}.rb"
+            return parse_step_group_tags(File.read(runner_file_path)) if File.file?(runner_file_path)
           end
+          step_files = Dir["#{project_root}/stories/**/*_steps.rb"]
+          step_files.collect{|f| f.match(/([^\/]*)_steps.rb$/).captures.first }.sort
         end
         
         def story_runner_file_for(path)
