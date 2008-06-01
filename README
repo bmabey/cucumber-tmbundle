@@ -41,6 +41,10 @@ Caveats about running stories:
 		
 
 TODO:
+  * 6/1/2008 4:10AM - If in story file, and are switching to any other file, if a runner file doesn't exist
+        - prompt to create it (right now - going to specific step from story file dies if not)
+  
+  * Warning / prompt about creating step runner file (when creating either a story or a steps file)
   * Improve HTML output to show failing information.
   * POSSIBLE - Make SHIFT-CTRL-DOWN use goto_specific_step if on a step (no need for SHIFT-CTRIL-OPTION-DOWN)
   * If in story file, and step file doesn't exist, and going to specific step - make snippets work correctly
