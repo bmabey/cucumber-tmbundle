@@ -11,6 +11,10 @@ module Spec
           new.open_or_prompt(file_path, options)
         end
         
+        def silently_create_file_with_contents(file_path, contents)
+          new.silently_create_file_with_contents(file_path, contents)
+        end
+        
         def snippet_text_for(snippet_name, *replacements)
           new.snippet_text_for(snippet_name, replacements)
         end
@@ -18,6 +22,10 @@ module Spec
         def insert_text(text)
           new.insert_text(text)
         end
+      end
+      
+      def silently_create_file_with_contents(file_path, contents)
+        create_file(file_path, contents)
       end
       
       def snippet_text_for(snippet_name, *replacements)
@@ -52,9 +60,16 @@ module Spec
       end  
     
     protected
-      def create_and_open(file_path)
+      def create_file(file_path, contents = nil)
         `mkdir -p "#{File.dirname(file_path)}"`
         `touch "#{file_path}"`
+        if contents
+          `echo "#{contents.gsub('"','\\"')}" > "#{file_path}"`
+        end
+      end
+      
+      def create_and_open(file_path)
+        create_file(file_path)
         `osascript &>/dev/null -e 'tell app "SystemUIServer" to activate' -e 'tell app "TextMate" to activate'`
         `"$TM_SUPPORT_PATH/bin/mate" "#{file_path}"`
       end
