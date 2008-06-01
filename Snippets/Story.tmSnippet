@@ -13,6 +13,8 @@
 </string>
 	<key>name</key>
 	<string>Story</string>
+	<key>scope</key>
+	<string>text.rspec.story</string>
 	<key>tabTrigger</key>
 	<string>sto</string>
 	<key>uuid</key>

@@ -10,6 +10,10 @@ end
 </string>
 	<key>name</key>
 	<string>Then Step</string>
+	<key>scope</key>
+	<string>source.ruby.steps</string>
+	<key>tabTrigger</key>
+	<string>the</string>
 	<key>uuid</key>
 	<string>32B65923-8303-4635-BA62-1D8860E59EE4</string>
 </dict>
