@@ -52,6 +52,10 @@ dl.failed {
   border-left: 5px solid #C20000;
 }
 
+dl.pending {
+  border-left: 5px solid #FAF834;
+}
+
 dt {
   padding: 3px;
   font-weight: bold;
@@ -79,12 +83,17 @@ dl.failed > dt {
   background: #C20000;
 }
 
+dl.pending > dt {
+  color: #131313;
+  background: #FAF834;
+}
+
 dl.passed > dd > p, li.passed {
   background: #DBFFB4; color: #3D7700;
   border-bottom: 1px solid #65C400;
 }
 
-dl.failed > dd > p, li.failed {
+dl.failed > dd > p, li.failed, dd.exception p.failed {
   color: #C20000; background: #FFFBD3;
   border-bottom: 1px solid #C20000;
 }
@@ -102,6 +111,21 @@ dl.new > dd > p, li.new {
 dl > dd > p.wastebin {
   background-color: black;
 }
+
+dd.exception
+{
+  background-color: #FFFBD3;
+}
+  dl > dd.exception > p
+  {
+    background-color: #FFFBD3;
+    border-bottom: none;
+    color: #C20000;
+  }
+    dl > dd.exception > p.failed
+    {
+      font-weight: bold;
+    }
 
 span.param, span.param_editor {
   font-weight: bold;

@@ -2,10 +2,12 @@
 require 'rubygems'
 
 rspec_rails_plugin = File.join(ENV['TM_PROJECT_DIRECTORY'],'vendor','plugins','rspec','lib')
-rpsec_home = ""
+rspec_merb_gem = (merb_dir = (Dir["#{ENV['TM_PROJECT_DIRECTORY']}/gems/gems/rspec*"].first || '')) && File.join(merb_dir, "lib")
+
 if File.directory?(rspec_rails_plugin)
-  $:.reject! { |e| e.include? 'TextMate' } # Fix to get around rails and TM's builder.rb clobering eachother
   $LOAD_PATH.unshift(rspec_rails_plugin)
+elsif File.directory?(rspec_merb_gem)
+  $LOAD_PATH.unshift(rspec_merb_gem)
 elsif ENV['TM_RSPEC_HOME']
   rspec_lib = File.join(ENV['TM_RSPEC_HOME'], 'lib')
   unless File.directory?(rspec_lib)

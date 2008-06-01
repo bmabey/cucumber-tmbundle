@@ -1,3 +1,4 @@
+require 'spec/story'
 require 'spec/mate/story/text_mate_formatter'
 module Spec
   module Mate
