@@ -8,13 +8,13 @@
 	<string>#!/usr/bin/env ruby
 
 require ENV['TM_BUNDLE_SUPPORT'] + "/lib/spec/mate/story/story_helper"
-Spec::Mate::Story::StoryHelper.new(ENV['TM_PROJECT_DIRECTORY'], ENV['TM_FILEPATH']).create_uninplemented_steps</string>
+Spec::Mate::Story::StoryHelper.new(ENV['TM_FILEPATH']).create_all_undefined_steps</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
 	<string>^~$@</string>
 	<key>name</key>
-	<string>Create Unimplemented Steps</string>
+	<string>Create All Undefined Steps</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>uuid</key>
