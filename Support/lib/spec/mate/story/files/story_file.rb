@@ -13,7 +13,7 @@ module Spec
           def is_story_file?; true; end
           
           def name
-            @name ||= full_file_path.match(/\/stories\/([^\.\/]*)\.story$/).captures.first
+            @name ||= full_file_path.match(/\/stories\/([^\.\/]*)\.(story|txt)$/).captures.first
           end
           
           def alternate_file_path
@@ -21,7 +21,7 @@ module Spec
           end
           
           def runner_file_path
-            @runner_file_path ||= full_file_path.gsub(%r</stories/#{name}\.story$>, "/#{name}.rb")
+            @runner_file_path ||= full_file_path.gsub(%r</stories/#{name}\.(story|txt)$>, "/#{name}.rb")
           end
           
           def steps_file_path
@@ -30,15 +30,15 @@ module Spec
           
           # Step files included in the runner file
           def alternate_files_and_names
-            RunnerFile.new(runner_file_path).step_files_and_names
+            [{:name => "#{name.gsub('_', ' ')} runner", :file_path => runner_file_path}] + RunnerFile.new(runner_file_path).step_files_and_names
           end
           
           def step_information_for_line(line_number)
             line_index = line_number.to_i-1
             content_lines = File.read(full_file_path).split("\n")
             
-            line_text = content_lines[line_index].strip
-            return unless line_text.match(/^(given|when|then|and)(.*)/i)
+            line_text = content_lines[line_index]
+            return unless line_text && line_text.strip!.match(/^(given|when|then|and)(.*)/i)
             source_step_name = $2.strip
             
             step_type_line = content_lines[0..line_index].reverse.detect{|l| l.match(/^\s*(given|when|then)\s*(.*)$/i)}

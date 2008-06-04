@@ -35,8 +35,8 @@ module Spec
               RunnerFile.stub!(:new).and_return(mock('runner file', :step_files_and_names => [{:name => 'foo', :file_path => '/path/to/foo'}]))
             end
             
-            it "should generate a list of steps files included in the runner file" do
-              @story_file.alternate_files_and_names.should == [{:name => 'foo', :file_path => '/path/to/foo'}]
+            it "should generate a list of files including the runner file and steps files included in the runner file" do
+              @story_file.alternate_files_and_names.should == [{:name => 'basic runner', :file_path => "#{@fixtures_path}/stories/basic.rb"}, {:name => 'foo', :file_path => '/path/to/foo'}]
             end
           end
           

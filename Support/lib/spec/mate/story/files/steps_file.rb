@@ -52,7 +52,7 @@ module Spec
           # Story files which include this step file in the runner
           def alternate_files_and_names
             story_files = []
-            Dir["#{project_root}/stories/**/*.story"].each do |file_path|
+            (Dir["#{project_root}/stories/**/*.story"] + Dir["#{project_root}/stories/**/*.txt"]).each do |file_path|
               sf = StoryFile.new(file_path)
               if sf.includes_step_file?(name)
                 story_files << {:name => "#{sf.name.gsub('_', ' ')} story", :file_path => file_path}

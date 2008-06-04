@@ -9,7 +9,7 @@ module Spec
               story_name = file_path.match(/([^\/]*).rb$/).captures.first
               num_paths_up = file_path.match(/^.*?\/stories\/(.*)$/).captures.first.split('/').size - 1
               content = <<-EOF
-require File.join(File.dirname(__FILE__), #{("'..', " * num_paths_up) + "'helper'"})
+require File.join(File.dirname(__FILE__).gsub(/stories(.*)/,"stories"),"helper")
 
 with_steps_for :#{story_name} do
   run_story(File.expand_path(__FILE__))
@@ -25,7 +25,7 @@ EOF
           end
           
           def story_file_path
-            @story_file_path ||= full_file_path.gsub(%r</#{name}\.rb$>, "/stories/#{name}.story")
+            @story_file_path ||= find_story_file
           end
           
           def steps_file_path
@@ -38,8 +38,8 @@ EOF
           
           def step_files_and_names
             step_names.collect do |name|
-              steps_file_file_path =  if (found_files = Dir["#{project_root}/stories/**/steps/#{name}_steps.rb"])
-                                        found_files.first
+              steps_file_file_path =  if (first_found_file = Dir["#{project_root}/stories/**/steps/#{name}_steps.rb"].first)
+                                        first_found_file
                                       else
                                         "#{project_root}/stories/steps/#{name}_steps.rb"
                                       end
@@ -47,6 +47,15 @@ EOF
             end
           end
         protected
+          def find_story_file
+            file_path = ''
+            %w(txt story).each do |ext|
+              file_path = full_file_path.gsub(%r</#{name}\.rb$>, "/stories/#{name}.#{ext}")
+              return file_path if File.file?(file_path)
+            end
+            file_path
+          end
+          
           def step_names
             if File.file?(full_file_path)
               content = File.read(full_file_path)

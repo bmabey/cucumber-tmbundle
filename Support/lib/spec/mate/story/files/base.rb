@@ -17,9 +17,9 @@ module Spec
             
             def klass_from_file_path(file_path)
               case file_path
-              when /(story|txt)$/           then StoryFile
-              when /_steps\.rb$/            then StepsFile
-              when /stories\/([^\/\.]*).rb/ then RunnerFile
+              when /(story|txt)$/     then StoryFile
+              when /_steps\.rb$/      then StepsFile
+              when /stories\/.*\.rb/  then RunnerFile
               end
             end
           end

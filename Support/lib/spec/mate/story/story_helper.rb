@@ -68,7 +68,7 @@ module Spec
         
         def silently_create_file(file_path)
           TextMateHelper.create_file(file_path)
-          `echo "#{default_content(file_path).gsub('"','\\"')}" > "#{file_path}"`
+          `echo "#{Files::Base.create_from_file_path(file_path).class.default_content(file_path).gsub('"','\\"')}" > "#{file_path}"`
         end
         
         def default_content(file_path, additional_content)
