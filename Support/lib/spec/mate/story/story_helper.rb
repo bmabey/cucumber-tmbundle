@@ -1,6 +1,10 @@
+# Need to use the rspec in current project
+require 'rubygems'
+require 'spec'
+require 'spec/story'
 require File.join(File.dirname(__FILE__), %w[.. text_mate_helper])
 require File.join(File.dirname(__FILE__), 'files')
-$:.unshift(File.join(File.dirname(__FILE__), 'files'))
+require File.join(File.dirname(__FILE__), 'text_mate_formatter')
 
 module Spec
   module Mate
@@ -10,6 +14,18 @@ module Spec
         def initialize(full_file_path)
           @full_file_path = full_file_path
           @file = Files::Base.create_from_file_path(full_file_path)
+        end
+        
+        def run_story
+          argv = ""
+          argv << '--format'
+          argv << '=Spec::Mate::Story::TextMateFormatter'
+          argv += ENV['TM_RSPEC_STORY_OPTS'].split(" ") if ENV['TM_RSPEC_STORY_OPTS']
+          $rspec_options = Spec::Runner::OptionParser.parse(argv, STDERR, STDOUT)
+          
+          require @file.is_runner_file? ?
+                    @file.full_file_path :
+                    @file.runner_file_path
         end
         
         def goto_alternate_file
