@@ -22,7 +22,7 @@
 		</dict>
 	</array>
 	<key>scopeName</key>
-	<string>text.rspec.story.steps</string>
+	<string>ruby.rspec.story.steps</string>
 	<key>uuid</key>
 	<string>B269B8F3-3A6D-4069-9E70-DD89A679416A</string>
 </dict>

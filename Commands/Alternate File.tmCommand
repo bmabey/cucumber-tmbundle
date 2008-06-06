@@ -18,7 +18,7 @@ Spec::Mate::Story::StoryHelper.new(ENV['TM_FILEPATH']).goto_alternate_file</stri
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>text.rspec.story</string>
+	<string>text.rspec.story, ruby.rspec.story</string>
 	<key>uuid</key>
 	<string>6AD6154B-3EE8-43D0-B87F-6261C859AD07</string>
 </dict>

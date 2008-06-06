@@ -18,7 +18,7 @@ Spec::Mate::Story::StoryHelper.new(ENV['TM_FILEPATH']).create_all_undefined_step
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>text.rspec.story</string>
+	<string>text.rspec.story, ruby.rspec.story</string>
 	<key>uuid</key>
 	<string>A165BB7A-E047-499B-8DF2-CA1FC9049298</string>
 </dict>

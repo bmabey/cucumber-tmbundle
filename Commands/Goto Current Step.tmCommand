@@ -20,7 +20,7 @@ Spec::Mate::Story::StoryHelper.new(ENV['TM_FILEPATH']).goto_current_step(ENV['TM
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>text.rspec.story</string>
+	<string>text.rspec.story, ruby.rspec.story</string>
 	<key>uuid</key>
 	<string>8E056A1E-AF51-4CFB-949F-47B6BCE6E6EC</string>
 </dict>
