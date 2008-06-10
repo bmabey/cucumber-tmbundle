@@ -1,7 +1,8 @@
 # Need to use the rspec in current project
-require 'rubygems'
-require 'spec'
-require 'spec/story'
+# require 'rubygems'
+# require 'spec'
+# require 'spec/story'
+require File.join(File.dirname(__FILE__), %w[.. .. mate])
 require File.join(File.dirname(__FILE__), %w[.. text_mate_helper])
 require File.join(File.dirname(__FILE__), 'files')
 require File.join(File.dirname(__FILE__), 'text_mate_formatter')
