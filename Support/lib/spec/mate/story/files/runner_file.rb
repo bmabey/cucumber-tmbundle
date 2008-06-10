@@ -28,6 +28,10 @@ EOF
             @story_file_path ||= find_story_file
           end
           
+          def runner_file_path
+            @runner_file_path ||= full_file_path
+          end
+          
           def steps_file_path
             @steps_file_path ||= full_file_path.gsub(%r</#{name}\.rb$>, "/steps/#{name}_steps.rb")
           end

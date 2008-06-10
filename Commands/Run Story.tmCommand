@@ -10,9 +10,6 @@
 require ENV['TM_BUNDLE_SUPPORT'] + "/lib/spec/mate/story/story_helper"
 Spec::Mate::Story::StoryHelper.new(ENV['TM_FILEPATH']).run_story
 
-
-#require ENV['TM_BUNDLE_SUPPORT'] + "/lib/spec/mate"
-#Spec::Mate::Story::Runner.new.run_file
 </string>
 	<key>fallbackInput</key>
 	<string>document</string>

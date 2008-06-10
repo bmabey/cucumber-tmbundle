@@ -16,6 +16,10 @@ module Spec
             @runner_file.story_file_path.should == "#{@fixtures_path}/stories/stories/basic.story"
           end
           
+          it "should return it's full path when asked for it's runner file path" do
+            @runner_file.runner_file_path.should == @runner_file.full_file_path
+          end
+          
           it "should determine the steps file" do
             @runner_file.steps_file_path.should == "#{@fixtures_path}/stories/steps/basic_steps.rb"
           end
