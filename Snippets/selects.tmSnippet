@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>selects</string>
 	<key>scope</key>
-	<string>source.ruby.steps</string>
+	<string>source.ruby.rspec.story.steps</string>
 	<key>tabTrigger</key>
 	<string>sel</string>
 	<key>uuid</key>

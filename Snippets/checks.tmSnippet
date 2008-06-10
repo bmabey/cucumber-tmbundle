@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>checks</string>
 	<key>scope</key>
-	<string>source.ruby.steps</string>
+	<string>source.ruby.rspec.story.steps</string>
 	<key>tabTrigger</key>
 	<string>che</string>
 	<key>uuid</key>

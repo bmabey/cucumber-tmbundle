@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>save_and_open_page</string>
 	<key>scope</key>
-	<string>source.ruby.steps</string>
+	<string>source.ruby.rspec.story.steps</string>
 	<key>tabTrigger</key>
 	<string>sav</string>
 	<key>uuid</key>

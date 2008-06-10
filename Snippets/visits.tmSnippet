@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>chooses '${1:label}'</string>
+	<string>visits(${2:'${1:url}'})</string>
 	<key>name</key>
-	<string>chooses</string>
+	<string>visits</string>
 	<key>scope</key>
 	<string>source.ruby.rspec.story.steps</string>
 	<key>tabTrigger</key>
-	<string>cho</string>
+	<string>vis</string>
 	<key>uuid</key>
-	<string>18E3A4FD-1B21-4776-A8CB-8908FB296630</string>
+	<string>50635128-C1C2-4D88-A853-9F6E5C2C42F2</string>
 </dict>
 </plist>

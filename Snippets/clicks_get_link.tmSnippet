@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>clicks_get_link</string>
 	<key>scope</key>
-	<string>source.ruby.steps</string>
+	<string>source.ruby.rspec.story.steps</string>
 	<key>tabTrigger</key>
 	<string>cli</string>
 	<key>uuid</key>

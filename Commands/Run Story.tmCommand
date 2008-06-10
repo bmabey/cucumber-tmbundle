@@ -25,7 +25,7 @@ Spec::Mate::Story::StoryHelper.new(ENV['TM_FILEPATH']).run_story
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
-	<string>text.rspec.story, ruby.rspec.story</string>
+	<string>text.rspec.story, source.ruby.rspec.story</string>
 	<key>uuid</key>
 	<string>1530D367-DCDF-4F89-8BDB-896FAA16830E</string>
 </dict>
