@@ -30,7 +30,7 @@ module Spec
           
           # Step files included in the runner file
           def alternate_files_and_names
-            [{:name => "#{name.gsub('_', ' ')} runner", :file_path => runner_file_path}] + RunnerFile.new(runner_file_path).step_files_and_names
+            [{:name => "#{name.gsub('_', ' ')} runner", :file_path => runner_file_path}] + runner_step_files_and_names
           end
           
           def step_information_for_line(line_number)
@@ -56,7 +56,12 @@ module Spec
           end
           
           def includes_step_file?(step_file_name)
-            RunnerFile.new(runner_file_path).step_files_and_names.detect{|step_file_info| step_file_info[:name] == "#{step_file_name} steps"} ? true : false
+            step_file_name = step_file_name.gsub(' steps', '').gsub('_', ' ')
+            runner_step_files_and_names.detect{|step_file_info| step_file_info[:name] == "#{step_file_name} steps"} ? true : false
+          end
+          
+          def runner_step_files_and_names
+            @runner_step_files_nad_names ||= RunnerFile.new(runner_file_path).step_files_and_names
           end
           
           def undefined_steps

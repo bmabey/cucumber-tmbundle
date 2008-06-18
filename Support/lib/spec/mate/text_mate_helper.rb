@@ -15,6 +15,12 @@ module Spec
           TextMate::UI.menu(options)
         end
         
+        def alert(options = {})
+          options = {:message => options} if options.kind_of?(String)
+          options = {:style => :informational, :title => 'Alert!', :message => '', :buttons => 'OK'}.merge(options)
+          TextMate::UI.alert(options[:style], options[:title], options[:message], options[:buttons])
+        end
+        
         def request_confirmation(options)
           TextMate::UI.request_confirmation(options)
         end
