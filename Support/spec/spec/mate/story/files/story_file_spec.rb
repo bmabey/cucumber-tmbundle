@@ -83,7 +83,19 @@ module Spec
           end
           
           describe "#undefined_steps" do
-            it "should return a list of steps not defined in the story"
+            it "should return a unique list of steps not defined in the story" do
+              @story_file.stub!(:all_steps_in_file).and_return([
+                {:step_type => 'Given', :step_name => 'a member named Foo'},
+                {:step_type => 'When', :step_name => 'Foo walks into a bar'},
+                {:step_type => 'Given', :step_name => 'a member named Foo'}
+              ])
+                            
+              @story_file.stub!(:location_of_step).and_return(nil)
+              @story_file.undefined_steps.should == ([
+                {:step_type => 'Given', :step_name => 'a member named Foo'},
+                {:step_type => 'When', :step_name => 'Foo walks into a bar'}
+              ])
+            end
           end
         end
         

@@ -67,7 +67,9 @@ module Spec
           def undefined_steps
             undefined_steps = []
             all_steps_in_file.each do |step_info|
-              undefined_steps << step_info unless location_of_step(step_info)
+              unless location_of_step(step_info) || undefined_steps.any?{|s| s[:step_type] == step_info[:step_type] && s[:step_name] == step_info[:step_name]}
+                undefined_steps << step_info
+              end
             end
             undefined_steps
           end
