@@ -46,11 +46,7 @@ TODO:
   * Run All Stories command.
   * Run Selected Stories command.
   * (MAYBE) Make running a story more robust to work with any configuration.
-  * Refactor to make cleaner and add more specs.
   * Warning / prompt about creating step runner file (when creating either a story or a steps file)
-  * When creating all steps for a new file:
-    * Don't create duplicate steps
-    * Fix first step name bug
   
 TODONE:		
   * Improve HTML output to show failing information.

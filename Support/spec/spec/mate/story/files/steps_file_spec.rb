@@ -30,9 +30,27 @@ module Spec
             end
           end
           
+          describe "#new_steps_line_number" do
+            describe "when the steps_for line is at the top" do
+              it "should return the next line" do
+                @steps_file.new_steps_line_number.should == 2
+              end
+            end
+            
+            describe "when the steps_for line is not at the top" do
+              before(:each) do
+                @steps_file = StepsFile.new(File.expand_path(File.join(@fixtures_path, %w[stories steps additional_basic_steps.rb])))
+              end
+              
+              it "should return the line after steps_for" do
+                @steps_file.new_steps_line_number.should == 7
+              end
+            end
+          end
+          
           describe "#alternate_files_and_names" do
             before(:each) do
-              @basic_runner_file = mock('basic runner file', :step_files_and_names => [{:name => 'basic', :file_path => "#{@fixtures_path}/stories/stories/basic.story"}])
+              @basic_runner_file = mock('basic runner file', :step_files_and_names => [{:name => 'basic steps', :file_path => "#{@fixtures_path}/stories/stories/basic.story"}])
               RunnerFile.stub!(:new).and_return(@basic_runner_file)
             end
             
@@ -49,7 +67,8 @@ module Spec
                 [
                   {:name=>"foo story", :file_path=>"#{@fixtures_path}/stories/feature1/stories/foo.story"},
                   {:name=>"additional basic story", :file_path=>"#{@fixtures_path}/stories/stories/additional_basic.story"},
-                  {:name=>"basic story", :file_path=>"#{@fixtures_path}/stories/stories/basic.story"}
+                  {:name=>"basic story", :file_path=>"#{@fixtures_path}/stories/stories/basic.story"},
+                  {:name=>"non standard story", :file_path=>"#{@fixtures_path}/stories/stories/non_standard.story"}
                 ]
             end
           end

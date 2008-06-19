@@ -59,7 +59,11 @@ module Spec
       protected
         def goto_steps_file_with_new_steps(new_steps)
           silently_create_file(@file.runner_file_path) if !File.file?(@file.runner_file_path) && request_confirmation_to_create_file(@file.runner_file_path)
-          goto_or_create_file(@file.steps_file_path, :line => 2, :column => 1, :additional_content => Files::StepsFile.create_steps(new_steps, false))
+          steps_file = Files::StepsFile.new(@file.steps_file_path)
+          goto_or_create_file(steps_file.full_file_path,
+            :line => steps_file.new_steps_line_number,
+            :column => 1,
+            :additional_content => Files::StepsFile.create_steps(new_steps, !File.file?(steps_file.full_file_path)))
         end
         
         def request_confirmation_to_create_file(file_path)

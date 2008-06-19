@@ -199,12 +199,14 @@ module Spec
               describe "and the step doesn't exist" do
                 before(:each) do
                   @helper_file.stub!(:location_of_step).and_return(nil)
+                  @helper_file.stub!(:step_information_for_line).and_return(nil)
                 end
                 
                 it "should tell textmate to goto the story's step file and to insert the step" do
                   # expects
                   TextMateHelper.should_receive('goto_file').with('/path/to/steps/file', {:line => 2, :column => 1})
                   TextMateHelper.should_receive('insert_text')
+                  
                   # when
                   @story_helper.goto_current_step(1)
                 end

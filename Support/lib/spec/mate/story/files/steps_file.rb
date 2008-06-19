@@ -33,6 +33,18 @@ module Spec
           
           def is_steps_file?; false; end
           
+          def new_steps_line_number
+            if File.file?(full_file_path)
+              contents = File.read(full_file_path)
+              
+              contents.split("\n").each_with_index do |line, index|
+                return index + 2 if line =~ /\s*steps_for/
+              end
+              
+              return 2
+            end
+          end
+          
           def name
             @name ||= super.gsub("_steps", "")
           end
