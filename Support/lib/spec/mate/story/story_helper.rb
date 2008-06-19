@@ -30,6 +30,7 @@ module Spec
               goto_or_create_file(choice.to_i == 0 ? @file.story_file_path : @file.steps_file_path)
             end
           else
+            
             goto_or_create_file(@file.alternate_file_path)
           end
         end

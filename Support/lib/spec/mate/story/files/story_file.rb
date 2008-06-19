@@ -12,20 +12,8 @@ module Spec
           
           def is_story_file?; true; end
           
-          def name
-            @name ||= full_file_path.match(/\/stories\/([^\.\/]*)\.(story|txt)$/).captures.first
-          end
-          
           def alternate_file_path
             steps_file_path
-          end
-          
-          def runner_file_path
-            @runner_file_path ||= full_file_path.gsub(%r</stories/#{name}\.(story|txt)$>, "/#{name}.rb")
-          end
-          
-          def steps_file_path
-            @steps_file_path ||= full_file_path.gsub(%r</stories/#{name}\.(story|txt)$>, "/steps/#{name}_steps.rb")
           end
           
           # Step files included in the runner file

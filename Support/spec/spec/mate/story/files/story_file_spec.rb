@@ -16,9 +16,21 @@ module Spec
             @story_file.runner_file_path.should == "#{@fixtures_path}/stories/basic.rb"
           end
           
-          it "should determine the steps file" do
-            @story_file.steps_file_path.should == "#{@fixtures_path}/stories/steps/basic_steps.rb"
-          end
+          # describe "when a steps file exists on the filesystem (even if not using the assumed directory structure)" do
+          #   before(:each) do
+          #     @story_file = StoryFile.new(File.expand_path(File.join(@fixtures_path, %w[stories stories non_standard.story])))
+          #   end
+          #   
+          #   it "should return the path to the existing steps file" do
+          #     @story_file.steps_file_path.should == "#{@fixtures_path}/stories/non_standard_dir/steps/non_standard_steps.rb"
+          #   end
+          # end
+          # 
+          # describe "when a steps file doesn't exist on the filesystem" do
+          #   it "should determine the path to the new steps file (and assume the proposed directory structure)" do
+          #     @story_file.steps_file_path.should == "#{@fixtures_path}/stories/steps/basic_steps.rb"
+          #   end
+          # end
           
           it "should determine the correct alternate file" do
             @story_file.alternate_file_path.should == @story_file.steps_file_path
@@ -70,7 +82,7 @@ module Spec
           
           describe "#includes_step_file?" do
             before(:each) do
-              RunnerFile.stub!(:new).and_return(mock('runner file', :step_files_and_names => [{:name => 'basic', :file_path => '/path/to/basic'}]))
+              RunnerFile.stub!(:new).and_return(mock('runner file', :step_files_and_names => [{:name => 'basic steps', :file_path => '/path/to/basic'}]))
             end
             
             it "should return true if the step file name is used by the story" do

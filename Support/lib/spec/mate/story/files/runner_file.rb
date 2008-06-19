@@ -20,46 +20,16 @@ EOF
           
           def is_runner_file?; true; end
           
-          def name
-            @name ||= full_file_path.match(/\/([^\/]*)\.rb$/).captures.first
-          end
-          
-          def story_file_path
-            @story_file_path ||= find_story_file
-          end
-          
-          def runner_file_path
-            @runner_file_path ||= full_file_path
-          end
-          
-          def steps_file_path
-            @steps_file_path ||= full_file_path.gsub(%r</#{name}\.rb$>, "/steps/#{name}_steps.rb")
-          end
-          
           def alternate_files_and_names
             [{:name => "#{name.gsub('_', ' ')} story", :file_path => story_file_path}] + step_files_and_names
           end
           
           def step_files_and_names
-            step_names.collect do |name|
-              steps_file_file_path =  if (first_found_file = Dir["#{project_root}/stories/**/steps/#{name}_steps.rb"].first)
-                                        first_found_file
-                                      else
-                                        "#{project_root}/stories/steps/#{name}_steps.rb"
-                                      end
-              {:name => "#{name.to_s.gsub('_', ' ')} steps", :file_path => steps_file_file_path}
+            step_names.collect do |step_name|
+              {:name => "#{step_name.to_s.gsub('_', ' ')} steps", :file_path => file_path(:steps, step_name)}
             end
           end
         protected
-          def find_story_file
-            file_path = ''
-            %w(txt story).each do |ext|
-              file_path = full_file_path.gsub(%r</#{name}\.rb$>, "/stories/#{name}.#{ext}")
-              return file_path if File.file?(file_path)
-            end
-            file_path
-          end
-          
           def step_names
             if File.file?(full_file_path)
               content = File.read(full_file_path)
