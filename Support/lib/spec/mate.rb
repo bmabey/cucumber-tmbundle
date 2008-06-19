@@ -16,9 +16,7 @@ elsif ENV['TM_RSPEC_HOME']
   $LOAD_PATH.unshift(rspec_lib)
 end
 require 'spec'
+require 'spec/story'
 
-$LOAD_PATH.unshift(ENV['TM_BUNDLE_SUPPORT'] + "/lib")
-require "spec/mate/story/runner"
-require "spec/mate/story/story_helper"
-require "spec/mate/text_mate_helper"
+#$LOAD_PATH.unshift(ENV['TM_BUNDLE_SUPPORT'] + "/lib")
 
