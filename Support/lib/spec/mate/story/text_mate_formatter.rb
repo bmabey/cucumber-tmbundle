@@ -1,11 +1,11 @@
-require 'spec/runner/formatter/story/html_formatter'
+require 'spec/mate/story/html_formatter'
 #require 'cgi'
 
 module Spec
   module Mate
     module Story
 
-      class TextMateFormatter < Spec::Runner::Formatter::Story::HtmlFormatter
+      class TextMateFormatter < HtmlFormatter
         def run_started(count)
           @output.puts <<-EOF
 <?xml version="1.0" encoding="UTF-8"?>

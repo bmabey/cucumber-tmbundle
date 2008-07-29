@@ -19,7 +19,7 @@ module Spec
           argv << '--format'
           argv << '=Spec::Mate::Story::TextMateFormatter'
           argv += ENV['TM_RSPEC_STORY_OPTS'].split(" ") if ENV['TM_RSPEC_STORY_OPTS']
-          $rspec_options = Spec::Runner::OptionParser.parse(argv, STDERR, STDOUT)
+          Spec::Runner.use(Spec::Runner::OptionParser.parse(argv, STDERR, STDOUT))
           
           require @file.runner_file_path
         end
