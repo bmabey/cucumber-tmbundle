@@ -8,6 +8,8 @@
 	</array>
 	<key>firstLineMatch</key>
 	<string>.*"stories".*"helper"</string>
+	<key>keyEquivalent</key>
+	<string>^~R</string>
 	<key>name</key>
 	<string>RSpec Story Runner File</string>
 	<key>patterns</key>
