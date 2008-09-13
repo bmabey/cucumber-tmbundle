@@ -80,10 +80,10 @@ module Spec
           def parse_options
             return {} unless File.file?(full_file_path)
             first_line = File.open(full_file_path) {|f| f.readline unless f.eof} || ''
-            return {} unless first_line.match(/\s*#\s*(.*)/)
+            return {} unless first_line.match(/\s*#\s*(.+:.+)/)
             $1.split(',').inject({}) do |hash, pair|
               k,v = pair.split(':')
-              hash[k.strip.to_sym] = v.strip
+              hash[k.strip.to_sym] = v.strip if k && v
               hash
             end
           end
