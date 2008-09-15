@@ -7,7 +7,7 @@
 		<string>.rb</string>
 	</array>
 	<key>firstLineMatch</key>
-	<string>\s*#\s*Story|.*"stories".*"helper"</string>
+	<string>\s*#\s*Story|.*"stories".*"helper"|^require .+__FILE__.+\bhelper\b</string>
 	<key>keyEquivalent</key>
 	<string>^~R</string>
 	<key>name</key>
