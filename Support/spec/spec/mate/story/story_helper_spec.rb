@@ -203,11 +203,12 @@ module Spec
                 end
                 
                 it "should tell textmate to goto the story's step file and to insert the step" do
+                  pending "JohnnyT..."
                   # expects
-                  TextMateHelper.should_not_receive('goto_file')
-                  TextMateHelper.should_not_receive('insert_text')
+                  TextMateHelper.should_receive('goto_file').with('/path/to/steps/file', {:line => 2, :column => 1})
+                  TextMateHelper.should_receive('insert_text')
                   
-                  # when                  
+                  # when
                   @story_helper.goto_current_step(1)
                 end
               end
