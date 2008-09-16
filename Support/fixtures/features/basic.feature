@@ -1,4 +1,4 @@
-Story: Additional Basic
+Feature: Basic
 
   As a person interested in something
   I want to look for something

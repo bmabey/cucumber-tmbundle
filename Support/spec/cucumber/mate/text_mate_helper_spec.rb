@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
-require File.dirname(__FILE__) + '/../../../lib/spec/mate/text_mate_helper'
+require File.dirname(__FILE__) + '/../../../lib/cucumber/mate/text_mate_helper'
 
-module Spec
+module Cucumber
   module Mate
   
     describe TextMateHelper do

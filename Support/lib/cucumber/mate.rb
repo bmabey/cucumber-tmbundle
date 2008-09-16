@@ -21,5 +21,4 @@ require 'spec'
 require 'spec/story'
 
 $LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..')))
-require "spec/mate/story/story_helper"
-require "spec/mate/text_mate_helper"
+require "cucumber/mate/feature_helper"

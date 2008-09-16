@@ -7,8 +7,8 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 
-require ENV['TM_BUNDLE_SUPPORT'] + "/lib/spec/mate/story/story_helper"
-Spec::Mate::Story::StoryHelper.new(ENV['TM_FILEPATH']).run_story
+require ENV['TM_BUNDLE_SUPPORT'] + "/lib/cucumber/mate/feature_helper"
+Cucumber::Mate::FeatureHelper.new(ENV['TM_FILEPATH']).run_feature
 
 </string>
 	<key>fallbackInput</key>

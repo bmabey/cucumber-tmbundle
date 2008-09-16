@@ -137,7 +137,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Story:)(.*)\b</string>
+			<string>\b(Feature:)(.*)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>
@@ -158,6 +158,6 @@
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
 	<key>ﬁrstLineMatch</key>
-	<string>Story(.*)</string>
+	<string>Feature(.*)</string>
 </dict>
 </plist>

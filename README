@@ -3,20 +3,23 @@ Textmate Bundle for Cucumber
 This is a fork of the rspec-story-tm-bundle (http://github.com/bmabey/rspec-story-tmbundle).
 The goal is to keep the same functionality that the original bundle had but make it compatible with Cucumber and also take advantage of the benefits that Cucumber offers.
 
+So far the basic file switching and syntax highlighting is working.  The running of the feature, file creation, and more advanced step generation commands have not yet been ported fully.  Feel free to help out. :)
+
 Features:
   * Color highlighting for plain text features
-    * Themes that have been modified to take advantage of this can be found in color_themes/
-    * Snippets for plain text features and step files.  Include feature keywords plus webrat snippets.
+  * Themes that have been modified to take advantage of this can be found in color_themes/
+  * Snippets for plain text features and step files.  Include feature keywords plus webrat snippets.
   * Predefined completions (escape key) for common feature keywords.
   * Spellchecking turned on by default for the plain text features.
-  * PENDING Run the current plain text feature and display in HTML.  Clickable backtrace and all.
   * Switch between plain text feature and corresponding step matcher file.
+
+TODO:
   * Automatically create template step file with pending steps based on the steps used in the feature.
+  * Run the current plain text feature and display in HTML.  Clickable backtrace and all.
   
   
 
-Caveats:
-  * The running of features and file switching relies on the following directory structure convention:
+The running of features and file switching relies on the following directory structure convention:
      Basic features (no sub-directories):
      
        /project_root/features
