@@ -1,5 +1,5 @@
 require 'spec/mate/story/html_formatter'
-#require 'cgi'
+require 'cgi'
 
 module Spec
   module Mate
