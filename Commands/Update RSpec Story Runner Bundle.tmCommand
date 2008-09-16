@@ -10,7 +10,7 @@
 echo "&lt;pre&gt;"
 [ -d ".svn" ] &amp;&amp; svn up
 [ -d ".git" ] &amp;&amp; git pull
-[ ! -d .svn ] &amp;&amp; [ ! -d .git ] &amp;&amp; echo "You must install the RSpec Story Runner bundle using Subversion or Git in order to update via this command."
+[ ! -d .svn ] &amp;&amp; [ ! -d .git ] &amp;&amp; echo "You must install the Cucumber bundle using Subversion or Git in order to update via this command."
 
 osascript -e 'tell app "TextMate" to reload bundles'
 
@@ -18,10 +18,10 @@ echo "&lt;/pre&gt;"</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>name</key>
-	<string>Update RSpec Story Runner Bundle</string>
+	<string>Update Cucumber Bundle</string>
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>uuid</key>
-	<string>5800C291-0741-4FEA-8227-1BEA776B6B23</string>
+	<string>5810C291-0741-4FEA-8227-1BEA776B6B23</string>
 </dict>
 </plist>

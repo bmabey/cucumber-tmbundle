@@ -18,12 +18,12 @@ Spec::Mate::Story::StoryHelper.new(ENV['TM_FILEPATH']).run_story
 	<key>keyEquivalent</key>
 	<string>@r</string>
 	<key>name</key>
-	<string>Run Story</string>
+	<string>Run Feature</string>
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
-	<string>text.rspec.story, source.ruby.rspec.story</string>
+	<string>text.cucumber.feature, source.ruby.cucumber.steps</string>
 	<key>uuid</key>
-	<string>1530D367-DCDF-4F89-8BDB-896FAA16830E</string>
+	<string>1531D367-DCDF-4F89-8BDB-896FAA16830E</string>
 </dict>
 </plist>

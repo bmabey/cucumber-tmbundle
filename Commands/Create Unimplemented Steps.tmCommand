@@ -18,8 +18,8 @@ Spec::Mate::Story::StoryHelper.new(ENV['TM_FILEPATH']).create_all_undefined_step
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>text.rspec.story, source.ruby.rspec.story</string>
+	<string>text.cucumber.feature, source.ruby.cucumber.steps</string>
 	<key>uuid</key>
-	<string>A165BB7A-E047-499B-8DF2-CA1FC9049298</string>
+	<string>A165BB7A-E147-499B-8DF2-CA1FC9049298</string>
 </dict>
 </plist>

@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>Then Step Plaintext</string>
 	<key>scope</key>
-	<string>text.rspec.story</string>
+	<string>text.cucumber.feature</string>
 	<key>tabTrigger</key>
 	<string>the</string>
 	<key>uuid</key>

@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>unchecks</string>
 	<key>scope</key>
-	<string>source.ruby.rspec.story.steps</string>
+	<string>source.ruby.rspec.cucumber.steps</string>
 	<key>tabTrigger</key>
 	<string>unc</string>
 	<key>uuid</key>

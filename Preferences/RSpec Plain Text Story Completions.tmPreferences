@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>RSpec Plain Text Story Completions</string>
+	<string>Cucumber Plain Text Feature Completions</string>
+	<key>scope</key>
+	<string>text.cucumber.feature</string>
 	<key>settings</key>
 	<dict>
 		<key>completions</key>

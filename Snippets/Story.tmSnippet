@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>Story: ${1:title}
+	<string>Feature: ${1:title}
 
   As a ${2:role}
   I want ${3:feature}
@@ -14,9 +14,9 @@
 	<key>name</key>
 	<string>Story</string>
 	<key>scope</key>
-	<string>text.rspec.story</string>
+	<string>text.cucumber.feature</string>
 	<key>tabTrigger</key>
-	<string>sto</string>
+	<string>fea</string>
 	<key>uuid</key>
 	<string>E6FBAE52-8B70-47EE-8F22-3A58D4A088F9</string>
 </dict>

@@ -16,7 +16,7 @@
 		<dict/>
 	</dict>
 	<key>name</key>
-	<string>RSpec Story Runner</string>
+	<string>Cucumber</string>
 	<key>ordering</key>
 	<array>
 		<string>5800C291-0741-4FEA-8227-1BEA776B6B23</string>
@@ -55,6 +55,6 @@
 		<string>D35BC28C-98CC-4032-B576-B630B7BDEFB2</string>
 	</array>
 	<key>uuid</key>
-	<string>10DCDBF3-71B9-424F-AE90-17BFB8C4CD69</string>
+	<string>10DCDBF3-71B9-424F-AE10-17BFB8C4CD69</string>
 </dict>
 </plist>

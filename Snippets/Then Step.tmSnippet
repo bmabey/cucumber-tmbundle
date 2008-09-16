@@ -11,7 +11,7 @@ end
 	<key>name</key>
 	<string>Then Step</string>
 	<key>scope</key>
-	<string>source.ruby.rspec.story.steps</string>
+	<string>source.ruby.rspec.cucumber.steps</string>
 	<key>tabTrigger</key>
 	<string>the</string>
 	<key>uuid</key>

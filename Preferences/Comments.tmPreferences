@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Comments</string>
 	<key>scope</key>
-	<string>text.rspec.story</string>
+	<string>text.cucumber.feature</string>
 	<key>settings</key>
 	<dict>
 		<key>shellVariables</key>
