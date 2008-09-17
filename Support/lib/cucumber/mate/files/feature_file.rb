@@ -10,10 +10,14 @@ module Cucumber
           end
         end
         
-        def is_feature_file?; true; end
+        def feature_file?; true; end
         
         def alternate_file_path
           steps_file_path
+        end
+        
+        def rake_task
+          content_lines.detect {|line| line =~ /^\s*#\s*rake\s+([\w:]+)/} ? $1 : 'features'          
         end
         
         
@@ -25,8 +29,7 @@ module Cucumber
         
         def step_information_for_line(line_number)
           line_index = line_number.to_i-1
-          content_lines = File.read(full_file_path).split("\n")
-          
+                    
           line_text = content_lines[line_index]
           return unless line_text && line_text.strip!.match(/^(given|when|then|and)(.*)/i)
           source_step_name = $2.strip
@@ -71,6 +74,10 @@ module Cucumber
           end
           
           text_steps
+        end
+        
+        def content_lines
+          File.read(full_file_path).split("\n")
         end
         
         def all_defined_steps

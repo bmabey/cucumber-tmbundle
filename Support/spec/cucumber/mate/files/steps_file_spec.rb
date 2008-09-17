@@ -9,13 +9,9 @@ module Cucumber
         before(:each) do
           @fixtures_path = File.expand_path(File.join(File.dirname(__FILE__), %w[.. .. .. .. fixtures]))
           @steps_file = StepsFile.new(File.expand_path(File.join(@fixtures_path, %w[features steps basic_steps.rb])))
-        end
+        end        
         
-        it "should determine the runner file" do
-          @steps_file.runner_file_path.should == "#{@fixtures_path}/features/basic.rb"
-        end
-        
-        it "should determine the feature file" do
+        it "should determine the feature file" do          
           @steps_file.feature_file_path.should == "#{@fixtures_path}/features/basic.feature"
         end
         
@@ -26,6 +22,15 @@ module Cucumber
         describe "#name" do
           it "should return the simple name (based off the file name)" do
             @steps_file.name.should == 'basic'
+          end
+        end
+        
+        describe "#rake_task" do
+          it "should delegate to the file's feature file" do
+            FeatureFile.should_receive(:new).with(@steps_file.feature_file_path).and_return(feature_file = mock('feature file'))
+            feature_file.stub!(:rake_task).and_return("some_rake_task")
+            
+            @steps_file.rake_task.should == "some_rake_task"
           end
         end
         

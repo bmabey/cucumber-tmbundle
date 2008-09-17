@@ -25,7 +25,5 @@
 	<string>source.ruby.rspec.cucumber.steps</string>
 	<key>uuid</key>
 	<string>B269B8F3-3A6D-4169-9E70-DD89A679416A</string>
-	<key>ﬁrstLineMatch</key>
-	<string>\bCucumber Steps\bi</string>
 </dict>
 </plist>

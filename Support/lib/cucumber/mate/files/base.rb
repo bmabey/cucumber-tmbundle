@@ -40,8 +40,7 @@ module Cucumber
           name = @options[kind] if @options[kind]
           replacements = {
             :steps => "/steps/#{name}_steps.rb",
-            :feature => "/#{name}.feature",
-            :runner => "/#{name}.rb"
+            :feature => "/#{name}.feature"
           }
           
           raise ArgumentError, "passed argument must be one of #{replacements.keys.join(', ')}"  unless replacements.has_key?(kind)
@@ -53,8 +52,7 @@ module Cucumber
           name = @options[kind] if @options[kind]
           search_paths = {
             :steps => "#{project_root}/features/**/#{name}_steps.rb",
-            :feature => "#{project_root}/features/**/#{name}.{feature,txt}",
-            :runner => "#{project_root}/features/**/#{name}.rb"
+            :feature => "#{project_root}/features/**/#{name}.{feature,txt}"
             }
           
           raise ArgumentError, "passed argument must be one of #{search_paths.keys.join(', ')}"  unless search_paths.has_key?(kind)
@@ -62,17 +60,20 @@ module Cucumber
           Dir[search_paths[kind]].first || default_file_path(kind)
         end
         
-        def method_missing(meth)
-          raise NoMethodError, "Invalid method #{meth}" unless md = meth.to_s.match(/(.+)_file_path$/)
-          file_path(md.captures.first.to_sym)
+        def feature_file_path
+          file_path(:feature)
         end
+        
+        def steps_file_path
+          file_path(:steps)
+        end        
         
         def name
           @name ||= full_file_path.match(/\/([^\/]*)\.\w*$/).captures.first
         end
         
-        def is_feature_file?; false; end
-        def is_steps_file?; false; end
+        def feature_file?; false; end
+        def steps_file?; false; end
         
       private
         def parse_options

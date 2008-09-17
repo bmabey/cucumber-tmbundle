@@ -31,7 +31,7 @@ module Cucumber
           end
         end
         
-        def is_steps_file?; false; end
+        def steps_file?; true; end
         
         def new_steps_line_number
           if File.file?(full_file_path)
@@ -49,9 +49,13 @@ module Cucumber
           @name ||= super.gsub("_steps", "")
         end
         
+        def rake_task
+          FeatureFile.new(feature_file_path).rake_task
+        end
+        
         def alternate_file_path
           feature_file_path
-        end
+        end  
     
         def feature_files_and_names
           feature_files = []

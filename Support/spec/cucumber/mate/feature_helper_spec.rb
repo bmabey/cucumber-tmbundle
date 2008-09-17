@@ -18,7 +18,7 @@ module Cucumber
         File.stub!(:file?).and_return(true)
         
         @helper_file = mock('helper file',
-                        :is_feature_file? => true,
+                        :feature_file? => true,
                         :feature_file_path => '/path/to/feature/file',
                         :steps_file_path => '/path/to/steps/file',
                         :runner_file_path => '/path/to/runner/file',
@@ -103,7 +103,7 @@ module Cucumber
       describe "#goto_current_step" do
         describe "when not on a feature file" do
           before(:each) do
-            @helper_file.stub!(:is_feature_file?).and_return(false)
+            @helper_file.stub!(:feature_file?).and_return(false)
           end
           
           it "should not tell textmate to do anything" do

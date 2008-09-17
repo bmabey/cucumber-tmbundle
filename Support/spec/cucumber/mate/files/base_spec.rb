@@ -22,16 +22,7 @@ module Cucumber
         
         it "should determine the name of the file" do
           @file.name.should == 'basic'
-        end
-        
-        describe "steps_file_path" do
-          it "should call file_path" do
-            # expects
-            @file.should_receive(:file_path).with(:steps)
-            # when
-            @file.steps_file_path
-          end
-        end
+        end        
         
         describe "#default_file_path" do
           describe "when the file type is invalid" do
@@ -56,16 +47,6 @@ module Cucumber
             end
           end
           
-          describe "when the file doesn't exist" do
-            before(:each) do
-              @file = Base.new(File.expand_path(File.join(@fixtures_path, %w[features brand_new.feature])))
-            end
-            
-            it "should use the default file path" do
-              @file.file_path(:runner).should == @file.default_file_path(:runner)
-            end
-          end
-          
           describe "when looking for an existing steps file" do
             describe "when the file is the standard location" do
               it "should return the path to the existing file" do
@@ -83,24 +64,7 @@ module Cucumber
               end
             end
           end
-          
-          describe "when looking for an existing runner file" do
-            describe "when the file is the standard location" do
-              it "should return the path to the existing file" do
-                @file.file_path(:runner).should == "#{@fixtures_path}/features/basic.rb"
-              end
-            end
-            
-            describe "when the file is in a non-standard location" do
-              before(:each) do
-                @file = Base.new(File.expand_path(File.join(@fixtures_path, %w[features non_standard.feature])))
-              end
-              
-              it "should return the path to the existing file" do
-                @file.file_path(:runner).should == "#{@fixtures_path}/features/non_standard_dir/runners/non_standard.rb"
-              end
-            end
-          end
+                    
           
           describe "when looking for an existing feature file" do
             describe "when the file is the standard location" do
@@ -122,11 +86,6 @@ module Cucumber
           
         end # file_path
         
-        describe "#file_paths" do
-          it "should description" do
-            
-          end
-        end
       end
       
     end

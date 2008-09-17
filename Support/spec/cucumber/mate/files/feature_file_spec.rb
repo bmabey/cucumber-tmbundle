@@ -6,13 +6,18 @@ module Cucumber
     module Files
     
       describe FeatureFile do
+        
+        def feature_file_from_fixtures(feature_name)
+          FeatureFile.new(File.expand_path(File.join(@fixtures_path, "features", "#{feature_name}.feature")))
+        end
+        
         before(:each) do
           @fixtures_path = File.expand_path(File.join(File.dirname(__FILE__), %w[.. .. .. .. fixtures]))
-          @feature_file = FeatureFile.new(File.expand_path(File.join(@fixtures_path, %w[features basic.feature])))
+          @feature_file = feature_file_from_fixtures('basic')
         end
         
         it "should be a feature file" do
-          @feature_file.is_feature_file?.should == true
+          @feature_file.should be_feature_file
         end
         
         # describe "when a steps file exists on the filesystem (even if not using the assumed directory structure)" do
@@ -31,13 +36,32 @@ module Cucumber
         #   end
         # end
         
-        it "should determine the correct alternate file" do
+        it "should not be a steps file" do
+          @feature_file.should_not be_steps_file
+        end
+        
+        it "should return the correct step file path" do
+          @feature_file.alternate_file_path.should == "#{@fixtures_path}/features/steps/basic_steps.rb"
+        end
+        
+        it "should determine the correct alternate file as the step file" do
           @feature_file.alternate_file_path.should == @feature_file.steps_file_path
         end
         
         describe "#name" do
           it "should return the simple name (based off the file name)" do
             @feature_file.name.should == 'basic'
+          end
+        end
+        
+        describe "#rake_task" do
+          it "should return 'features' when none is defined in the file" do
+            @feature_file.rake_task.should == "features"
+          end
+          
+          it "should return the rake task defined in the features file" do            
+            feature_file = feature_file_from_fixtures('non_standard')
+            feature_file.rake_task.should == 'some_defined_task_in_feature:file'
           end
         end
         

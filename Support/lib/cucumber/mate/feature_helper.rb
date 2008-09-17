@@ -1,4 +1,3 @@
-# Need to use the rspec in current project
 require File.join(File.dirname(__FILE__), %w[.. mate])
 require File.join(File.dirname(__FILE__), %w[text_mate_helper])
 require File.join(File.dirname(__FILE__), 'files')
@@ -13,15 +12,18 @@ module Cucumber
       end
       
       def run_feature
-        raise "This is not yet implmented!  Care to add it? ;)"
-        # From the RSpec Story Runner...
-        # argv = ""
-        # argv << '--format'
-        # argv << '=Spec::Mate::Story::TextMateFormatter'
-        # argv += ENV['TM_RSPEC_STORY_OPTS'].split(" ") if ENV['TM_RSPEC_STORY_OPTS']
-        # Spec::Runner.use(Spec::Runner::OptionParser.parse(argv, STDERR, STDOUT))
-        # 
-        # require @file.runner_file_path
+        argv = []
+        argv << "FEATURE=#{@file.feature_file_path}"
+        unless (cucumber_opts = ENV['TM_CUCUMBER_OPTS'])
+          cucumber_opts = ""
+          cucumber_opts << '--format'
+          cucumber_opts << '=html'
+        end
+        argv << "CUCUMBER_OPTS=#{cucumber_opts}"
+                
+        Dir.chdir(full_project_directory) do
+          puts `rake features:standard #{argv.join(' ')}`
+        end
       end
       
       def goto_alternate_file
@@ -36,7 +38,7 @@ module Cucumber
       end
       
       def goto_current_step(line_number)
-        return unless @file.is_feature_file? && step_info = @file.step_information_for_line(line_number)
+        return unless @file.feature_file? && step_info = @file.step_information_for_line(line_number)
         if (step_location = @file.location_of_step(step_info))
           TextMateHelper.goto_file(step_location.delete(:file_path), step_location)
         else
@@ -45,7 +47,7 @@ module Cucumber
       end
       
       def create_all_undefined_steps
-        return unless @file.is_feature_file? && undefined_steps = @file.undefined_steps
+        return unless @file.feature_file? && undefined_steps = @file.undefined_steps
         goto_steps_file_with_new_steps(undefined_steps)
       end
       
@@ -83,6 +85,11 @@ module Cucumber
       
       def default_content(file_path, additional_content)
         Files::Base.default_content_for(file_path, additional_content)
+      end
+      
+      def full_project_directory
+        #TODO: get rid of global
+        File.expand_path(ENV['TM_PROJECT_DIRECTORY'])
       end
     end
     
