@@ -3,7 +3,15 @@ Textmate Bundle for Cucumber
 This is a fork of the rspec-story-tm-bundle (http://github.com/bmabey/rspec-story-tmbundle).
 The goal is to keep the same functionality that the original bundle had but make it compatible with Cucumber and also take advantage of the benefits that Cucumber offers.
 
-So far the basic file switching and syntax highlighting is working.  The running of the feature, file creation, and more advanced step generation commands have not yet been ported fully.  Feel free to help out. :)
+So far the basic file switching and syntax highlighting is working.  You can also run a feature. (See below.)
+File creation and more advanced step generation commands have not yet been ported fully.  Feel free to help out. :)
+
+When running a feature the bundle by default assumes your project has a "features" rake task which it runs.
+If you have a feature which does not use that rake task you can declare which one it uses in the feature file.
+For example, if you have some features that use a features:watir task at the top of those features simply add to you plaintext feature file:
+# rake features:watir
+
+The bundle will then use that rake task to run the feature.
 
 Features:
   * Color highlighting for plain text features
@@ -12,10 +20,12 @@ Features:
   * Predefined completions (escape key) for common feature keywords.
   * Spellchecking turned on by default for the plain text features.
   * Switch between plain text feature and corresponding step matcher file.
+  * Run a feature with HTML output.
+  * Run a single scenario with HTML output. (The output seems to need some tweaking.)
 
 TODO:
   * Automatically create template step file with pending steps based on the steps used in the feature.
-  * Run the current plain text feature and display in HTML.  Clickable backtrace and all.
+  * Add a Textmate formatter with a clickable backtrace.
   
   
 
