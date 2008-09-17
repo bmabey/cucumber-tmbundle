@@ -83,7 +83,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(GivenScenario|Given|When|Then|And)\b</string>
+			<string>\b(GivenScenario|Given|When|Then|And|GittScenario|Gitt|Når|Så|Og|SoitScenario|Soit|Lorsque|Alors|Et|DadoElEscenario|Dado|Cuando|Entonces|Y)\b</string>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -119,7 +119,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Scenario:)(.*)\b</string>
+			<string>\b(Scenario|Escenario:)(.*)\b</string>
 		</dict>
 		<key>story_keyword</key>
 		<dict>
@@ -137,7 +137,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Feature:)(.*)\b</string>
+			<string>\b(Feature|Egenskap|Fonction:)(.*)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>
@@ -158,6 +158,6 @@
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
 	<key>ﬁrstLineMatch</key>
-	<string>Feature(.*)</string>
+	<string>Feature|Egenskap|Fonction(.*)</string>
 </dict>
 </plist>
