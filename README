@@ -3,6 +3,9 @@ Textmate Bundle for Cucumber
 This is a fork of the rspec-story-tm-bundle (http://github.com/bmabey/rspec-story-tmbundle).
 The goal is to keep the same functionality that the original bundle had but make it compatible with Cucumber and also take advantage of the benefits that Cucumber offers.
 
+
+WARNING: To avoid file detection collisions with the RSpec Story bundle I would suggest you turn it off when using the Cucumber bundle and vice-versa. You can do this by clicking on the 'Filter List' button in the Bundle Editor section of Textmate.
+
 So far the basic file switching and syntax highlighting is working.  You can also run a feature. (See below.)
 File creation and more advanced step generation commands have not yet been ported fully.  Feel free to help out. :)
 
