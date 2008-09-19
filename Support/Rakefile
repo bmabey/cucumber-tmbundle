@@ -8,3 +8,6 @@ Spec::Rake::SpecTask.new do |t|
   t.spec_opts = ['--colour', '--diff']
   t.rcov_opts = ['--exclude', 'rspec\/plugins,rspec\/lib\/spec,spec\/spec,fixtures,bin\/spec']
 end
+
+
+Dir['bundle_tasks/**/*.rake'].each { |rake| load rake }
