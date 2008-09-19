@@ -14,6 +14,8 @@ Update your bundle by running the "Update Cucumber Bundle" command.
 
 WARNING: To avoid file detection collisions with the RSpec Story bundle I would suggest you turn it off when using the Cucumber bundle and vice-versa. You can do this by clicking on the 'Filter List' button in the Bundle Editor section of Textmate.
 
+If you are doing ruby development with webrat you may also want the webrat bundle:
+http://github.com/bmabey/webrat-tmbundle/
 
 So far the basic file switching and syntax highlighting is working.  You can also run a feature. (See below.)
 File creation and more advanced step generation commands have not yet been ported fully.  Feel free to help out. :)
@@ -28,7 +30,7 @@ The bundle will then use that rake task to run the feature.
 Features:
   * Color highlighting for plain text features
   * Themes that have been modified to take advantage of this can be found in color_themes/
-  * Snippets for plain text features and step files.  Include feature keywords plus webrat snippets.
+  * Snippets for plain text features and step files.
   * Predefined completions (escape key) for common feature keywords.
   * Spellchecking turned on by default for the plain text features.
   * Switch between plain text feature and corresponding step matcher file.
