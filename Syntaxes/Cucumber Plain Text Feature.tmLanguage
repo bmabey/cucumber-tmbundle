@@ -83,7 +83,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Gitt|GittScenario|Og|Så|Når|Soit|SoitScenario|Et|Alors|Lorsque|Dado|DadoElEscenario|Y|Entonces|Cuando|DadoOCenário|E|Então|Quando|Och|Given|GivenScenario|And|Then|When)\b</string>
+			<string>\b(Gitt|GittScenario|Men|Og|Så|Når|Soit|SoitScenario|Mais|Et|Alors|Lorsque|Gegeben sei|GegebenesSzenario|Aber|Und|Dann|Wenn|Сначала|ДанныйСценарий|Но|И|То|Если|Dado|DadoElEscenario|Pero|Y|Entonces|Cuando|Eeldades|EeldadesStsenaariumit|Kuid|Ja|Siis|Kui|DadoOCenário|Mas|E|Então|Quando|Givet|GivetScenario|Och|När|GivetScenarie|Given|GivenScenario|But|And|Then|When)\b</string>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -119,7 +119,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Scenario|Escenario|Cenário:)(.*)\b</string>
+			<string>\b(Scenario|Szenario|Сценарий|Escenario|Stsenaarium|Cenário|Scenarie:)(.*)\b</string>
 		</dict>
 		<key>feature_keyword</key>
 		<dict>
@@ -137,7 +137,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Egenskap|Fonction|Característica|Egenskab|Feature:)(.*)\b</string>
+			<string>\b(Egenskap|Fonction|Funktionalität|Функционал|Característica|Omadus|Egenskab|Feature:)(.*)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>
@@ -158,6 +158,6 @@
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
 	<key>ﬁrstLineMatch</key>
-	<string>Egenskap|Fonction|Característica|Egenskab|Feature(.*)</string>
+	<string>Egenskap|Fonction|Funktionalität|Функционал|Característica|Omadus|Egenskab|Feature(.*)</string>
 </dict>
 </plist>
