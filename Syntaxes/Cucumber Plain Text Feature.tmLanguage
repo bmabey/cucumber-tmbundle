@@ -6,6 +6,8 @@
 	<array>
 		<string>feature</string>
 	</array>
+	<key>keyEquivalent</key>
+	<string>^~C</string>
 	<key>name</key>
 	<string>Cucumber Plain Text Feature</string>
 	<key>patterns</key>
@@ -72,6 +74,24 @@
 			<key>match</key>
 			<string>^\s*(As an|As a|I want|So that)(.*)</string>
 		</dict>
+		<key>feature_keyword</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.language.rspec.story</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>string.language.rspec.story.title</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\b(Egenskap|Fonction|Funktionalität|Функционал|Característica|Omadus|Egenskab|Feature:)(.*)\b</string>
+		</dict>
 		<key>line_keyword</key>
 		<dict>
 			<key>captures</key>
@@ -120,24 +140,6 @@
 			</dict>
 			<key>match</key>
 			<string>\b(Scenario|Szenario|Сценарий|Escenario|Stsenaarium|Cenário|Scenarie:)(.*)\b</string>
-		</dict>
-		<key>feature_keyword</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.language.rspec.story</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>string.language.rspec.story.title</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\b(Egenskap|Fonction|Funktionalität|Функционал|Característica|Omadus|Egenskab|Feature:)(.*)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>

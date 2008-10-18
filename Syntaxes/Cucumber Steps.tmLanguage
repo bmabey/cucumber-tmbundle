@@ -6,6 +6,8 @@
 	<array>
 		<string>steps.rb</string>
 	</array>
+	<key>keyEquivalent</key>
+	<string>^~C</string>
 	<key>name</key>
 	<string>Cucumber Steps</string>
 	<key>patterns</key>
