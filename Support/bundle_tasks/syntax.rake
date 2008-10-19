@@ -17,9 +17,9 @@ class SyntaxGenerator
       line_keywords_array.concat(words.values)
     end
     
-    scenario_keywords = scenario_keywords_array.uniq.join('|')
-    feature_keywords  = feature_keywords_array.uniq.join('|')
-    line_keywords     = line_keywords_array.uniq.join('|')
+    scenario_keywords = scenario_keywords_array.uniq.compact.join('|')
+    feature_keywords  = feature_keywords_array.uniq.compact.join('|')
+    line_keywords     = line_keywords_array.uniq.compact.join('|')
 
     
     syntax_file = File.dirname(__FILE__) + '/../../Syntaxes/Cucumber Plain Text Feature.tmLanguage'
