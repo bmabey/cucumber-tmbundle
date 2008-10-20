@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>Then "${1:step name}" do
+	<string>Then ${1:step name} do
   $0
 end
 

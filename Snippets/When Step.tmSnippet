@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>When "${1:step name}" do
+	<string>When ${1:step name} do
   $0
 end
 
