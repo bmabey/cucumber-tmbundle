@@ -63,12 +63,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.rspec.story.description</string>
+					<string>keyword.language.cucumber.feature.description</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>string.language.rspec.story.description</string>
+					<string>string.language.cucumber.feature.description</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -81,12 +81,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.rspec.story</string>
+					<string>keyword.language.cucumber.feature</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>string.language.rspec.story.title</string>
+					<string>string.language.cucumber.feature.title</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -99,7 +99,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.rspec.story.scenario.line</string>
+					<string>keyword.language.cucumber.feature.scenario.line</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -112,12 +112,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.rspec.story.scenario.pending.line</string>
+					<string>keyword.language.cucumber.feature.scenario.pending.line</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>string.language.rspec.story.scenario.pending.line</string>
+					<string>string.language.cucumber.feature.scenario.pending.line</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -130,12 +130,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.rspec.story.scenario</string>
+					<string>keyword.language.cucumber.feature.scenario</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>string.language.rspec.story.scenario.title</string>
+					<string>string.language.cucumber.feature.scenario.title</string>
 				</dict>
 			</dict>
 			<key>match</key>
