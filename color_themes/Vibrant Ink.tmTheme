@@ -457,9 +457,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Rspec story keyword</string>
+			<string>Cucumber Feature keyword</string>
 			<key>scope</key>
-			<string>keyword.language.rspec.story</string>
+			<string>keyword.language.cucumber.feature</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -470,9 +470,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Rspec story title</string>
+			<string>Cucumber Feature title</string>
 			<key>scope</key>
-			<string>string.language.rspec.story.title</string>
+			<string>string.language.cucumber.feature.title</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -483,9 +483,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Rspec story description keywords</string>
+			<string>Cucumber Feature description keywords</string>
 			<key>scope</key>
-			<string>keyword.language.rspec.story.description</string>
+			<string>keyword.language.cucumber.feature.description</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -496,9 +496,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Rspec story description strings</string>
+			<string>Cucumber Feature description strings</string>
 			<key>scope</key>
-			<string>string.language.rspec.story.description</string>
+			<string>string.language.cucumber.feature.description</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -509,9 +509,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Rspec scenario keyword</string>
+			<string>Cucumber Scenario Keyword</string>
 			<key>scope</key>
-			<string>keyword.language.rspec.story.scenario</string>
+			<string>keyword.language.cucumber.feature.scenario</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -522,9 +522,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Rspec Scenario keywords</string>
+			<string>Cucumber Scenario keywords</string>
 			<key>scope</key>
-			<string>keyword.language.rspec.story.scenario.line</string>
+			<string>keyword.language.cucumber.feature.scenario.line</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -535,9 +535,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Rspec story pending keyword</string>
+			<string>Cucumber Feature pending keyword</string>
 			<key>scope</key>
-			<string>keyword.language.rspec.story.scenario.pending.line</string>
+			<string>keyword.language.cucumber.feature.scenario.pending.line</string>
 			<key>settings</key>
 			<dict>
 				<key>background</key>
@@ -550,9 +550,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Rspec story pending line</string>
+			<string>Cucumber Feature pending line</string>
 			<key>scope</key>
-			<string>string.language.rspec.story.scenario.pending.line</string>
+			<string>string.language.cucumber.feature.scenario.pending.line</string>
 			<key>settings</key>
 			<dict>
 				<key>background</key>
@@ -565,9 +565,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Rspec Scenario lines</string>
+			<string>Cucumber Scenario lines</string>
 			<key>scope</key>
-			<string>string.language.rspec.story.scenario.line</string>
+			<string>string.language.cucumber.feature.scenario.line</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -578,9 +578,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Rspec Scenario title</string>
+			<string>Cucumber Scenario title</string>
 			<key>scope</key>
-			<string>string.language.rspec.story.scenario</string>
+			<string>string.language.cucumber.feature.scenario</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>

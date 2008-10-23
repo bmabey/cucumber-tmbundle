@@ -14,9 +14,9 @@ class SyntaxGenerator
       line_keywords_array.concat(words.values)
     end
     
-    scenario_keywords = scenario_keywords_array.uniq.join('|')
-    feature_keywords  = feature_keywords_array.uniq.join('|')
-    line_keywords     = line_keywords_array.uniq.join('|')
+    scenario_keywords = scenario_keywords_array.uniq.compact.join('|')
+    feature_keywords  = feature_keywords_array.uniq.compact.join('|')
+    line_keywords     = line_keywords_array.uniq.compact.join('|')
 
     template    = ERB.new(IO.read(File.dirname(__FILE__) + '/../../Syntaxes/plaintext_template.erb'))
     syntax      = template.result(binding)
@@ -30,7 +30,7 @@ class SyntaxGenerator
 end
 
 namespace :syntax do
-  desc 'Generates the plain text syntax file for all languages in languages.yml'
+  desc 'Generates the plain text syntax file for all languages supported by Cucumber'
   task :generate do
     SyntaxGenerator.new.generate
   end
