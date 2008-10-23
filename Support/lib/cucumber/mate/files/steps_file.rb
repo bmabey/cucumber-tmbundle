@@ -9,8 +9,7 @@ module Cucumber
       class StepsFile < Base
         class << self
           def default_content(file_path, additional_content = create_steps([:step_type => 'Given', :step_name => 'condition']))
-            step_file_name = file_path.match(/([^\/]*)_steps.rb$/).captures.first
-            %Q{steps_for(:${1:#{step_file_name}}) do\n#{additional_content}end\n}
+            additional_content || ""
           end
           
           def create_steps(steps_to_create, already_included_snippet_selection = true)
