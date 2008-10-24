@@ -34,6 +34,15 @@ module Cucumber
           end
         end
         
+        describe "#profile" do
+          it "should delegate to the file's feature file" do
+            FeatureFile.should_receive(:new).with(@steps_file.feature_file_path).and_return(feature_file = mock('feature file'))
+            feature_file.stub!(:profile).and_return("watir")
+            
+            @steps_file.profile.should == "watir"
+          end
+        end
+        
         describe "#new_steps_line_number" do
           describe "when the steps_for line is at the top" do
             it "should return the next line" do

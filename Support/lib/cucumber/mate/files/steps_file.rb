@@ -49,7 +49,11 @@ module Cucumber
         end
         
         def rake_task
-          FeatureFile.new(feature_file_path).rake_task
+          feature_file.rake_task
+        end
+        
+        def profile
+          feature_file.profile
         end
         
         def alternate_file_path
@@ -99,6 +103,10 @@ module Cucumber
         
         def steps_for(*args)
           yield if block_given?
+        end
+        
+        def feature_file
+          @feature_file ||= FeatureFile.new(feature_file_path)
         end
 
         def Given(pattern)

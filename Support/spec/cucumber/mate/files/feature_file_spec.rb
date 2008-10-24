@@ -7,6 +7,8 @@ module Cucumber
     
       describe FeatureFile do
         
+        #TODO Get rid of fixtures and create the example files in specs inline (and stub the IO.read call)
+        
         def feature_file_from_fixtures(feature_name)
           FeatureFile.new(File.expand_path(File.join(@fixtures_path, "features", "#{feature_name}.feature")))
         end
@@ -55,13 +57,24 @@ module Cucumber
         end
         
         describe "#rake_task" do
-          it "should return 'features' when none is defined in the file" do
-            @feature_file.rake_task.should == "features"
+          it "should return nil when none is defined in the file" do
+            @feature_file.rake_task.should be_nil
           end
           
           it "should return the rake task defined in the features file" do            
             feature_file = feature_file_from_fixtures('non_standard')
             feature_file.rake_task.should == 'some_defined_task_in_feature:file'
+          end
+        end
+        
+        describe "#profile" do
+          it "should return nil when none is defined in the file" do
+            @feature_file.profile.should be_nil
+          end
+          
+          it "should return the rake task defined in the features file" do            
+            feature_file = feature_file_from_fixtures('non_standard')
+            feature_file.profile.should == 'some_defined_profile_in_feature'
           end
         end
         

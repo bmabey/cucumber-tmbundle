@@ -17,7 +17,11 @@ module Cucumber
         end
         
         def rake_task
-          content_lines.detect {|line| line =~ /^\s*#\s*rake\s+([\w:]+)/} ? $1 : 'features'          
+          content_lines.detect {|line| line =~ /^\s*#\s*rake\s+([\w:]+)/} ? $1 : nil
+        end
+        
+        def profile
+          content_lines.detect {|line| line =~ /^\s*#\s*profile\s+([\w]+)/} ? $1 : nil
         end
         
         
@@ -77,7 +81,7 @@ module Cucumber
         end
         
         def content_lines
-          File.read(full_file_path).split("\n")
+          @content_lines ||= File.read(full_file_path).split("\n")
         end
         
         def all_defined_steps

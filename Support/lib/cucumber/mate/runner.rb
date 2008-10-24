@@ -11,6 +11,7 @@ module Cucumber
         @output = output
         @project_directory = project_directory
         @cucumber_opts = cucumber_opts || "--format=html"
+        @cucumber_opts << " --profile=#{@file.profile}" if @file.profile
       end
       
       def run_scenario(line_number)
@@ -27,10 +28,18 @@ module Cucumber
     
     def run
       argv = []
-      argv << "FEATURE=#{@file.feature_file_path}"      
-      argv << %Q{CUCUMBER_OPTS="#{@cucumber_opts}"}              
-      Dir.chdir(@project_directory) do
-        @output << Kernel.system("rake #{@file.rake_task} #{argv.join(' ')}")
+      if @file.rake_task
+        command = "rake"
+        argv << "FEATURE=#{@file.feature_file_path}"     
+        argv << %Q{CUCUMBER_OPTS="#{@cucumber_opts}"}
+      else
+        command = File.exists?(script = "#{@project_directory}/script/cucumber") ? script : "cucumber"
+        argv << "#{@file.feature_file_path}"
+        argv << @cucumber_opts
+      end
+      Dir.chdir(@project_directory) do        
+        @output << %Q{Running: #{full_command = "#{command} #{@file.rake_task} #{argv.join(' ')}"} \n}
+        @output << Kernel.system(full_command)
       end
     end
 
