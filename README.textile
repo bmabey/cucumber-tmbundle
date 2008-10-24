@@ -90,7 +90,7 @@ The file switching relies on the following directory structure convention:
 
 These directory structures can be used together (basic features can reside in the root features directory, and feature sets can be put in sub directories).
 
-h2. Attribution
+h2. Credits
 
 * **Ben Mabey** - Author/Main contributor
 * **John Thornton** - Author/Main contributor
