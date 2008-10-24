@@ -92,6 +92,10 @@ module Cucumber
     
     describe Runner do
       
+      before(:each) do
+        File.stub!(:exists?).and_return(false)
+      end
+      
       it "should create a new Files::Base from the passed in file path" do
         # expect
         Files::Base.should_receive(:create_from_file_path).with("/path/to/file").and_return(stub_everything)
