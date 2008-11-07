@@ -72,16 +72,17 @@ The file switching relies on the following directory structure convention:
      
        /project_root/features
    		   |- basic_feature.feature (extension must be .feature)
-   		   |- steps
+   		   |- support
+   		      |- env.rb
+   		   |- step_definitions
    		       |- basic_feature_steps.rb
-   		       |- env.rb
      
      Using feature sub-directories:
      
        /project_root/features
   		   |- feature_one
   		   |   |- some_feature.feature
-  		   |   |- steps
+  		   |   |- step_definitions
   		   |       |- some_feature_steps.rb
   		   |
   		   |- feature_two

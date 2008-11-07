@@ -20,7 +20,7 @@ module Cucumber
         @helper_file = mock('helper file',
                         :feature_file? => true,
                         :feature_file_path => '/path/to/feature/file',
-                        :steps_file_path => '/path/to/steps/file',
+                        :steps_file_path => '/path/to/step_definitions/file',
                         :runner_file_path => '/path/to/runner/file',
                         :alternate_file_path => "/alternate/file/path",
                         :alternate_files_and_names => [
@@ -170,7 +170,7 @@ module Cucumber
               it "should tell textmate to goto the feature's step file and to insert the step" do
                 pending "JohnnyT..."
                 # expects
-                TextMateHelper.should_receive('goto_file').with('/path/to/steps/file', {:line => 2, :column => 1})
+                TextMateHelper.should_receive('goto_file').with('/path/to/step_definitions/file', {:line => 2, :column => 1})
                 TextMateHelper.should_receive('insert_text')
                 
                 # when

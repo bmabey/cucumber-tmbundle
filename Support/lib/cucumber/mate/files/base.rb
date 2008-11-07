@@ -39,7 +39,7 @@ module Cucumber
         def default_file_path(kind, name = self.name)
           name = @options[kind] if @options[kind]
           replacements = {
-            :steps => "/steps/#{name}_steps.rb",
+            :steps => "/step_definitions/#{name}_steps.rb",
             :feature => "/#{name}.feature"
           }
           

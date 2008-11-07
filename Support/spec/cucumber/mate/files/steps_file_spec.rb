@@ -8,7 +8,7 @@ module Cucumber
       describe StepsFile do
         before(:each) do
           @fixtures_path = File.expand_path(File.join(File.dirname(__FILE__), %w[.. .. .. .. fixtures]))
-          @steps_file = StepsFile.new(File.expand_path(File.join(@fixtures_path, %w[features steps basic_steps.rb])))
+          @steps_file = StepsFile.new(File.expand_path(File.join(@fixtures_path, %w[features step_definitions basic_steps.rb])))
         end        
         
         it "should determine the feature file" do          
@@ -52,7 +52,7 @@ module Cucumber
           
           describe "when the steps_for line is not at the top" do
             before(:each) do
-              @steps_file = StepsFile.new(File.expand_path(File.join(@fixtures_path, %w[features steps additional_basic_steps.rb])))
+              @steps_file = StepsFile.new(File.expand_path(File.join(@fixtures_path, %w[features step_definitions additional_basic_steps.rb])))
             end
             
             it "should return the line after steps_for" do

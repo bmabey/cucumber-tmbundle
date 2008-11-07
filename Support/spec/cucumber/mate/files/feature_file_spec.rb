@@ -28,13 +28,13 @@ module Cucumber
         #   end
         #   
         #   it "should return the path to the existing steps file" do
-        #     @feature_file.steps_file_path.should == "#{@fixtures_path}/features/non_standard_dir/steps/non_standard_steps.rb"
+        #     @feature_file.steps_file_path.should == "#{@fixtures_path}/features/non_standard_dir/step_definitions/non_standard_steps.rb"
         #   end
         # end
         # 
         # describe "when a steps file doesn't exist on the filesystem" do
         #   it "should determine the path to the new steps file (and assume the proposed directory structure)" do
-        #     @feature_file.steps_file_path.should == "#{@fixtures_path}/features/steps/basic_steps.rb"
+        #     @feature_file.steps_file_path.should == "#{@fixtures_path}/features/step_definitions/basic_steps.rb"
         #   end
         # end
         
@@ -43,7 +43,7 @@ module Cucumber
         end
         
         it "should return the correct step file path" do
-          @feature_file.alternate_file_path.should == "#{@fixtures_path}/features/steps/basic_steps.rb"
+          @feature_file.alternate_file_path.should == "#{@fixtures_path}/features/step_definitions/basic_steps.rb"
         end
         
         it "should determine the correct alternate file as the step file" do

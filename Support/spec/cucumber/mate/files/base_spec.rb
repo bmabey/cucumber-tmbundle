@@ -32,7 +32,7 @@ module Cucumber
           end
           
           it "should determine the default steps file path" do
-            @file.default_file_path(:steps).should == "#{@fixtures_path}/features/steps/basic_steps.rb"
+            @file.default_file_path(:steps).should == "#{@fixtures_path}/features/step_definitions/basic_steps.rb"
           end
           
           it "should determine the default feature file path" do
@@ -50,7 +50,7 @@ module Cucumber
           describe "when looking for an existing steps file" do
             describe "when the file is the standard location" do
               it "should return the path to the existing file" do
-                @file.file_path(:steps).should == "#{@fixtures_path}/features/steps/basic_steps.rb"
+                @file.file_path(:steps).should == "#{@fixtures_path}/features/step_definitions/basic_steps.rb"
               end
             end
             
@@ -60,7 +60,7 @@ module Cucumber
               end
               
               it "should return the path to the existing file" do
-                @file.file_path(:steps).should == "#{@fixtures_path}/features/non_standard_dir/steps/non_standard_steps.rb"
+                @file.file_path(:steps).should == "#{@fixtures_path}/features/non_standard_dir/step_definitions/non_standard_steps.rb"
               end
             end
           end
