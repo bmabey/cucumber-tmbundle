@@ -90,7 +90,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(フィーチャ|Egenskap|Fonction|Feature|Funktionalität|Функционал|Característica|Omadus|Fitur|Właściwość|Egenskab|Functionaliteit|功能:)(.*)\b</string>
+			<string>\b(Funzionalità|Arwedd|フィーチャ|Egenskap|Fonction|Feature|Funktionalität|Функционал|Característica|Omadus|Fitur|Właściwość|Egenskab|Functionaliteit|功能:)(.*)\b</string>
 		</dict>
 		<key>line_keyword</key>
 		<dict>
@@ -103,7 +103,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(前提|前提シナリオ|しかし|かつ|ならば|もし|他のサンプル|Gitt|GittScenario|Men|Og|Så|Når|Flere eksempler|Soit|SoitScenario|Mais|Et|Alors|Lorsque|Plus d'exemples|Given y'all|GivenScenario|But y'all|And y'all|Then y'all|When y'all|More Examples|Gegeben sei|GegebenesSzenario|Aber|Und|Dann|Wenn|Сначала|ДанныйСценарий|Но|И|То|Если|Dado|DadoElEscenario|Pero|Y|Entonces|Cuando|Más ejemplos|Eeldades|EeldadesStsenaariumit|Kuid|Ja|Siis|Kui|DadoOCenário|Mas|E|Então|Quando|Dengan|DenganSkenario|Tapi|Dan|Maka|Ketika|Contoh Tambahan|Dane|DanyScenariusz|Ale|Oraz|Wtedy|Jeżeli|WięcejPrzykładów|Givet|GivetScenario|Och|När|GivetScenarie|Gegeven|GegevenScenario|Maar|En|Als|Meer voorbeelden|Given|But|And|Then|When|假如|引用场景|但是|而且|那么|当)\b</string>
+			<string>\b(Dato|DatoLoScenario|Ma|E|Allora|Quando|Più esempi|anrhegedig a|Anrhegedig scenario|Ond|A|Yna|Pryd|Hychwaneg enghreifftiau|前提|前提シナリオ|しかし|かつ|ならば|もし|他のサンプル|Gitt|GittScenario|Men|Og|Så|Når|Flere eksempler|Soit|SoitScenario|Mais|Et|Alors|Lorsque|Plus d'exemples|Given y'all|GivenScenario|But y'all|And y'all|Then y'all|When y'all|More Examples|Gegeben sei|GegebenesSzenario|Aber|Und|Dann|Wenn|Сначала|ДанныйСценарий|Но|И|То|Если|Dado|DadoElEscenario|Pero|Y|Entonces|Cuando|Más ejemplos|Eeldades|EeldadesStsenaariumit|Kuid|Ja|Siis|Kui|DadoOCenário|Mas|Então|Dengan|DenganSkenario|Tapi|Dan|Maka|Ketika|Contoh Tambahan|Dane|DanyScenariusz|Ale|Oraz|Wtedy|Jeżeli|WięcejPrzykładów|Givet|GivetScenario|Och|När|GivetScenarie|Gegeven|GegevenScenario|Maar|En|Als|Meer voorbeelden|Given|But|And|Then|When|假如|引用场景|但是|而且|那么|当)\b</string>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -139,7 +139,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(シナリオ|Scenario|Szenario|Сценарий|Escenario|Stsenaarium|Cenário|Skenario|Scenariusz|Scenarie|场景:)(.*)\b</string>
+			<string>\b(Scenario|シナリオ|Szenario|Сценарий|Escenario|Stsenaarium|Cenário|Skenario|Scenariusz|Scenarie|场景:)(.*)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>
@@ -160,6 +160,6 @@
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
 	<key>ﬁrstLineMatch</key>
-	<string>フィーチャ|Egenskap|Fonction|Feature|Funktionalität|Функционал|Característica|Omadus|Fitur|Właściwość|Egenskab|Functionaliteit|功能(.*)</string>
+	<string>Funzionalità|Arwedd|フィーチャ|Egenskap|Fonction|Feature|Funktionalität|Функционал|Característica|Omadus|Fitur|Właściwość|Egenskab|Functionaliteit|功能(.*)</string>
 </dict>
 </plist>
