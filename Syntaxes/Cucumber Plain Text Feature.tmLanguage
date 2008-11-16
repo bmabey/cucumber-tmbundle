@@ -90,7 +90,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Funzionalità|Arwedd|フィーチャ|Egenskap|Fonction|Feature|Funktionalität|Функционал|Característica|Omadus|Fitur|Właściwość|خاصية|Egenskab|Functionaliteit|功能:)(.*)\b</string>
+			<string>\b(Arwedd|Característica|Egenskab|Egenskap|Feature|Fitur|Fonction|Functionalitate|Functionaliteit|Funcționalitate|Funktionalität|Funzionalità|Omadus|Właściwość|Функционал|خاصية|フィーチャ|功能:)(.*)\b</string>
 		</dict>
 		<key>line_keyword</key>
 		<dict>
@@ -103,7 +103,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Dato|DatoLoScenario|Ma|E|Allora|Quando|Più esempi|anrhegedig a|Anrhegedig scenario|Ond|A|Yna|Pryd|Hychwaneg enghreifftiau|前提|前提シナリオ|しかし|かつ|ならば|もし|他のサンプル|Gitt|GittScenario|Men|Og|Så|Når|Flere eksempler|Soit|SoitScenario|Mais|Et|Alors|Lorsque|Plus d'exemples|Given y'all|GivenScenario|But y'all|And y'all|Then y'all|When y'all|More Examples|Gegeben sei|GegebenesSzenario|Aber|Und|Dann|Wenn|Сначала|ДанныйСценарий|Но|И|То|Если|Dado|DadoElEscenario|Pero|Y|Entonces|Cuando|Más ejemplos|Eeldades|EeldadesStsenaariumit|Kuid|Ja|Siis|Kui|DadoOCenário|Mas|Então|Dengan|DenganSkenario|Tapi|Dan|Maka|Ketika|Contoh Tambahan|Dane|DanyScenariusz|Ale|Oraz|Wtedy|Jeżeli|WięcejPrzykładów|بفرض|بفرض سيناريو معين|لكن|و|اذاً|متى|امثلة اكثر|Givet|GivetScenario|Och|När|GivetScenarie|Gegeven|GegevenScenario|Maar|En|Als|Meer voorbeelden|Given|But|And|Then|When|假如|引用场景|但是|而且|那么|当)\b</string>
+			<string>\b(A|Aber|Ale|Allora|Alors|Als|And|And y'all|Anrhegedig scenario|Atunci|But|But y'all|Cand|Contoh Tambahan|Cuando|Când|Daca|Dacă|Dado|DadoElEscenario|DadoOCenário|Dan|Dane|Dann|DanyScenariusz|Dar|Dato|DatoLoScenario|Dengan|DenganSkenario|E|Eeldades|EeldadesStsenaariumit|En|Entonces|Então|Et|Flere eksempler|Gegeben sei|Gegebenes Szenario|Gegeven|GegevenScenario|Gitt|GittScenario|Given|Given y'all|GivenScenario|Givet|GivetScenarie|GivetScenario|Hychwaneg enghreifftiau|Ja|Jeżeli|Ketika|Kui|Kuid|Lorsque|Ma|Maar|Mai multe exemple|Mais|Maka|Mas|Meer voorbeelden|Mehr Beispiele|Men|More Examples|Más ejemplos|När|Når|Och|Og|Ond|Oraz|Pero|Più esempi|Plus d'exemples|Pryd|Quando|ScenariuDat|Si|Siis|Soit|SoitScenario|Så|Tapi|Then|Then y'all|Und|Wenn|When|When y'all|WięcejPrzykładów|Wtedy|Y|Yna|anrhegedig a|Și|ДанныйСценарий|Если|И|Но|Сначала|То|اذاً|امثلة اكثر|بفرض|بفرض سيناريو معين|لكن|متى|و|かつ|しかし|ならば|もし|他のサンプル|但是|假如|前提|前提シナリオ|引用场景|当|而且|那么)\b</string>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -139,7 +139,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Scenario|シナリオ|Szenario|Сценарий|Escenario|Stsenaarium|Cenário|Skenario|Scenariusz|سيناريو|Scenarie|场景:)(.*)\b</string>
+			<string>\b(Cenário|Escenario|Scenarie|Scenario|Scenariu|Scenariusz|Skenario|Stsenaarium|Szenario|Сценарий|سيناريو|シナリオ|场景:)(.*)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>
@@ -160,6 +160,6 @@
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
 	<key>ﬁrstLineMatch</key>
-	<string>Funzionalità|Arwedd|フィーチャ|Egenskap|Fonction|Feature|Funktionalität|Функционал|Característica|Omadus|Fitur|Właściwość|خاصية|Egenskab|Functionaliteit|功能(.*)</string>
+	<string>Arwedd|Característica|Egenskab|Egenskap|Feature|Fitur|Fonction|Functionalitate|Functionaliteit|Funcționalitate|Funktionalität|Funzionalità|Omadus|Właściwość|Функционал|خاصية|フィーチャ|功能(.*)</string>
 </dict>
 </plist>
