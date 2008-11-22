@@ -98,7 +98,7 @@ h2. Credits
 * **Andre Foeken** - "Original color syntax highlighting":http://movesonrails.com/articles/2007/11/06/rspec-plain-text-stories
 * **Tim Harper** - Update Bundle Command, file detection bug fixes
 * **Aslak Hellesøy** - Rake task improvement, snippet updates, Cucumber! 
-* **Dr. Nic** - Snippet and grammar updates
+* **Dr. Nic** - Snippet and grammar updates, updated 'Run Focused Scenario' command
 
 
 
