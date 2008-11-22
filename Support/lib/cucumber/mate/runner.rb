@@ -10,12 +10,13 @@ module Cucumber
         @file = Files::Base.create_from_file_path(full_file_path)
         @output = output
         @project_directory = project_directory
+        @filename_opts = ""
         @cucumber_opts = cucumber_opts || "--format=html"
         @cucumber_opts << " --profile=#{@file.profile}" if @file.profile
       end
       
       def run_scenario(line_number)
-        @cucumber_opts << " --line #{line_number}"
+        @filename_opts << ":#{line_number}"
         run
       end
       
@@ -34,7 +35,7 @@ module Cucumber
         argv << %Q{CUCUMBER_OPTS="#{@cucumber_opts}"}
       else
         command = File.exists?(script = "#{@project_directory}/script/cucumber") ? script : "cucumber"
-        argv << "#{@file.feature_file_path}"
+        argv << "#{@file.feature_file_path}#{@filename_opts}"
         argv << @cucumber_opts
       end
       Dir.chdir(@project_directory) do        

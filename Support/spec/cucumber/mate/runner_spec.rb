@@ -129,7 +129,7 @@ module Cucumber
           # given
           runner = Runner.new(output=StringIO.new, "/project/path", "/project/path/feature_file")
           
-          expect_system_call_to_be_made_with(/--format=html --line 42/)
+          expect_system_call_to_be_made_with(%r{path_to_feature.feature:42 --format=html})
           
           # when
           runner.run_scenario(42)
