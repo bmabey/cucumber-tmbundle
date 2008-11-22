@@ -14,9 +14,9 @@ class SyntaxGenerator
       line_keywords_array.concat(words.values)
     end
     
-    scenario_keywords = scenario_keywords_array.uniq.compact.join('|')
-    feature_keywords  = feature_keywords_array.uniq.compact.join('|')
-    line_keywords     = line_keywords_array.uniq.compact.join('|')
+    scenario_keywords = scenario_keywords_array.uniq.compact.sort.join('|')
+    feature_keywords  = feature_keywords_array.uniq.compact.sort.join('|')
+    line_keywords     = line_keywords_array.uniq.compact.sort.join('|')
 
     template    = ERB.new(IO.read(File.dirname(__FILE__) + '/../../Syntaxes/plaintext_template.erb'))
     syntax      = template.result(binding)
