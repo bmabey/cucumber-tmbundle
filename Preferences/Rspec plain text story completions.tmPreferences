@@ -16,6 +16,7 @@
 			<string>So that</string>
 			<string>Story:</string>
 			<string>Scenario:</string>
+			<string>Scenario Outline:</string>
 			<string>Given</string>
 			<string>GivenScenario</string>
 			<string>Then</string>
