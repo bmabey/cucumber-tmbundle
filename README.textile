@@ -20,6 +20,7 @@ h3. Bundle Features:
 
 h3. TODO:
 
+* Add a Goto Step command
 * Automatically create template step file with pending steps based on the steps used in the feature.
 ** Use Cucumber's built in functionality to do this and clean out the story bundle's way.
 * Tidy up HTML output and add a Textmate formatter with a clickable backtrace.
@@ -99,6 +100,7 @@ h2. Credits
 * **Tim Harper** - Update Bundle Command, file detection bug fixes
 * **Aslak Hellesøy** - Rake task improvement, snippet updates, Cucumber! 
 * **Dr. Nic** - Snippet and grammar updates, updated 'Run Focused Scenario' command
+* **Pedro Visintin** - Syntax fix
 
 
 

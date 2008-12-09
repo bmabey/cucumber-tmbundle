@@ -152,7 +152,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\s+\"([^\"]+)\"[\b\s]+</string>
+			<string>\s+[''"]([^''"]+)[''"][\b\s]+</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
