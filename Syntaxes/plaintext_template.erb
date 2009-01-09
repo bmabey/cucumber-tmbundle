@@ -14,6 +14,10 @@
 	<array>
 		<dict>
 			<key>include</key>
+			<string>#scenario_outline_keyword</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#scenario_keyword</string>
 		</dict>
 		<dict>
@@ -140,6 +144,24 @@
 			</dict>
 			<key>match</key>
 			<string>\b(<%= scenario_keywords %>:)(.*)\b</string>
+		</dict>
+		<key>scenario_outline_keyword</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.language.cucumber.feature.scenario_outline</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>string.language.cucumber.feature.scenario_outline.title</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\b(<%= scenario_outline_keywords %>)(.*)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>

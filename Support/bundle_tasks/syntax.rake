@@ -5,16 +5,19 @@ class SyntaxGenerator
     require 'cucumber'
 
     scenario_keywords_array = []
+    scenario_outline_keywords_array = []
     feature_keywords_array  = []
     line_keywords_array     = []
 
     Cucumber.config.each do |_, words|
       scenario_keywords_array << words.delete('scenario')
       feature_keywords_array << words.delete('feature')
+      scenario_outline_keywords_array << words.delete('scenario_outline')
       line_keywords_array.concat(words.values)
     end
     
     scenario_keywords = scenario_keywords_array.uniq.compact.sort.join('|')
+    scenario_outline_keywords = scenario_outline_keywords_array.uniq.compact.sort.join('|')
     feature_keywords  = feature_keywords_array.uniq.compact.sort.join('|')
     line_keywords     = line_keywords_array.uniq.compact.sort.join('|')
 

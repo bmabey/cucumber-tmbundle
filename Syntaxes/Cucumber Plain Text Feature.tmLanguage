@@ -14,6 +14,10 @@
 	<array>
 		<dict>
 			<key>include</key>
+			<string>#scenario_outline_keyword</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#scenario_keyword</string>
 		</dict>
 		<dict>
@@ -103,7 +107,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(A|AN|Aber|Ale|Allora|Alors|Als|And|And y'all|Anrhegedig scenario|Atunci|BUT|Bet|But|But y'all|Cand|Contoh Tambahan|Cuando|Când|DEN|Daca|Dacă|Dado|DadoElEscenario|DadoOCenário|Dan|Dane|Dann|DanyScenariusz|Dar|Dato|DatoLoScenario|Daugiau pavyzdžių|Dengan|DenganSkenario|Duota|DuotasScenarijus|E|Eeldades|EeldadesStsenaariumit|En|Entonces|Então|Et|Flere eksempler|GIVN|Gegeben sei|Gegebenes Szenario|Gegeven|GegevenScenario|Gitt|GittScenario|Given|Given y'all|GivenScenario|Givet|GivetScenarie|GivetScenario|Hychwaneg enghreifftiau|Ir|Ja|Jeżeli|Kai|Ketika|Kui|Kuid|Lorsque|MOAR EXAMPLZ|Ma|Maar|Mai multe exemple|Mais|Maka|Mas|Meer voorbeelden|Mehr Beispiele|Men|More Examples|Más ejemplos|När|Når|Och|Og|Ond|Oraz|Pero|Più esempi|Plus d'exemples|Pryd|Quando|SRSLY|ScenariuDat|Si|Siis|Soit|SoitScenario|Så|Tada|Tapi|Then|Then y'all|Und|WEN|Wenn|When|When y'all|WięcejPrzykładów|Wtedy|Y|Yna|anrhegedig a|Și|ДанныйСценарий|Если|И|Но|Сначала|То|اذاً|امثلة اكثر|بفرض|بفرض سيناريو معين|لكن|متى|و|かつ|しかし|ならば|もし|他のサンプル|但是|假如|前提|前提シナリオ|引用场景|当|而且|那么)\b</string>
+			<string>\b(A|AN|Aber|Ale|Allora|Alors|Als|And|And y'all|Anrhegedig scenario|Atunci|BUT|Bet|But|But y'all|Cand|Contoh Tambahan|Cuando|Când|DEN|Daca|Dacă|Dado|DadoElEscenario|DadoOCenário|Dan|Dane|Dann|DanyScenariusz|Dar|Dato|DatoLoScenario|Daugiau pavyzdžių|Dengan|DenganSkenario|Duota|DuotasScenarijus|E|Eeldades|EeldadesStsenaariumit|En|Entonces|Então|Et|Examples|Flere eksempler|GIVN|Gegeben sei|Gegebenes Szenario|Gegeven|GegevenScenario|Gitt|GittScenario|Given|Given y'all|GivenScenario|Givet|GivetScenarie|GivetScenario|Hychwaneg enghreifftiau|Ir|Ja|Jeżeli|Kai|Ketika|Kui|Kuid|Lorsque|MOAR EXAMPLZ|Ma|Maar|Mai multe exemple|Mais|Maka|Mas|Meer voorbeelden|Mehr Beispiele|Men|More Examples|Más ejemplos|När|Når|Och|Og|Ond|Oraz|Pero|Più esempi|Plus d'exemples|Pryd|Quando|SRSLY|ScenariuDat|Si|Siis|Soit|SoitScenario|Så|Tada|Tapi|Then|Then y'all|Und|WEN|Wenn|When|When y'all|WięcejPrzykładów|Wtedy|Y|Yna|anrhegedig a|Și|ДанныйСценарий|Если|И|Но|Сначала|То|اذاً|امثلة اكثر|بفرض|بفرض سيناريو معين|لكن|متى|و|かつ|しかし|ならば|もし|他のサンプル|但是|假如|前提|前提シナリオ|引用场景|当|而且|那么)\b</string>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -140,6 +144,24 @@
 			</dict>
 			<key>match</key>
 			<string>\b(Cenário|Escenario|MISHUN|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Skenario|Stsenaarium|Szenario|Сценарий|سيناريو|シナリオ|场景:)(.*)\b</string>
+		</dict>
+		<key>scenario_outline_keyword</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.language.cucumber.feature.scenario_outline</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>string.language.cucumber.feature.scenario_outline.title</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\b(Scenario Outline)(.*)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>

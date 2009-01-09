@@ -619,6 +619,19 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Cucumber Scenario Outline Keyword</string>
+			<key>scope</key>
+			<string>keyword.language.cucumber.feature.scenario_outline</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold underline</string>
+				<key>foreground</key>
+				<string>#FFFFFF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Cucumber Scenario keywords</string>
 			<key>scope</key>
 			<string>keyword.language.cucumber.feature.scenario.line</string>
@@ -678,6 +691,19 @@
 			<string>Cucumber Scenario title</string>
 			<key>scope</key>
 			<string>string.language.cucumber.feature.scenario</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>underline</string>
+				<key>foreground</key>
+				<string>#FFFFFF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Cucumber Scenario Outline title</string>
+			<key>scope</key>
+			<string>string.language.cucumber.feature.scenario_outline</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
