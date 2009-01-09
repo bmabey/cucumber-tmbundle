@@ -101,6 +101,7 @@ h2. Credits
 * **Aslak Hellesøy** - Rake task improvement, snippet updates, Cucumber! 
 * **Dr. Nic** - Snippet and grammar updates, updated 'Run Focused Scenario' command
 * **Pedro Visintin** - Syntax fix
+* **Joseph Wilk** - Syntax extentions for 'Scenario Outline'
 
 
 
