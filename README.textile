@@ -20,10 +20,14 @@ h3. Bundle Features:
 
 h3. TODO:
 
-* Add a Goto Step command
+* Background support (the new feature in Cucumber.)
+* Syntax Highlighting for multistrings.(""")
+* Navigation Commands
+** Goto step definition from feature file. (just need to implement StepDetector.)
+** From a step definition be able to pull up a list of features using that step and to jump to them.
 * Automatically create template step file with pending steps based on the steps used in the feature.
 ** Use Cucumber's built in functionality to do this and clean out the story bundle's way.
-* Tidy up HTML output and add a Textmate formatter with a clickable backtrace.
+* Tidy up HTML output and add a Textmate formatter with a clickable backtrace. (Pending on new Cucumber HTML format.)
 * Snippets for tables.
 * Multi-language support for the snippets?
 
