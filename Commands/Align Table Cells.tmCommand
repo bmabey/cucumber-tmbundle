@@ -7,21 +7,26 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -w
 
+#TODO move into Helper object and add some specs
+
 text = ENV['TM_SELECTED_TEXT']
-initial_space = nil
+
+text =~ /^(\s*)\|.*$/
+initial_space = $1 
+
 table_data = text.split(/\n/).map { |line|
-  initial_space = line.split('|').detect {|e| e =~ /^ +$/}
-  line.split('|').map { |cell| cell }
+  just_cells = line.strip  
+  just_cells.split('|').map{|cell| cell.strip }
 }
 
-max_lengths = table_data.transpose.map { |col| col.map { |cell| cell.strip.length } .max } .flatten
+max_lengths = table_data.transpose.map { |col| col.map { |cell| cell.length }.max }.flatten
 
 table_data.each do |line|
   puts \
     initial_space.to_s + \
     line.zip(max_lengths).map { |cell, max_length|
-      "%-#{ max_length }s" % cell.strip
-    } .join('|') + '|'
+      "%-#{ max_length }s" % cell
+    } .join('| ') + '|'
 end
 </string>
 	<key>fallbackInput</key>
@@ -31,7 +36,7 @@ end
 	<key>keyEquivalent</key>
 	<string>~@\</string>
 	<key>name</key>
-	<string>Align cells in Fit table</string>
+	<string>Align Table Cells</string>
 	<key>output</key>
 	<string>replaceSelectedText</string>
 	<key>uuid</key>
