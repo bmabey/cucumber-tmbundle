@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -w
+
+text = ENV['TM_SELECTED_TEXT']
+initial_space = nil
+table_data = text.split(/\n/).map { |line|
+  initial_space = line.split('|').detect {|e| e =~ /^ +$/}
+  line.split('|').map { |cell| cell }
+}
+
+max_lengths = table_data.transpose.map { |col| col.map { |cell| cell.strip.length } .max } .flatten
+
+table_data.each do |line|
+  puts \
+    initial_space.to_s + \
+    line.zip(max_lengths).map { |cell, max_length|
+      "%-#{ max_length }s" % cell.strip
+    } .join('|') + '|'
+end
+</string>
+	<key>fallbackInput</key>
+	<string>none</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>~@\</string>
+	<key>name</key>
+	<string>Align cells in Fit table</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>uuid</key>
+	<string>C210145E-4123-4FC5-BFB3-BC7D8B884F4A</string>
+</dict>
+</plist>
