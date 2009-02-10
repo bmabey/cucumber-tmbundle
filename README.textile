@@ -106,6 +106,7 @@ h2. Credits
 * **Dr. Nic** - Snippet and grammar updates, updated 'Run Focused Scenario' command
 * **Pedro Visintin** - Syntax fix
 * **Joseph Wilk** - Syntax extentions for 'Scenario Outline'
+* **Sam Livingston-Gray** - Align Table Cells command
 
 
 
