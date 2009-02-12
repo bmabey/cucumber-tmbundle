@@ -107,6 +107,7 @@ h2. Credits
 * **Pedro Visintin** - Syntax fix
 * **Joseph Wilk** - Syntax extentions for 'Scenario Outline'
 * **Sam Livingston-Gray** - Align Table Cells command
+* **Grant Hollingworth** - Improved step grammar - regexps syntax highlighting.
 
 
 
