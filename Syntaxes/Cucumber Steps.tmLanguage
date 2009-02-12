@@ -16,7 +16,7 @@
 			<key>match</key>
 			<string>\b(GivenScenario|Given|When|Then)\b</string>
 			<key>name</key>
-			<string>keyword</string>
+			<string>keyword.other.step.cucumber</string>
 		</dict>
 		<dict>
 			<key>begin</key>
