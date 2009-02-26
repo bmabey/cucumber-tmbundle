@@ -5,12 +5,15 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby -w -Ku
+	<string>#!/usr/bin/env sh
+cat &lt;&lt;'RUBYEOF' &gt; /tmp/cucumber-$$.rb
 
 require ENV['TM_BUNDLE_SUPPORT'] + "/lib/cucumber/mate/table_aligner"
 
 puts(Cucumber::Mate::TableAligner.new.align(ENV['TM_SELECTED_TEXT']))
-</string>
+RUBYEOF
+
+${TM_RUBY:-ruby} -w -Ku /tmp/cucumber-$$.rb; exit_status=$?; rm /tmp/cucumber-$$.rb; exit $exit_status</string>
 	<key>fallbackInput</key>
 	<string>none</string>
 	<key>input</key>

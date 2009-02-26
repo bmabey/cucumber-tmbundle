@@ -5,10 +5,15 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby
+	<string>#!/usr/bin/env sh
+cat &lt;&lt;'RUBYEOF' &gt; /tmp/cucumber-$$.rb
 
 require ENV['TM_BUNDLE_SUPPORT'] + "/lib/cucumber/mate/feature_helper"
-Cucumber::Mate::FeatureHelper.new(ENV['TM_FILEPATH']).create_all_undefined_steps</string>
+Cucumber::Mate::FeatureHelper.new(ENV['TM_FILEPATH']).create_all_undefined_steps
+
+RUBYEOF
+
+${TM_RUBY:-ruby} /tmp/cucumber-$$.rb; exit_status=$?; rm /tmp/cucumber-$$.rb; exit $exit_status</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>

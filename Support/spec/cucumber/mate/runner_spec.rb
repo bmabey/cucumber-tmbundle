@@ -7,18 +7,18 @@ module Cucumber
     describe "a run command", :shared => true do
 
       it "should run with the cucumber command by default" do
-        expect_system_call_to_be_made_with(/^cucumber /)
+        expect_system_call_to_be_made_with(%r[#{Cucumber::Mate::Runner::CUCUMBER_BIN}])
         when_run_is_called
       end
 
       it "should run with the cucumber command passed in" do
-        expect_system_call_to_be_made_with(/^\/some\/path\/cucumber /)
+        expect_system_call_to_be_made_with(%r[/some/path/cucumber ])
         when_run_is_called(nil, "/some/path/cucumber")
       end
 
       it "should run with /project/path/script/cucumber if present" do
         File.should_receive(:exists?).with("/project/path/script/cucumber").and_return(true)
-        expect_system_call_to_be_made_with(%r[^/project/path/script/cucumber ])
+        expect_system_call_to_be_made_with(%r[/project/path/script/cucumber ])
         when_run_is_called
       end
 
@@ -53,7 +53,7 @@ module Cucumber
       it "should output the exact command it is running" do
         Kernel.stub!(:system).and_return("features html")
         output = when_run_is_called
-        output.string.should =~ /^Running: cucumber /
+        output.string.should =~ /^Running: .+cucumber /
       end
 
       describe "when the feature file defines a rake task" do
@@ -62,7 +62,7 @@ module Cucumber
         end
 
         it "should run the feature with the defined rake task" do
-          expect_system_call_to_be_made_with(/^rake #{@file.rake_task} /)
+          expect_system_call_to_be_made_with(/#{Cucumber::Mate::Runner::RAKE_BIN} #{@file.rake_task} /)
           when_run_is_called
         end
 

@@ -5,13 +5,16 @@ module Cucumber
   module Mate
 
     class Runner
-
+      CUCUMBER_BIN = %x{which cucumber}.chomp
+      RUBY_BIN = ENV['TM_RUBY'] || %x{which ruby}.chomp
+      RAKE_BIN = %x{which rake}.chomp
+      
       def initialize(output, project_directory, full_file_path, cucumber_bin = nil, cucumber_opts=nil)
         @file = Files::Base.create_from_file_path(full_file_path)
         @output = output
         @project_directory = project_directory
         @filename_opts = ""
-        @cucumber_bin = cucumber_bin || "cucumber"
+        @cucumber_bin = cucumber_bin || CUCUMBER_BIN
         @cucumber_opts = cucumber_opts || "--format=html"
         @cucumber_opts << " --profile=#{@file.profile}" if @file.profile
       end
@@ -37,7 +40,7 @@ module Cucumber
       def run
         argv = []
         if @file.rake_task
-          command = "rake"
+          command = RAKE_BIN
           argv << "FEATURE=#{@file.feature_file_path}"
           argv << %Q{CUCUMBER_OPTS="#{@cucumber_opts}"}
         else
@@ -46,7 +49,7 @@ module Cucumber
           argv << @cucumber_opts
         end
         in_project_dir do
-          @output << %Q{Running: #{full_command = "#{command} #{@file.rake_task} #{argv.join(' ')}"} \n}
+          @output << %Q{Running: #{full_command = "#{RUBY_BIN} #{command} #{@file.rake_task} #{argv.join(' ')}"} \n}
           @output << Kernel.system(full_command)
         end
       end
