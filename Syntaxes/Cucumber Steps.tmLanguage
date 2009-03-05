@@ -16,7 +16,37 @@
 			<key>match</key>
 			<string>\b(GivenScenario|Given|When|Then)\b</string>
 			<key>name</key>
-			<string>keyword</string>
+			<string>keyword.other.step.cucumber</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\b(?&lt;=GivenScenario|Given|When|Then) (/)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>string.regexp.classic.ruby</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.ruby</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>regular expression after a Cucumber keyword</string>
+			<key>contentName</key>
+			<string>string.regexp.classic.ruby</string>
+			<key>end</key>
+			<string>((/[eimnosux]*))</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#regex_sub</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
