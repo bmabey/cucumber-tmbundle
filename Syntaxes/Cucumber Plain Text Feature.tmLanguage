@@ -34,7 +34,11 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#strings</string>
+			<string>#strings_single_quote</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#strings_double_quote</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -141,7 +145,20 @@
 			<key>match</key>
 			<string>\b(Cenário|Escenario|MISHUN|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scénario|Skenario|Stsenaarium|Szenario|Tapaus|Сценарий|سيناريو|シナリオ|场景|예:)(.*)\b</string>
 		</dict>
-		<key>strings</key>
+		<key>strings_double_quote</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>string</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\s+"([^"]+)"[\b\s]+</string>
+		</dict>
+		<key>strings_single_quote</key>
 		<dict>
 			<key>captures</key>
 			<dict>
