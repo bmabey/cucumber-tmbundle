@@ -1,10 +1,3 @@
-
-
-
-
-
-steps_for(:additional_basic) do
-  Given "additional basic step" do
-    
-  end
+Given "additional basic step" do
+  
 end

@@ -116,6 +116,57 @@ module Cucumber
           end
         end
         
+        describe "#steps_starting_with" do
+          before(:each) do
+            StepDetector.stub!(:new).and_return(@detector = mock('step detector', :step_files_and_names => [{:name => 'basic', :file_path => '/path/to/basic'}]))
+            StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [
+              {:step => @step = mock('step', :matches? => true), :type => 'Given', :pattern => "matching string", :line => 3, :column => 5, :file_path => '/path/to/steps', :group_tag => 'basic'},
+              {:step => @step = mock('step', :matches? => true), :type => 'Given', :pattern => /^matching pattern/, :line => 3, :column => 5, :file_path => '/path/to/steps', :group_tag => 'basic'},
+              {:step => @step = mock('step', :matches? => true), :type => 'Given', :pattern => "not matching string", :line => 3, :column => 5, :file_path => '/path/to/steps', :group_tag => 'basic'},
+            ]))
+          end
+
+          describe "when 1 matching string step definition exists" do
+            before(:each) do
+              @matching_steps = @feature_file.steps_starting_with('matching s')
+            end
+            
+            it "should return the step definition" do
+              @matching_steps.size.should == 1
+            end
+          end
+
+          describe "when 1 matching regex step definition exists" do
+            before(:each) do
+              @matching_steps = @feature_file.steps_starting_with('matching p')
+            end
+            
+            it "should return the step definition" do
+              @matching_steps.size.should == 1
+            end
+          end
+
+          describe "when multiple matching step definitions exists" do
+            before(:each) do
+              @matching_steps = @feature_file.steps_starting_with('match')
+            end
+            
+            it "should return the step definition" do
+              @matching_steps.size.should == 2
+            end
+          end
+          
+          describe "when no matching step definitions exists" do
+            before(:each) do
+              @matching_steps = @feature_file.steps_starting_with('xxx')
+            end
+            
+            it "should return the step definition" do
+              @matching_steps.size.should == 0
+            end
+          end
+        end
+        
         describe "#includes_step_file?" do
           before(:each) do
             StepDetector.stub!(:new).and_return(mock('step detector', :step_files_and_names => [{:name => 'basic steps', :file_path => '/path/to/basic'}]))

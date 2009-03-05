@@ -51,6 +51,13 @@ module Cucumber
         goto_steps_file_with_new_steps(undefined_steps)
       end
       
+      def autocomplete_step(stdout, current_line)
+        step_prefix = current_line.sub(/^[\s\t]+(given|when|then|and|but)\s+/i, '')
+        matching_step_definitions = @file.steps_starting_with(step_prefix)
+        return unless matching_step_definitions && matching_step_definitions.size > 0
+        stdout.print matching_step_definitions.size
+      end
+      
     protected
       def goto_steps_file_with_new_steps(new_steps)
         silently_create_file(@file.runner_file_path) if !File.file?(@file.runner_file_path) && request_confirmation_to_create_file(@file.runner_file_path)
@@ -90,6 +97,10 @@ module Cucumber
       def full_project_directory
         #TODO: get rid of global
         File.expand_path(ENV['TM_PROJECT_DIRECTORY'])
+      end
+      
+      def step_regexs
+        [/^I am on (.+)$/, /I go to (.+)$/, /^I press "(.*)"$/]
       end
     end
     

@@ -1,17 +1,15 @@
-steps_for(:basic) do
-  Given "global step" do
-    Foo.should_not_error
-  end
+Given "global step" do
+  Foo.should_not_error
+end
+
+Given "another global step" do
   
-  Given "another global step" do
-    
-  end
+end
+
+When "global step" do
   
-  When "global step" do
-    
-  end
+end
+
+Then "global step" do
   
-  Then "global step" do
-    
-  end
 end

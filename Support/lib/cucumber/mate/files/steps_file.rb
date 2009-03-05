@@ -32,6 +32,7 @@ module Cucumber
         
         def steps_file?; true; end
         
+        # TODO - what's this for? "steps_for" is not in cucumber
         def new_steps_line_number
           if File.file?(full_file_path)
             contents = File.read(full_file_path)
@@ -72,6 +73,7 @@ module Cucumber
           if File.file?(full_file_path)
             @steps = []
             @file_contents = File.read(full_file_path)
+            @file_contents.gsub!(/^require.*$/, "") # we just want the Given/When/Then steps processed
             eval(@file_contents)
             @steps
           else
@@ -84,21 +86,10 @@ module Cucumber
         # We need to save these to be able to match plain text 
         def add_step(type, pattern)
           step = Spec::Story::Step.new(pattern){raise "Step doesn't exist."}
-          
           line_number = caller[1].match(/:(\d+)/).captures.first.to_i
           
-          next_line = @file_contents.split("\n")[line_number]
-          
-          col_number =  if (md = next_line.match(/\s*[^\s]/))
-                          md[0].length
-                        elsif (md = next_line.match(/\s*$/))
-                          md[0].length + 1
-                        else
-                          1
-                        end
-          
-          @steps << {:step => step, :type => type, :pattern => pattern, :line => line_number + 1,
-                      :column => col_number, :file_path => full_file_path, :group_tag => name}
+          @steps << {:step => step, :type => type, :pattern => pattern, :line => line_number,
+                      :file_path => full_file_path, :group_tag => name}
         end
         
         def steps_for(*args)

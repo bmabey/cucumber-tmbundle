@@ -52,6 +52,15 @@ module Cucumber
           return nil
         end
         
+        def steps_starting_with(step_prefix)
+          step_prefix_regex = /^#{step_prefix}/
+          p gather_defined_steps.map { |e| [e[:pattern].class, e[:pattern]] }
+          gather_defined_steps.select do |step_def|
+            pattern = step_def[:pattern].is_a?(Regexp) ? step_def[:pattern].source.gsub('^', '') : step_def[:pattern]
+            pattern =~ step_prefix_regex
+          end
+        end
+        
         def includes_step_file?(step_file_name)
           step_file_name = step_file_name.gsub(' steps', '').gsub('_', ' ')
           step_files_and_names.detect{|step_file_info| step_file_info[:name] == "#{step_file_name} steps"} ? true : false

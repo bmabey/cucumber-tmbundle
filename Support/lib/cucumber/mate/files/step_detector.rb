@@ -4,11 +4,19 @@ module Cucumber
     module Files
     
       class StepDetector
-        def initialize(path_to_feature_file)
-        
+        def initialize(path_to_a_feature_file)
+          @step_files = (
+            Dir[File.dirname(path_to_a_feature_file) + "/step_definitions/**/*.rb"] +
+            Dir[File.dirname(path_to_a_feature_file) + "/**/*_steps.rb"]
+          ).uniq
         end
       
-      
+        # returns [ { :file_path => path } ]
+        def step_files_and_names
+          @step_files.map do |step_file|
+            { :file_path => File.expand_path(step_file) }
+          end
+        end
       end
 
     end

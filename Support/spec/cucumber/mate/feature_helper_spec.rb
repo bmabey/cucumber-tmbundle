@@ -100,6 +100,16 @@ module Cucumber
         end
       end
       
+      describe "#autocomplete_step" do
+        before(:each) do
+          
+        end
+        
+        it "should find matching 0-arg step and print it as a snippet" do
+          
+        end
+      end
+      
       describe "#goto_current_step" do
         describe "when not on a feature file" do
           before(:each) do

@@ -1,21 +1,19 @@
-steps_for(:basic) do
-  Given "Basic step (given)" do
-    Foo.should_not_error
-  end
+Given "Basic step (given)" do
+  Foo.should_not_error
+end
+
+Given "another basic step" do
   
-  Given "another basic step" do
-    
-  end
+end
+
+Given %r{Basic regexp (.*)} do |given|
   
-  Given %r{Basic regexp \(given\)} do 
-    
-  end
+end
+
+When "Basic when" do
   
-  When "Basic when" do
-    
-  end
+end
+
+Then "Basic then" do
   
-  Then "Basic then" do
-    
-  end
 end
