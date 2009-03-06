@@ -18,7 +18,7 @@ Cucumber::Mate::FeatureHelper.new(ENV['TM_FILEPATH']).autocomplete_step($stdout,
 	<key>name</key>
 	<string>Autocomplete Step</string>
 	<key>output</key>
-	<string>openAsNewDocument</string>
+	<string>insertAsSnippet</string>
 	<key>scope</key>
 	<string>text.cucumber.feature</string>
 	<key>uuid</key>

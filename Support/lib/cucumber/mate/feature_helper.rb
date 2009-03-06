@@ -52,10 +52,27 @@ module Cucumber
       end
       
       def autocomplete_step(stdout, current_line)
-        step_prefix = current_line.sub(/^[\s\t]+(given|when|then|and|but)\s+/i, '')
+        unless matches = current_line.match(/([\s\t]*(?:given|when|then|and|but)\s+)(.*)/i)
+          stdout.print current_line
+          return
+        end
+        line_start, step_prefix = matches[1..2]
         matching_step_definitions = @file.steps_starting_with(step_prefix)
-        return unless matching_step_definitions && matching_step_definitions.size > 0
-        stdout.print matching_step_definitions.size
+        unless matching_step_definitions && matching_step_definitions.size > 0
+          stdout.print current_line
+          return
+        end
+        if matching_step_definitions.size > 1
+          patterns = matching_step_definitions.map { |step| step[:pattern_text] }
+          if choice = TextMateHelper.display_select_list(patterns)
+            stdout.print "#{line_start}#{patterns[choice]}"
+            return
+          end
+        else
+          stdout.print "#{line_start}#{matching_step_definitions.first[:pattern_text]}"
+          return
+        end
+        stdout.print current_line
       end
       
     protected

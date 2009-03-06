@@ -89,6 +89,7 @@ module Cucumber
           line_number = caller[1].match(/:(\d+)/).captures.first.to_i
           
           @steps << {:step => step, :type => type, :pattern => pattern, :line => line_number,
+                      :pattern_text => (pattern.is_a?(Regexp) ? pattern.source.gsub('^', '') : pattern),
                       :file_path => full_file_path, :group_tag => name}
         end
         

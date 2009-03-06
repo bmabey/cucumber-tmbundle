@@ -82,6 +82,55 @@ module Cucumber
         end
       end
       
+      describe "#autocomplete_step" do
+        describe "with no matches" do
+          before(:each) do
+            @helper_file.should_receive(:steps_starting_with).with("xxx").and_return([])
+            stdout = StringIO.new
+            @feature_helper.autocomplete_step(stdout, "  Given xxx")
+            stdout.rewind
+            @stdout = stdout.read
+          end
+          it "should print original current_line" do
+            @stdout.should == "  Given xxx"
+          end
+        end
+
+        describe "with 1 match" do
+          before(:each) do
+            @helper_file.should_receive(:steps_starting_with).with("weird step with 1 match").
+              and_return([{:pattern_text => "weird step with 1 match in step files"}])
+            stdout = StringIO.new
+            @feature_helper.autocomplete_step(stdout, "  Given weird step with 1 match")
+            stdout.rewind
+            @stdout = stdout.read
+          end
+          it "should print original current_line" do
+            @stdout.should == "  Given weird step with 1 match in step files"
+          end
+        end
+
+        describe "with multiple matches and choose 1" do
+          before(:each) do
+            @helper_file.should_receive(:steps_starting_with).with("weird step").
+              and_return([
+                {:pattern_text => "weird step with first match in step files"},
+                {:pattern_text => "weird step with second match in step files"}
+              ])
+            TextMateHelper.should_receive(:display_select_list).with([
+              "weird step with first match in step files", "weird step with second match in step files" ]).
+              and_return(0)
+            stdout = StringIO.new
+            @feature_helper.autocomplete_step(stdout, "  Given weird step")
+            stdout.rewind
+            @stdout = stdout.read
+          end
+          it "should print chosen pattern" do
+            @stdout.should == "  Given weird step with first match in step files"
+          end
+        end
+      end
+
       describe "#choose_alternate_file" do
         it "should prompt the user to choose a step file from those included in the runner" do
           # expects

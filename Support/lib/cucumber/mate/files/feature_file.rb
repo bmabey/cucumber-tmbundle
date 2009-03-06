@@ -54,10 +54,8 @@ module Cucumber
         
         def steps_starting_with(step_prefix)
           step_prefix_regex = /^#{step_prefix}/
-          p gather_defined_steps.map { |e| [e[:pattern].class, e[:pattern]] }
           gather_defined_steps.select do |step_def|
-            pattern = step_def[:pattern].is_a?(Regexp) ? step_def[:pattern].source.gsub('^', '') : step_def[:pattern]
-            pattern =~ step_prefix_regex
+            step_def[:pattern_text] =~ step_prefix_regex
           end
         end
         
