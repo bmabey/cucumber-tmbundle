@@ -23,6 +23,7 @@ h3. TODO:
 
 * Background support (the new feature in Cucumber.)
 * Syntax Highlighting for multistrings.(""")
+* Syntax Highlighting for @tags (new Cucumber feature.)
 * Navigation Commands
 ** Goto step definition from feature file. (just need to implement StepDetector.)
 ** From a step definition be able to pull up a list of features using that step and to jump to them.
@@ -105,7 +106,7 @@ h2. Credits
 * **Andre Foeken** - "Original color syntax highlighting":http://movesonrails.com/articles/2007/11/06/rspec-plain-text-stories
 * **Tim Harper** - Update Bundle Command, file detection bug fixes
 * **Aslak Hellesøy** - Rake task improvement, snippet updates, Cucumber! 
-* **Dr. Nic** - Snippet and grammar updates, updated 'Run Focused Scenario' command
+* **Dr. Nic** - Snippet and grammar updates, updated 'Run Focused Scenario' command, Autocomplete Step command
 * **Pedro Visintin** - Syntax fix
 * **Joseph Wilk** - Syntax extentions for 'Scenario Outline'
 * **Sam Livingston-Gray** - Align Table Cells command
