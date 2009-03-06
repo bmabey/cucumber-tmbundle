@@ -120,9 +120,9 @@ module Cucumber
           before(:each) do
             StepDetector.stub!(:new).and_return(@detector = mock('step detector', :step_files_and_names => [{:name => 'basic', :file_path => '/path/to/basic'}]))
             StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [
-              {:step => @step = mock('step', :matches? => true), :type => 'Given', :pattern => "matching string", :line => 3, :column => 5, :file_path => '/path/to/steps', :group_tag => 'basic'},
-              {:step => @step = mock('step', :matches? => true), :type => 'Given', :pattern => /^matching pattern/, :line => 3, :column => 5, :file_path => '/path/to/steps', :group_tag => 'basic'},
-              {:step => @step = mock('step', :matches? => true), :type => 'Given', :pattern => "not matching string", :line => 3, :column => 5, :file_path => '/path/to/steps', :group_tag => 'basic'},
+              {:step => @step = mock('step', :matches? => true), :type => 'Given', :pattern => "matching string", :pattern_text => "matching string", :line => 3, :file_path => '/path/to/steps', :group_tag => 'basic'},
+              {:step => @step = mock('step', :matches? => true), :type => 'Given', :pattern => /^matching pattern/, :pattern_text => "matching pattern", :line => 3, :file_path => '/path/to/steps', :group_tag => 'basic'},
+              {:step => @step = mock('step', :matches? => true), :type => 'Given', :pattern => "not matching string", :pattern_text => "not matching string", :line => 3, :file_path => '/path/to/steps', :group_tag => 'basic'},
             ]))
           end
 
