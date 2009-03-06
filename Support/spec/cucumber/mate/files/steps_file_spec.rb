@@ -82,11 +82,11 @@ module Cucumber
           it "should return a list of step definitions included in this file" do
             @steps_file.step_definitions.should ==
               [
-                {:step => @step, :type => 'Given', :pattern => "Basic step (given)", :line => 1, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
-                {:step => @step, :type => 'Given', :pattern => "another basic step", :line => 5, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
-                {:step => @step, :type => 'Given', :pattern => %r{Basic regexp (.*)}, :line => 9, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
-                {:step => @step, :type => 'When', :pattern => "Basic when", :line => 13, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
-                {:step => @step, :type => 'Then', :pattern => "Basic then", :line => 17, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:step => @step, :type => 'Given', :pattern => "Basic step (given)", :pattern_text => "Basic step (given)", :line => 1, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:step => @step, :type => 'Given', :pattern => "another basic step", :pattern_text => "another basic step", :line => 5, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:step => @step, :type => 'Given', :pattern => %r{Basic regexp (.*)}, :pattern_text => "Basic regexp (.*)", :line => 9, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:step => @step, :type => 'When', :pattern => "Basic when", :pattern_text => "Basic when", :line => 13, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:step => @step, :type => 'Then', :pattern => "Basic then", :pattern_text => "Basic then", :line => 17, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
               ]
           end
         end
