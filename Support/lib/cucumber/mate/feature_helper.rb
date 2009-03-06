@@ -82,7 +82,7 @@ module Cucumber
         silently_create_file(@file.runner_file_path) if !File.file?(@file.runner_file_path) && request_confirmation_to_create_file(@file.runner_file_path)
         steps_file = Files::StepsFile.new(@file.steps_file_path)
         goto_or_create_file(steps_file.full_file_path,
-          :line => steps_file.new_steps_line_number,
+          :line => 1,
           :column => 1,
           :additional_content => Files::StepsFile.create_steps(new_steps, !File.file?(steps_file.full_file_path)))
       end

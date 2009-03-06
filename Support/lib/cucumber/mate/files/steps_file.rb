@@ -32,19 +32,6 @@ module Cucumber
         
         def steps_file?; true; end
         
-        # TODO - what's this for? "steps_for" is not in cucumber
-        def new_steps_line_number
-          if File.file?(full_file_path)
-            contents = File.read(full_file_path)
-            
-            contents.split("\n").each_with_index do |line, index|
-              return index + 2 if line =~ /\s*steps_for/
-            end
-            
-            return 2
-          end
-        end
-        
         def name
           @name ||= super.gsub("_steps", "")
         end

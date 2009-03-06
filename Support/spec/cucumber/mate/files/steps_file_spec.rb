@@ -43,24 +43,6 @@ module Cucumber
           end
         end
         
-        describe "#new_steps_line_number" do
-          describe "when the steps_for line is at the top" do
-            it "should return the next line" do
-              @steps_file.new_steps_line_number.should == 2
-            end
-          end
-          
-          describe "when the steps_for line is not at the top" do
-            before(:each) do
-              @steps_file = StepsFile.new(File.expand_path(File.join(@fixtures_path, %w[features step_definitions additional_basic_steps.rb])))
-            end
-            
-            it "should return the line after steps_for" do
-              @steps_file.new_steps_line_number.should == 7
-            end
-          end
-        end
-        
         describe "#alternate_files_and_names" do
           it "should generate a list of feature files (and names) which use this steps file" do
             pending
