@@ -65,11 +65,13 @@ module Cucumber
         if matching_step_definitions.size > 1
           patterns = matching_step_definitions.map { |step| step[:pattern_text] }
           if choice = TextMateHelper.display_select_list(patterns)
-            stdout.print "#{line_start}#{patterns[choice]}"
+            result = convert_step_definition_regexp_groups_to_snippet_tab_stops(matching_step_definitions[choice])
+            stdout.print "#{line_start}#{result}"
             return
           end
         else
-          stdout.print "#{line_start}#{matching_step_definitions.first[:pattern_text]}"
+          result = convert_step_definition_regexp_groups_to_snippet_tab_stops(matching_step_definitions.first)
+          stdout.print "#{line_start}#{result}"
           return
         end
         stdout.print current_line
@@ -118,6 +120,16 @@ module Cucumber
       
       def step_regexs
         [/^I am on (.+)$/, /I go to (.+)$/, /^I press "(.*)"$/]
+      end
+      
+      def convert_step_definition_regexp_groups_to_snippet_tab_stops(step_def)
+        tab_stop_count = 1
+        snippet_text = step_def[:pattern_text]
+        while snippet_text.match(%r{\(})
+          snippet_text.sub!(%r{\([^)]+\)}, "${#{tab_stop_count}:value}")
+          tab_stop_count += 1
+        end
+        snippet_text
       end
     end
     

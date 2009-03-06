@@ -98,15 +98,15 @@ module Cucumber
 
         describe "with 1 match" do
           before(:each) do
-            @helper_file.should_receive(:steps_starting_with).with("weird step with 1 match").
-              and_return([{:pattern_text => "weird step with 1 match in step files"}])
+            @helper_file.should_receive(:steps_starting_with).with("weird step").
+              and_return([{:pattern_text => 'weird step with (\d+) match in step files'}])
             stdout = StringIO.new
-            @feature_helper.autocomplete_step(stdout, "  Given weird step with 1 match")
+            @feature_helper.autocomplete_step(stdout, "  Given weird step")
             stdout.rewind
             @stdout = stdout.read
           end
           it "should print original current_line" do
-            @stdout.should == "  Given weird step with 1 match in step files"
+            @stdout.should == "  Given weird step with ${1:value} match in step files"
           end
         end
 
@@ -114,11 +114,11 @@ module Cucumber
           before(:each) do
             @helper_file.should_receive(:steps_starting_with).with("weird step").
               and_return([
-                {:pattern_text => "weird step with first match in step files"},
+                {:pattern_text => 'weird step with first (.*) in step (.*)'},
                 {:pattern_text => "weird step with second match in step files"}
               ])
             TextMateHelper.should_receive(:display_select_list).with([
-              "weird step with first match in step files", "weird step with second match in step files" ]).
+              "weird step with first (.*) in step (.*)", "weird step with second match in step files" ]).
               and_return(0)
             stdout = StringIO.new
             @feature_helper.autocomplete_step(stdout, "  Given weird step")
@@ -126,7 +126,7 @@ module Cucumber
             @stdout = stdout.read
           end
           it "should print chosen pattern" do
-            @stdout.should == "  Given weird step with first match in step files"
+            @stdout.should == "  Given weird step with first ${1:value} in step ${2:value}"
           end
         end
       end
