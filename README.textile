@@ -12,6 +12,7 @@ h3. Bundle Features:
 
 * Color highlighting for plain text features (supports all the languages that Cucumber does)
 * Snippets for plain text features and step files.
+* Auto-completion of steps in features (Alt+Escape)
 * Predefined completions (escape key) for common feature keywords.
 * Spellchecking turned on by default for the plain text features.
 * Switch between plain text feature and corresponding step matcher file.
