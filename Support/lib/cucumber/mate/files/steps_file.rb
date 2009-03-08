@@ -60,7 +60,7 @@ module Cucumber
           if File.file?(full_file_path)
             @steps = []
             @file_contents = File.read(full_file_path)
-            @file_contents.gsub!(/^require.*$/, "") # we just want the Given/When/Then steps processed
+            @file_contents.gsub!(/^(include|require).*$/, "") # we just want the Given/When/Then steps processed
             eval(@file_contents)
             @steps
           else

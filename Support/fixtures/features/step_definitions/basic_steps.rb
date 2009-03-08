@@ -1,3 +1,7 @@
+# require and include should be ignored for completion
+require 'not_here'
+include NonExistent
+
 Given "Basic step (given)" do
   Foo.should_not_error
 end
