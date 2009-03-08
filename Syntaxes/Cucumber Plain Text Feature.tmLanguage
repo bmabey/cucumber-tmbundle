@@ -54,7 +54,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>comment</string>
+					<string>comment.line.number-sign</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -152,7 +152,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>string</string>
+					<string>string.quoted.double</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -165,7 +165,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>string</string>
+					<string>string.quoted.single</string>
 				</dict>
 			</dict>
 			<key>match</key>
