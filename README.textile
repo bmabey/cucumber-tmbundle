@@ -104,9 +104,9 @@ h2. Credits
 * **Ben Mabey** - Author/Main contributor
 * **John Thornton** - Author/Main contributor
 * **Andre Foeken** - "Original color syntax highlighting":http://movesonrails.com/articles/2007/11/06/rspec-plain-text-stories
+* **Dr. Nic** - Snippet and grammar updates, updated 'Run Focused Scenario' command, Autocomplete Step command, Scenario Folding
 * **Tim Harper** - Update Bundle Command, file detection bug fixes
 * **Aslak Hellesøy** - Rake task improvement, snippet updates, Cucumber! 
-* **Dr. Nic** - Snippet and grammar updates, updated 'Run Focused Scenario' command, Autocomplete Step command
 * **Pedro Visintin** - Syntax fix
 * **Joseph Wilk** - Syntax extentions for 'Scenario Outline'
 * **Sam Livingston-Gray** - Align Table Cells command
