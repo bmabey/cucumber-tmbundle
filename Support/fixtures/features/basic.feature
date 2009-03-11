@@ -20,5 +20,3 @@ Feature: Basic
     When Basic when
 
     Then Basic then
-    
-    Then 

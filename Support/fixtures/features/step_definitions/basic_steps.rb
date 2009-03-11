@@ -14,7 +14,7 @@ Given %r{Basic regexp (.*)} do |given|
   
 end
 
-Given /classic regex/ do
+Given /classic regexp/ do
   
 end
 
