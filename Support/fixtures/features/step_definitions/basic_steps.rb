@@ -14,10 +14,14 @@ Given %r{Basic regexp (.*)} do |given|
   
 end
 
+Given /classic regex/ do
+  
+end
+
 When "Basic when" do
   
 end
 
-Then "Basic then" do
+Then 'Basic then' do
   
 end
