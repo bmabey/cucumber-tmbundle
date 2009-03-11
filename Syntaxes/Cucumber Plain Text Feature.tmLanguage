@@ -6,6 +6,10 @@
 	<array>
 		<string>feature</string>
 	</array>
+	<key>foldingStartMarker</key>
+	<string>^\s*\b(Cenário|Escenario|MISHUN|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scénario|Skenario|Stsenaarium|Szenario|Tapaus|Сценарий|سيناريو|シナリオ|场景|예:)</string>
+	<key>foldingStopMarker</key>
+	<string>^\s*$</string>
 	<key>keyEquivalent</key>
 	<string>^~C</string>
 	<key>name</key>
