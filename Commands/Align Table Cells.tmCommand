@@ -5,8 +5,8 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby -w
-
+	<string>#!/usr/bin/env sh
+cat &lt;&lt;'RUBYEOF' &gt; /tmp/textmate-command-$$.rb
 #TODO move into Helper object and add some specs
 
 text = ENV['TM_SELECTED_TEXT']
@@ -28,7 +28,11 @@ table_data.each do |line|
       "%-#{ max_length }s" % cell
     } .join('| ') + '|'
 end
-</string>
+
+
+RUBYEOF
+
+${TM_RUBY:-ruby} /tmp/textmate-command-$$.rb; exit_status=$?; rm /tmp/textmate-command-$$.rb; exit $exit_status</string>
 	<key>fallbackInput</key>
 	<string>none</string>
 	<key>input</key>
