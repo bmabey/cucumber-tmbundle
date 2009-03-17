@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'spec/story/step'
 
 module Cucumber
   module Mate
@@ -72,10 +71,9 @@ module Cucumber
         # While evaluating step definitions code - This called when a new step has been parse
         # We need to save these to be able to match plain text 
         def add_step(type, pattern)
-          step = Spec::Story::Step.new(pattern){raise "Step doesn't exist."}
           line_number = caller[1].match(/:(\d+)/).captures.first.to_i
           
-          @steps << {:step => step, :type => type, :pattern => pattern, :line => line_number,
+          @steps << {:type => type, :pattern => pattern, :line => line_number,
                       :pattern_text => (pattern.is_a?(Regexp) ? pattern.source.gsub('^', '') : pattern),
                       :file_path => full_file_path, :group_tag => name}
         end
