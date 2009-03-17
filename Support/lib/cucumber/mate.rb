@@ -18,7 +18,6 @@ if ENV['TM_PROJECT_DIRECTORY']
   end
 end
 require 'spec'
-require 'spec/story'
 
 $LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..')))
 require "cucumber/mate/feature_helper"
