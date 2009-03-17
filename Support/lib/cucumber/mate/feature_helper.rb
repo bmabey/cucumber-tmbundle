@@ -126,7 +126,7 @@ module Cucumber
         tab_stop_count = 1
         snippet_text = step_def[:pattern_text]
         while snippet_text.match(%r{\(})
-          snippet_text.sub!(%r{\([^)]+\)}, "${#{tab_stop_count}:value}")
+          snippet_text.sub!(%r{\(([^)]+)\)}, "${#{tab_stop_count}:\\1}")
           tab_stop_count += 1
         end
         snippet_text
