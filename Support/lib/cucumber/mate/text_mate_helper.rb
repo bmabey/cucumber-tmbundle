@@ -7,6 +7,10 @@ module Cucumber
     
     class TextMateHelper
       class << self
+        # Opens target file_path and sets cursor position
+        # options:
+        #   :line   - line number (default: ENV['TM_LINE_NUMBER'])
+        #   :column - column number (default: 1)
         def goto_file(file_path, options = {})
           TextMate.go_to(options.merge(:file => file_path))
         end

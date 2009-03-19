@@ -31,6 +31,9 @@ module Cucumber
         
         alias :alternate_files_and_names :step_files_and_names
         
+        # Returns the name of a step at a specific line number
+        # e.g. if the step on the target line is: Given a logged in user
+        # then the result would be: { :step_name => "a logged in user" }
         def step_information_for_line(line_number)
           line_index = line_number.to_i-1
                     
@@ -38,23 +41,26 @@ module Cucumber
           return unless line_text && line_text.strip!.match(/^(given|when|then|and)(.*)/i)
           source_step_name = $2.strip
           
-          step_type_line = content_lines[0..line_index].reverse.detect{|l| l.match(/^\s*(given|when|then)\s*(.*)$/i)}
-          source_step_type = $1
-          
-          return {:step_type => source_step_type, :step_name => source_step_name}
+          return {:step_name => source_step_name}
         end
         
         # Right now will return first matching step
+        # Ultimately used by TextMateHelper.goto_file
+        # Returns a hash with keys: :file_path, :line, :pattern, :pattern_text
         def location_of_step(step_info)
           all_defined_steps.each do |step_def|
-            return step_def if step_def[:type] == step_info[:step_type] && step_def[:step].matches?(step_info[:step_name])
+            if step_def[:pattern].is_a?(Regexp)
+              return step_def if step_def[:pattern] =~ step_info[:step_name]
+            else
+              return step_def if step_def[:pattern] == step_info[:step_name]
+            end
           end
-          return nil
+          nil
         end
         
         def steps_starting_with(step_prefix)
           step_prefix_regex = /^#{step_prefix}/
-          gather_defined_steps.select do |step_def|
+          all_defined_steps.select do |step_def|
             step_def[:pattern_text] =~ step_prefix_regex
           end
         end
@@ -91,18 +97,15 @@ module Cucumber
           @content_lines ||= File.read(full_file_path).split("\n")
         end
         
+        # Returns an array of hashes, each describing a Given/When/Then step defined in this step file
+        # Each hash-per-step has the keys: :file_path, :line, :pattern, :pattern_text
         def all_defined_steps
-          @defined_steps ||= gather_defined_steps
-        end                  
-        
-        def gather_defined_steps
-          step_definitions = []
-          step_files_and_names.each do |step_file_info|
+          @defined_steps ||= step_files_and_names.inject([]) do |mem, step_file_info|
             StepsFile.new(step_file_info[:file_path]).step_definitions.each do |step_def|
-              step_definitions << step_def
+              mem << step_def
             end
+            mem
           end
-          step_definitions
         end
       end
       

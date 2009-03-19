@@ -55,6 +55,8 @@ module Cucumber
         
         alias :alternate_files_and_names :feature_files_and_names
         
+        # Returns an array of hashes, each describing a Given/When/Then step defined in this step file
+        # Each hash-per-step has the keys: :file_path, :line, :pattern, :pattern_text
         def step_definitions
           if File.file?(full_file_path)
             @steps = []

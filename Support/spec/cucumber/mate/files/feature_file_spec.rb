@@ -80,11 +80,11 @@ module Cucumber
         
         describe "#alternate_files_and_names" do
           before(:each) do
-            StepDetector.stub!(:new).and_return(mock('step detector', :step_files_and_names => [{:name => 'foo', :file_path => '/path/to/foo'}]))
+            StepDetector.stub!(:new).and_return(mock('step detector', :step_files_and_names => [{:file_path => '/path/to/foo'}]))
           end
           
           it "should return the list of step files being used in the feature" do
-            @feature_file.alternate_files_and_names.should == [{:name => 'foo', :file_path => '/path/to/foo'}]
+            @feature_file.alternate_files_and_names.should == [{:file_path => '/path/to/foo'}]
           end
         end
         
@@ -94,24 +94,27 @@ module Cucumber
           end
           
           it "should return the step information if the line contains a valid step" do
-            @feature_file.step_information_for_line(8).should == {:step_type => 'Given', :step_name => 'Basic step (given)'}
+            @feature_file.step_information_for_line(8).should == {:step_name => 'Basic step (given)'}
           end
           
-          it "should return the correct step type if the step type is 'And'" do
-            @feature_file.step_information_for_line(9).should == {:step_type => 'Given', :step_name => 'another basic step'}
-          end
         end
         
         describe "#location_of_step" do
           describe "when the step definition exists" do
             before(:each) do
-              StepDetector.stub!(:new).and_return(@detector = mock('step detector', :step_files_and_names => [{:name => 'basic', :file_path => '/path/to/basic'}]))
-              StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [{:step => @step = mock('step', :matches? => true), :type => 'Given', :pattern => "string pattern", :line => 3, :column => 5, :file_path => '/path/to/steps'}]))
+              StepDetector.stub!(:new).and_return(@detector = mock('step detector', :step_files_and_names => [{:file_path => '/path/to/basic'}]))
             end
             
-            it "should return the correct file, line and column" do
-              @feature_file.location_of_step({:step_type => 'Given', :step_name => 'string pattern'}).should ==
-                {:step => @step, :type => 'Given', :pattern => "string pattern", :line => 3, :column => 5, :file_path => '/path/to/steps'}
+            it "should return the correct file, line and column for string-based step" do
+              StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [{:pattern => "string pattern", :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic'}]))
+              @feature_file.location_of_step({:step_name => 'string pattern'}).should ==
+                {:pattern => "string pattern", :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic'}
+            end
+
+            it "should return the correct file, line and column for regexp-based step" do
+              StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [{:pattern => /string pattern/, :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic'}]))
+              @feature_file.location_of_step({:step_name => 'string pattern'}).should ==
+                {:pattern => /string pattern/, :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic'}
             end
           end
         end
@@ -184,15 +187,15 @@ module Cucumber
         describe "#undefined_steps" do
           it "should return a unique list of steps not defined in the feature" do
             @feature_file.stub!(:all_steps_in_file).and_return([
-              {:step_type => 'Given', :step_name => 'a member named Foo'},
-              {:step_type => 'When', :step_name => 'Foo walks into a bar'},
-              {:step_type => 'Given', :step_name => 'a member named Foo'}
+              {:step_name => 'a member named Foo'},
+              {:step_name => 'Foo walks into a bar'},
+              {:step_name => 'a member named Foo'}
             ])
                           
             @feature_file.stub!(:location_of_step).and_return(nil)
             @feature_file.undefined_steps.should == ([
-              {:step_type => 'Given', :step_name => 'a member named Foo'},
-              {:step_type => 'When', :step_name => 'Foo walks into a bar'}
+              {:step_name => 'a member named Foo'},
+              {:step_name => 'Foo walks into a bar'}
             ])
           end
         end
