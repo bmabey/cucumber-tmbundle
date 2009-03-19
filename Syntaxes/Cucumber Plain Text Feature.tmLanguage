@@ -98,7 +98,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Arwedd|Característica|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Functionalitate|Functionaliteit|Funcționalitate|Funktionalität|Funzionalità|OH HAI|Omadus|Ominaisuus|Sąvybė|Właściwość|Функционал|خاصية|フィーチャ|功能|기능:)(.*)\b</string>
+			<string>\b(Arwedd|Funcionalidade|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Functionalitate|Functionaliteit|Funcționalitate|Funktionalität|Funzionalità|OH HAI|Omadus|Ominaisuus|Sąvybė|Właściwość|Функционал|خاصية|フィーチャ|功能|기능:)(.*)\b</string>
 		</dict>
 		<key>line_keyword</key>
 		<dict>
