@@ -50,19 +50,6 @@ module Cucumber
           @feature_file.alternate_file_path.should == @feature_file.steps_file_path
         end
         
-        describe ".all" do
-          before(:each) do
-            @project_root = File.expand_path(File.dirname(__FILE__) + "/../../../../fixtures")
-            FeatureFile.should_receive(:full_project_directory).and_return(@project_root)
-          end
-          it "should find all feature files" do
-            expected = %w[features/additional_basic.feature features/basic.feature
-              features/feature1/foo.feature features/non_standard.feature]
-            expected.map! { |path| FeatureFile.new(File.join(@project_root, path)) }
-            FeatureFile.all.should == expected
-          end
-        end
-        
         describe "#name" do
           it "should return the simple name (based off the file name)" do
             @feature_file.name.should == 'basic'
@@ -92,12 +79,15 @@ module Cucumber
         end
         
         describe "#alternate_files_and_names" do
-          before(:each) do
-            StepDetector.stub!(:new).and_return(mock('step detector', :step_files_and_names => [{:file_path => '/path/to/foo'}]))
-          end
-          
           it "should return the list of step files being used in the feature" do
-            @feature_file.alternate_files_and_names.should == [{:file_path => '/path/to/foo'}]
+            @feature_file.alternate_files_and_names.should ==
+              [
+                {:file_path=>"#{@fixtures_path}/features/feature1/step_definitions/foo_steps.rb", :name => 'foo'},
+                {:file_path=>"#{@fixtures_path}/features/non_standard_dir/step_definitions/non_standard_steps.rb", :name => 'non_standard'},
+                {:file_path=>"#{@fixtures_path}/features/step_definitions/additional_basic_steps.rb", :name => 'additional_basic'},
+                {:file_path=>"#{@fixtures_path}/features/step_definitions/basic_steps.rb", :name => 'basic'},
+                {:file_path=>"#{@fixtures_path}/features/step_definitions/global_steps.rb", :name => 'global'}
+              ]
           end
         end
         
@@ -114,32 +104,28 @@ module Cucumber
         
         describe "#location_of_step" do
           describe "when the step definition exists" do
-            before(:each) do
-              StepDetector.stub!(:new).and_return(@detector = mock('step detector', :step_files_and_names => [{:file_path => '/path/to/basic'}]))
-            end
-            
             it "should return the correct file, line and column for string-based step" do
-              StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [{:pattern => "string pattern", :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic'}]))
+              StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [{:pattern => "string pattern", :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic_steps.rb'}], :full_file_path => '/path/to/basic_steps.rb', :name => 'basic'))
               @feature_file.location_of_step({:step_name => 'string pattern'}).should ==
-                {:pattern => "string pattern", :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic'}
+                {:pattern => "string pattern", :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic_steps.rb'}
             end
 
             it "should return the correct file, line and column for regexp-based step" do
-              StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [{:pattern => /string pattern/, :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic'}]))
+              StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [{:pattern => /string pattern/, :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic_steps.rb'}], :full_file_path => '/path/to/basic_steps.rb', :name => 'basic'))
               @feature_file.location_of_step({:step_name => 'string pattern'}).should ==
-                {:pattern => /string pattern/, :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic'}
+                {:pattern => /string pattern/, :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic_steps.rb'}
             end
           end
         end
         
         describe "#steps_starting_with" do
           before(:each) do
-            StepDetector.stub!(:new).and_return(@detector = mock('step detector', :step_files_and_names => [{:name => 'basic', :file_path => '/path/to/basic'}]))
             StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [
               {:pattern => "matching string", :pattern_text => "matching string", :line => 3, :file_path => '/path/to/steps'},
               {:pattern => /^matching pattern/, :pattern_text => "matching pattern", :line => 3, :file_path => '/path/to/steps'},
               {:pattern => "not matching string", :pattern_text => "not matching string", :line => 3, :file_path => '/path/to/steps'},
-            ]))
+            ], :full_file_path => '/path/to/basic_steps.rb', :name => 'basic'))
+            @feature_file.should_receive(:step_files_and_names).at_least(:once).and_return([{:file_path => '/path/to/steps', :name => 'steps'}])
           end
 
           describe "when 1 matching string step definition exists" do
@@ -182,20 +168,6 @@ module Cucumber
             end
           end
         end
-        
-        describe "#includes_step_file?" do
-          before(:each) do
-            StepDetector.stub!(:new).and_return(mock('step detector', :step_files_and_names => [{:name => 'basic steps', :file_path => '/path/to/basic'}]))
-          end
-          
-          it "should return true if the step file name is used by the feature" do
-            @feature_file.includes_step_file?('basic').should be_true
-          end
-          
-          it "should return false if the step file name is not used by the feature" do
-            @feature_file.includes_step_file?('foo').should be_false
-          end
-        end      
         
         describe "#undefined_steps" do
           it "should return a unique list of steps not defined in the feature" do

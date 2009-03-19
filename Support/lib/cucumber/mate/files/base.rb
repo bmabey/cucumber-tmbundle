@@ -29,11 +29,17 @@ module Cucumber
         end
         
         def project_root
-          @project_root ||= full_file_path.gsub(/\/features.+$/, '')
+          @project_root ||= find_project_dir(File.dirname(full_file_path))
         end
         
         def relative_path
           @relative_path ||= full_file_path[project_root.length+1..-1]
+        end
+        
+        def in_project_directory(&block)
+          result = nil
+          Dir.chdir(project_root) { result = yield }
+          result
         end
         
         def default_file_path(kind, name = self.name)
@@ -60,6 +66,21 @@ module Cucumber
           Dir[search_paths[kind]].first || default_file_path(kind)
         end
         
+        def all(kind)
+          in_project_directory do
+            case kind.to_sym
+            when :feature
+              Dir['features/**/*.feature'].map { |f| FeatureFile.new(File.expand_path(f)) }
+            when :steps
+              Dir['features/**/*_steps.rb'].map { |f| StepsFile.new(File.expand_path(f)) }
+            end
+          end
+        end
+        
+        def all_path_and_names(kind)
+          all(kind).map {|file| {:file_path => file.full_file_path, :name => file.name} }
+        end
+        
         def feature_file_path
           file_path(:feature)
         end
@@ -75,6 +96,10 @@ module Cucumber
         def feature_file?; false; end
         def steps_file?; false; end
         
+        def ==(step_or_feature_file)
+          step_or_feature_file.is_a?(self.class) && self.full_file_path == step_or_feature_file.full_file_path
+        end
+        
       private
         def parse_options
           return {} unless File.file?(full_file_path)
@@ -86,6 +111,18 @@ module Cucumber
             hash
           end
         end
+        
+        def find_project_dir(current_dir)
+          return nil unless File.exists?(current_dir)
+          current_dir = File.expand_path(current_dir)
+          FileUtils.chdir(current_dir) do
+            parent_dir = File.expand_path("..")
+            return nil if parent_dir == current_dir
+            boot_file = File.join(current_dir, "features")
+            return File.exists?(boot_file) ? current_dir : find_project_dir(parent_dir)
+          end
+        end
+        
       end
       
     end

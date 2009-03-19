@@ -12,12 +12,6 @@ module Cucumber
             TextMateHelper.snippet_text_for('Feature')
           end
           
-          # Returns FeatureFile instances for each .feature file in current project
-          def all
-            in_project_directory do
-              Dir['**/*.feature'].map { |f| FeatureFile.new(File.expand_path(f)) }
-            end
-          end
         end
         
         def feature_file?; true; end
@@ -35,7 +29,7 @@ module Cucumber
         end
         
         def step_files_and_names
-          StepDetector.new(full_file_path).step_files_and_names
+          all_path_and_names(:steps)
         end
         
         alias :alternate_files_and_names :step_files_and_names
@@ -74,11 +68,6 @@ module Cucumber
           end
         end
         
-        def includes_step_file?(step_file_name)
-          step_file_name = step_file_name.gsub(' steps', '').gsub('_', ' ')
-          step_files_and_names.detect{|step_file_info| step_file_info[:name] == "#{step_file_name} steps"} ? true : false
-        end      
-        
         def undefined_steps
           all_steps_in_file.inject([]) do |undefined_steps, step_info|
             unless location_of_step(step_info) || undefined_steps.any?{|s| s[:step_name] == step_info[:step_name] }
@@ -86,10 +75,6 @@ module Cucumber
             end
             undefined_steps
           end
-        end
-        
-        def ==(feature_file)
-          feature_file.is_a?(FeatureFile) && self.full_file_path == feature_file.full_file_path
         end
         
       protected

@@ -48,7 +48,7 @@ module Cucumber
         end  
     
         def feature_files_and_names
-          FeatureFile.all.map {|feature_file| {:file_path => feature_file.full_file_path} }
+          all_path_and_names(:feature)
         end
         
         alias :alternate_files_and_names :feature_files_and_names

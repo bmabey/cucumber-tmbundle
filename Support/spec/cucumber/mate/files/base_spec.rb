@@ -84,6 +84,26 @@ module Cucumber
             end
           end
           
+          describe "when looking for all existing files" do
+            it "should find all feature files" do
+              expected = %w[additional_basic.feature basic.feature feature1/foo.feature non_standard.feature]
+              expected.map! { |path| FeatureFile.new(File.join(project_root, "features", path)) }
+              @file.all(:feature).should == expected
+            end
+
+            it "should find all steps files" do
+              expected = %w[feature1/step_definitions/foo_steps.rb
+                non_standard_dir/step_definitions/non_standard_steps.rb
+                step_definitions/additional_basic_steps.rb
+                step_definitions/basic_steps.rb
+                step_definitions/global_steps.rb]
+              expected.map! { |path| StepsFile.new(File.join(project_root, "features", path)) }
+              @file.all(:steps).should == expected
+            end
+          end
+
+          
+          
         end # file_path
         
       end
