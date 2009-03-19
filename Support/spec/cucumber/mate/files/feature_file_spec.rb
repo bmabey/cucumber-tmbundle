@@ -50,6 +50,19 @@ module Cucumber
           @feature_file.alternate_file_path.should == @feature_file.steps_file_path
         end
         
+        describe ".all" do
+          before(:each) do
+            @project_root = File.expand_path(File.dirname(__FILE__) + "/../../../../fixtures")
+            FeatureFile.should_receive(:full_project_directory).and_return(@project_root)
+          end
+          it "should find all feature files" do
+            expected = %w[features/additional_basic.feature features/basic.feature
+              features/feature1/foo.feature features/non_standard.feature]
+            expected.map! { |path| FeatureFile.new(File.join(@project_root, path)) }
+            FeatureFile.all.should == expected
+          end
+        end
+        
         describe "#name" do
           it "should return the simple name (based off the file name)" do
             @feature_file.name.should == 'basic'

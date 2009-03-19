@@ -44,13 +44,16 @@ module Cucumber
         end
         
         describe "#alternate_files_and_names" do
+          before(:each) do
+            @project_root = File.expand_path(File.dirname(__FILE__) + "/../../../../fixtures")
+            FeatureFile.should_receive(:full_project_directory).and_return(@project_root)
+          end
           it "should generate a list of feature files (and names) which use this steps file" do
-            # pending
             @steps_file.alternate_files_and_names.should ==
               [
-                {:file_path=>"#{@fixtures_path}/features/feature1/features/foo.feature"},
                 {:file_path=>"#{@fixtures_path}/features/additional_basic.feature"},
                 {:file_path=>"#{@fixtures_path}/features/basic.feature"},
+                {:file_path=>"#{@fixtures_path}/features/feature1/foo.feature"},
                 {:file_path=>"#{@fixtures_path}/features/non_standard.feature"}
               ]
           end

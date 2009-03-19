@@ -69,7 +69,7 @@ module Cucumber
         end        
         
         def name
-          @name ||= full_file_path.match(/\/([^\/]*)\.\w*$/).captures.first
+          @name ||= full_file_path.match(%r{/([^/]*)\.\w*$}).captures.first
         end
         
         def feature_file?; false; end

@@ -1,4 +1,5 @@
 require File.join(File.dirname(__FILE__), %w[.. mate])
+require File.join(File.dirname(__FILE__), %w[path_helper])
 require File.join(File.dirname(__FILE__), %w[text_mate_helper])
 require File.join(File.dirname(__FILE__), 'files')
 
@@ -6,6 +7,8 @@ module Cucumber
   module Mate
       
     class FeatureHelper
+      include PathHelper
+      
       def initialize(full_file_path)
         @full_file_path = full_file_path
         @file = Files::Base.create_from_file_path(full_file_path)
@@ -20,8 +23,8 @@ module Cucumber
           cucumber_opts << '=html'
         end
         argv << "CUCUMBER_OPTS=#{cucumber_opts}"
-                
-        Dir.chdir(full_project_directory) do
+        
+        in_project_directory do
           puts `rake features:standard #{argv.join(' ')}`
         end
       end
@@ -111,11 +114,6 @@ module Cucumber
       
       def default_content(file_path, additional_content)
         Files::Base.default_content_for(file_path, additional_content)
-      end
-      
-      def full_project_directory
-        #TODO: get rid of global
-        File.expand_path(ENV['TM_PROJECT_DIRECTORY'])
       end
       
       def step_regexs

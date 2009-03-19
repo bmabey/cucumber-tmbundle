@@ -1,3 +1,4 @@
+require File.join(File.dirname(__FILE__), %w[.. path_helper])
 module Cucumber
   module Mate
 
@@ -5,12 +6,17 @@ module Cucumber
     
       class FeatureFile < Base
         class << self
+          include PathHelper
+
           def default_content(file_path, additional_content = nil)
             TextMateHelper.snippet_text_for('Feature')
           end
           
+          # Returns FeatureFile instances for each .feature file in current project
           def all
-            []
+            in_project_directory do
+              Dir['**/*.feature'].map { |f| FeatureFile.new(File.expand_path(f)) }
+            end
           end
         end
         
@@ -27,7 +33,6 @@ module Cucumber
         def profile
           content_lines.detect {|line| line =~ /^\s*#\s*profile\s+([\w]+)/} ? $1 : nil
         end
-        
         
         def step_files_and_names
           StepDetector.new(full_file_path).step_files_and_names
@@ -82,6 +87,11 @@ module Cucumber
             undefined_steps
           end
         end
+        
+        def ==(feature_file)
+          feature_file.is_a?(FeatureFile) && self.full_file_path == feature_file.full_file_path
+        end
+        
       protected
         def all_steps_in_file
           file_lines = File.read(full_file_path).split("\n").collect{|l| l.strip}
