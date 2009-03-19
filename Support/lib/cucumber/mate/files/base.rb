@@ -1,3 +1,5 @@
+require 'fileutils'
+
 module Cucumber
   module Mate
     
