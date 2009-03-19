@@ -15,7 +15,8 @@ h3. Bundle Features:
 * Auto-completion of steps in features (Alt+Escape)
 * Predefined completions (escape key) for common feature keywords.
 * Spellchecking turned on by default for the plain text features.
-* Switch between plain text feature and corresponding step matcher file.
+* Switch between plain text feature and corresponding step matcher file. Shft+Ctrl+Down
+* Choose to go any file of opposite kind (step <-> feature) Shft+Ctrl+Up
 * Run a feature with HTML output.
 * Run a single scenario with HTML output.
 
@@ -104,7 +105,7 @@ h2. Credits
 * **Ben Mabey** - Author/Main contributor
 * **John Thornton** - Author/Main contributor
 * **Andre Foeken** - "Original color syntax highlighting":http://movesonrails.com/articles/2007/11/06/rspec-plain-text-stories
-* **Dr. Nic** - Snippet and grammar updates, updated 'Run Focused Scenario' command, Autocomplete Step command, Scenario Folding
+* **Dr. Nic** - Snippet and grammar updates, updated 'Run Focused Scenario' command, Autocomplete Step command, Scenario Folding, Choose Alternate File
 * **Tim Harper** - Update Bundle Command, file detection bug fixes
 * **Aslak Hellesøy** - Rake task improvement, snippet updates, Cucumber! 
 * **Pedro Visintin** - Syntax fix
