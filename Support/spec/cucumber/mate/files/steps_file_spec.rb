@@ -60,12 +60,12 @@ module Cucumber
           it "should return a list of step definitions included in this file" do
             @steps_file.step_definitions.should ==
               [
-                {:type => 'Given', :pattern => "Basic step (given)", :pattern_text => "Basic step (given)", :line => 5, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
-                {:type => 'Given', :pattern => "another basic step", :pattern_text => "another basic step", :line => 9, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
-                {:type => 'Given', :pattern => %r{Basic regexp (.*)}, :pattern_text => "Basic regexp (.*)", :line => 13, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
-                {:type => 'Given', :pattern => /classic regexp/, :pattern_text => "classic regexp", :line => 17, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
-                {:type => 'When', :pattern => "Basic when", :pattern_text => "Basic when", :line => 21, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
-                {:type => 'Then', :pattern => "Basic then", :pattern_text => "Basic then", :line => 25, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:type => 'Given', :pattern => "Basic step (given)", :pattern_text => "Basic step (given)", :line => 1, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:type => 'Given', :pattern => "another basic step", :pattern_text => "another basic step", :line => 5, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:type => 'Given', :pattern => %r{Basic regexp (.*)}, :pattern_text => "Basic regexp (.*)", :line => 9, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:type => 'Given', :pattern => /classic regexp/, :pattern_text => "classic regexp", :line => 13, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:type => 'When', :pattern => "Basic when", :pattern_text => "Basic when", :line => 17, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
+                {:type => 'Then', :pattern => "Basic then", :pattern_text => "Basic then", :line => 21, :file_path => @steps_file.full_file_path, :group_tag => 'basic'},
               ]
           end
         end
