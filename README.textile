@@ -112,6 +112,7 @@ h2. Credits
 * **Joseph Wilk** - Syntax extentions for 'Scenario Outline'
 * **Sam Livingston-Gray** - Align Table Cells command
 * **Grant Hollingworth** - Improved step grammar - regexps syntax highlighting, more precise string and comment scopes. Ignore includes for step completion.
+* **Ben Wiseley** - Fix for FileUtils bug
 
 
 
