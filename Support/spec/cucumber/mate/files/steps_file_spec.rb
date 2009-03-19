@@ -45,13 +45,13 @@ module Cucumber
         
         describe "#alternate_files_and_names" do
           it "should generate a list of feature files (and names) which use this steps file" do
-            pending
+            # pending
             @steps_file.alternate_files_and_names.should ==
               [
-                {:name=>"foo feature", :file_path=>"#{@fixtures_path}/features/feature1/features/foo.feature"},
-                {:name=>"additional basic feature", :file_path=>"#{@fixtures_path}/features/additional_basic.feature"},
-                {:name=>"basic feature", :file_path=>"#{@fixtures_path}/features/basic.feature"},
-                {:name=>"non standard feature", :file_path=>"#{@fixtures_path}/features/non_standard.feature"}
+                {:file_path=>"#{@fixtures_path}/features/feature1/features/foo.feature"},
+                {:file_path=>"#{@fixtures_path}/features/additional_basic.feature"},
+                {:file_path=>"#{@fixtures_path}/features/basic.feature"},
+                {:file_path=>"#{@fixtures_path}/features/non_standard.feature"}
               ]
           end
         end

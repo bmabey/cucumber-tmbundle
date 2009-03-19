@@ -8,6 +8,10 @@ module Cucumber
           def default_content(file_path, additional_content = nil)
             TextMateHelper.snippet_text_for('Feature')
           end
+          
+          def all
+            []
+          end
         end
         
         def feature_file?; true; end
@@ -71,26 +75,22 @@ module Cucumber
         end      
         
         def undefined_steps
-          undefined_steps = []
-          all_steps_in_file.each do |step_info|
-            unless location_of_step(step_info) || undefined_steps.any?{|s| s[:step_type] == step_info[:step_type] && s[:step_name] == step_info[:step_name]}
+          all_steps_in_file.inject([]) do |undefined_steps, step_info|
+            unless location_of_step(step_info) || undefined_steps.any?{|s| s[:step_name] == step_info[:step_name] }
               undefined_steps << step_info
             end
+            undefined_steps
           end
-          undefined_steps
         end
       protected
         def all_steps_in_file
           file_lines = File.read(full_file_path).split("\n").collect{|l| l.strip}
           
-          text_steps = []
-          step_type = 'unknown'
-          file_lines.each do |line|
+          file_lines.inject([]) do |text_steps, line|
             step_type = $1 if line.match(/^(Given|When|Then)\s+/)
             text_steps << {:step_type => step_type, :step_name => $2} if line.match(/^(Given|When|Then|And)\s+(.*)$/)
+            text_steps
           end
-          
-          text_steps
         end
         
         def content_lines

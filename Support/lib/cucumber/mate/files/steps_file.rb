@@ -50,7 +50,7 @@ module Cucumber
         def feature_files_and_names
           feature_files = []
           feature_files = FeatureFile.all.select {|feature| feature.includes_step_file?(name) }
-          feature_files.map {|feature_file| {:name => "#{feature_file.name} feature", :file_path => feature_file.full_file_path} }
+          feature_files.map {|feature_file| {:file_path => feature_file.full_file_path} }
         end
         
         alias :alternate_files_and_names :feature_files_and_names
