@@ -122,7 +122,7 @@ module Cucumber
           before(:each) do
             StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [
               {:pattern => "matching string", :pattern_text => "matching string", :line => 3, :file_path => '/path/to/steps'},
-              {:pattern => /^matching pattern/, :pattern_text => "matching pattern", :line => 3, :file_path => '/path/to/steps'},
+              {:pattern => /^matching pattern (.*) with (\d+) groups/, :pattern_text => "matching pattern (.*) with (\d+) groups", :line => 3, :file_path => '/path/to/steps'},
               {:pattern => "not matching string", :pattern_text => "not matching string", :line => 3, :file_path => '/path/to/steps'},
             ], :full_file_path => '/path/to/basic_steps.rb', :name => 'basic'))
             @feature_file.should_receive(:step_files_and_names).at_least(:once).and_return([{:file_path => '/path/to/steps', :name => 'steps'}])
@@ -141,6 +141,16 @@ module Cucumber
           describe "when 1 matching regex step definition exists" do
             before(:each) do
               @matching_steps = @feature_file.steps_starting_with('matching p')
+            end
+            
+            it "should return the step definition" do
+              @matching_steps.size.should == 1
+            end
+          end
+
+          describe "when 1 matching regex step definition exists where 1 group is matched" do
+            before(:each) do
+              @matching_steps = @feature_file.steps_starting_with('matching pattern xxx with')
             end
             
             it "should return the step definition" do
@@ -167,6 +177,7 @@ module Cucumber
               @matching_steps.size.should == 0
             end
           end
+          
         end
         
         describe "#undefined_steps" do

@@ -64,7 +64,8 @@ module Cucumber
         def steps_starting_with(step_prefix)
           step_prefix_regex = /^#{step_prefix}/
           all_defined_steps.select do |step_def|
-            step_def[:pattern_text] =~ step_prefix_regex
+            next true if step_def[:pattern_text] =~ step_prefix_regex
+            false
           end
         end
         
