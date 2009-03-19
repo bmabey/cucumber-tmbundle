@@ -6,7 +6,7 @@ Given "another basic step" do
   
 end
 
-Given %r{Basic regexp (.*)} do |given|
+Given %r{Basic regexp (.*) with multiple (.*) groups} do |first, second|
   
 end
 
