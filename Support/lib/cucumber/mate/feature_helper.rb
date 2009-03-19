@@ -35,7 +35,7 @@ module Cucumber
       
       def choose_alternate_file
         alternate_files_and_names = @file.alternate_files_and_names
-        if (choice = TextMateHelper.display_select_list(alternate_files_and_names.collect{|h| h[:name]}))
+        if (choice = TextMateHelper.display_select_list(alternate_files_and_names.collect{|h| h[:name] || h[:file_path]}))
           goto_or_create_file(alternate_files_and_names[choice][:file_path])
         end
       end

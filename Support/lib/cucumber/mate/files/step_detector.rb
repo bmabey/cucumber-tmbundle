@@ -11,10 +11,10 @@ module Cucumber
           ).uniq
         end
       
-        # returns [ { :file_path => path } ]
+        # returns [ { :file_path => path, :name =>  StepFile#name } ]
         def step_files_and_names
           @step_files.map do |step_file|
-            { :file_path => File.expand_path(step_file) }
+            { :file_path => File.expand_path(step_file), :name => StepsFile.new(step_file).name }
           end
         end
       end
