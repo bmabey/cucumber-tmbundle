@@ -18,7 +18,7 @@ Cucumber::Mate::FeatureHelper.new(ENV['TM_FILEPATH']).choose_alternate_file</str
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>text.cucumber.feature, source.ruby.cucumber.steps</string>
+	<string>text.cucumber.feature, source.ruby.rspec.cucumber.steps</string>
 	<key>uuid</key>
 	<string>2BCE4864-D70A-4C51-B49D-FB3220130B74</string>
 </dict>
