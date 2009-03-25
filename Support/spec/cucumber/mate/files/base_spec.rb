@@ -22,7 +22,31 @@ module Cucumber
         
         it "should determine the name of the file" do
           @file.name.should == 'basic'
-        end        
+        end
+        
+        describe "#create_from_file_path" do
+          describe "when file name is not valid step nor feature file name" do
+            it "should throw a descriptive exception" do
+              lambda { Base.create_from_file_path("/path/to/some_feature.features") }.should raise_error(InvalidFilePathError)
+            end
+          end
+          describe "when file name is .feature" do
+            before(:each) do
+              @file = Base.create_from_file_path("/path/to/some_feature.feature")
+            end
+            it do
+              @file.class.should == FeatureFile
+            end
+          end
+          describe "when file name is _steps.rb" do
+            before(:each) do
+              @file = Base.create_from_file_path("/path/to/some_steps.rb")
+            end
+            it do
+              @file.class.should == StepsFile
+            end
+          end
+        end
         
         describe "#default_file_path" do
           describe "when the file type is invalid" do

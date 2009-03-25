@@ -8,7 +8,11 @@
 	<string>#!/usr/bin/env ruby
 
 require ENV['TM_BUNDLE_SUPPORT'] + "/lib/cucumber/mate/feature_helper"
-Cucumber::Mate::FeatureHelper.new(ENV['TM_FILEPATH']).choose_alternate_file</string>
+begin
+	Cucumber::Mate::FeatureHelper.new(ENV['TM_FILEPATH']).choose_alternate_file
+rescue Cucumber::Mate::Files::InvalidFilePathError =&gt; e
+	Cucumber::Mate::TextMateHelper.alert e.message
+end</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
