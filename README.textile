@@ -21,10 +21,9 @@ h3. Bundle Features:
 * Run a single scenario with HTML output.
 
 h3. TODO:
-
-* Add Textmate formatter with a clickable backtrace. 
-**"Pending on new Cucumber HTML Developer format.":https://rspec.lighthouseapp.com/projects/16211-cucumber/tickets/264-developer-html-output
-* Need to address how the alternate file works to avoid encouraging "feature-coupled-steps":http://wiki.github.com/aslakhellesoy/cucumber/feature-coupled-steps-antipattern.
+* Add Textmate formatter with a clickable backtrace.
+**  "Pending new Cucumber Developer HTML format.":https://rspec.lighthouseapp.com/projects/16211/tickets/264-developer-html-output#ticket-264-1
+* Rethink Alternative-File Command to avoid encouraging "feature coupled steps.":http://wiki.github.com/aslakhellesoy/cucumber/feature-coupled-steps-antipattern
 * Background support (the new feature in Cucumber.)
 * Syntax Highlighting for multistrings.(""")
 * Syntax Highlighting for @tags (new Cucumber feature.)
@@ -104,11 +103,11 @@ These directory structures can be used together (basic features can reside in th
 
 h2. Credits
 
-The Cucumber bundle is currently being maintained by Ben Mabey and Dr. Nic.
+The Cucumber TM Bundle is currently be maintained by Ben Mabey and Dr. Nic.
 
 * **Ben Mabey** - Author/Main contributor (stuff)
-* **Dr. Nic** - Main contributor (Snippet and grammar updates, updated 'Run Focused Scenario' command, Autocomplete Step command, Scenario Folding, Choose Alternate File)
-* **John Thornton** - Co-Author of RSpec Story Runner Bundle
+* **Dr. Nic** - Main contributor (Snippet and grammar updates, updated 'Run Focused Scenario' command, Autocomplete Step command, Scenario Folding, Choose Alternate File, and more stuff)
+* **John Thornton** - Co-Author of original RSpec Story Runner Bundle
 * **Andre Foeken** - "Original color syntax highlighting":http://movesonrails.com/articles/2007/11/06/rspec-plain-text-stories
 * **Tim Harper** - Update Bundle Command, file detection bug fixes
 * **Aslak Hellesøy** - Rake task improvement, snippet updates, Cucumber! 
@@ -119,11 +118,3 @@ The Cucumber bundle is currently being maintained by Ben Mabey and Dr. Nic.
 * **Ben Wiseley** - Fix for FileUtils bug
 
 
-
-
-
-  
-  
-
-
-		
