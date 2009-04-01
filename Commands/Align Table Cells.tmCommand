@@ -23,10 +23,10 @@ max_lengths = table_data.transpose.map { |col| col.map { |cell| cell.length }.ma
 
 table_data.each do |line|
   puts \
-    initial_space.to_s + \
+    initial_space[0..-2].to_s + \
     line.zip(max_lengths).map { |cell, max_length|
       "%-#{ max_length }s" % cell
-    } .join('| ') + '|'
+    } .join(' | ') + ' |'
 end
 </string>
 	<key>fallbackInput</key>
