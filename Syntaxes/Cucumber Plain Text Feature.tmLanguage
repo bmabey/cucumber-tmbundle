@@ -102,7 +102,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Arwedd|Funcionalidade|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Functionalitate|Functionaliteit|Funcționalitate|Funktionalität|Funzionalità|OH HAI|Omadus|Ominaisuus|Sąvybė|Właściwość|Функционал|خاصية|フィーチャ|功能|기능:)(.*)\b</string>
+			<string>\b(Arwedd|Funcionalidade|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Functionalitate|Functionaliteit|Funcționalitate|Funktionalität|Funzionalità|OH HAI|Omadus|Ominaisuus|Sąvybė|Właściwość|Функционал|خاصية|フィーチャ|功能|기능:)(.*)</string>
 		</dict>
 		<key>line_keyword</key>
 		<dict>
@@ -151,7 +151,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Cenário|Escenario|MISHUN|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scénario|Skenario|Stsenaarium|Szenario|Tapaus|Сценарий|سيناريو|シナリオ|场景|예:)(.*)\b</string>
+			<string>\b(Cenário|Escenario|MISHUN|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scénario|Skenario|Stsenaarium|Szenario|Tapaus|Сценарий|سيناريو|シナリオ|场景|예:)(.*)</string>
 		</dict>
 		<key>strings_double_quote</key>
 		<dict>
