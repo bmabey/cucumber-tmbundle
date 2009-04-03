@@ -48,6 +48,10 @@
 			<key>include</key>
 			<string>#comments</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#tags</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -179,6 +183,19 @@
 			</dict>
 			<key>match</key>
 			<string>\s+[''"]([^''"]+)[''"][\b\s]+</string>
+		</dict>
+		<key>tags</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.tag.cucumber</string>
+				</dict>
+			</dict>
+		 <key>match</key>
+		 <string>(@[^@]+)\b</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>

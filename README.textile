@@ -26,7 +26,6 @@ h3. TODO:
 * Rethink Alternative-File Command to avoid encouraging "feature coupled steps.":http://wiki.github.com/aslakhellesoy/cucumber/feature-coupled-steps-antipattern
 * Background support (the new feature in Cucumber.)
 * Syntax Highlighting for multistrings.(""")
-* Syntax Highlighting for @tags (new Cucumber feature.)
 * Navigation Commands
 ** Goto step definition from feature file. (just need to implement StepDetector.)
 ** From a step definition be able to pull up a list of features using that step and to jump to them.
