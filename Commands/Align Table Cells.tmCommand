@@ -7,27 +7,9 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -w
 
-#TODO move into Helper object and add some specs
+require ENV['TM_BUNDLE_SUPPORT'] + "/lib/cucumber/mate/table_aligner"
 
-text = ENV['TM_SELECTED_TEXT']
-
-text =~ /^(\s*)\|.*$/
-initial_space = $1 
-
-table_data = text.split(/\n/).map { |line|
-  just_cells = line.strip  
-  just_cells.split('|').map{|cell| cell.strip }
-}
-
-max_lengths = table_data.transpose.map { |col| col.map { |cell| cell.length }.max }.flatten
-
-table_data.each do |line|
-  puts \
-    initial_space[0..-2].to_s + \
-    line.zip(max_lengths).map { |cell, max_length|
-      "%-#{ max_length }s" % cell
-    } .join(' | ') + ' |'
-end
+puts(Cucumber::Mate::TableAligner.new.align(ENV['TM_SELECTED_TEXT']))
 </string>
 	<key>fallbackInput</key>
 	<string>none</string>
