@@ -1,8 +1,6 @@
 module PathHelper
-  # assumes that class using this module has a @file variable
+  
   def full_project_directory
-    #TODO: get rid of global
-    # File.expand_path(ENV['TM_PROJECT_DIRECTORY'])
     features_directory = find_project_dir(File.dirname(@full_file_path))
   end
 

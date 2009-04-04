@@ -6,17 +6,6 @@ module Cucumber
     
     describe "a run command", :shared => true do
       
-      before(:each) do
-        Files::Base.stub!(:create_from_file_path).and_return(
-          @file = mock("feature file", :rake_task => nil, :profile => nil, :feature_file_path => 'path_to_feature.feature'))
-        Dir.stub!(:chdir).and_yield
-        Kernel.stub!(:system)
-      end
-      
-      def expect_system_call_to_be_made_with(regex)
-        Kernel.should_receive(:system).with(regex)
-      end
-      
       it "should run with the cucumber command by default" do
         expect_system_call_to_be_made_with(/^cucumber /)
         when_run_is_called
@@ -92,8 +81,18 @@ module Cucumber
     
     describe Runner do
       
+      
       before(:each) do
+        Files::Base.stub!(:create_from_file_path).and_return(
+          @file = mock("feature file", :rake_task => nil, :profile => nil, 
+                        :feature_file_path => 'path_to_feature.feature', :relative_path => 'relative_path.feature'))
+        Dir.stub!(:chdir).and_yield
+        Kernel.stub!(:system)
         File.stub!(:exists?).and_return(false)
+      end
+      
+      def expect_system_call_to_be_made_with(regex)
+        Kernel.should_receive(:system).with(regex)
       end
       
       it "should create a new Files::Base from the passed in file path" do
@@ -137,6 +136,19 @@ module Cucumber
         
       end
       
+      describe "#format_feature" do
+        it "should use cucumber's --autoformat on the specified feature file" do
+          # given
+          runner = Runner.new(output=StringIO.new, "/project/path", "/project/path/feature_file")
+          
+          expect_system_call_to_be_made_with(%r{--autoformat \. relative_path.feature$})
+          
+          # when
+          runner.autoformat_feature
+        end
+      end
+      
+
       
     end
     
