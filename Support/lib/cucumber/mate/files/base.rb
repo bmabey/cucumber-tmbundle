@@ -5,12 +5,17 @@ module Cucumber
 
     module Files
 
+      class InvalidFilePathError < StandardError; end
       class Base
         attr_accessor :full_file_path
 
         class << self
           def create_from_file_path(file_path)
-            klass_from_file_path(file_path).new(file_path)
+            if klass_from_file_path(file_path)
+              klass_from_file_path(file_path).new(file_path)
+            else
+              raise InvalidFilePathError, "Feature files should have suffix .feature; Step definitions should be _steps.rb"
+            end
           end
 
           def default_content_for(file_path, additional_content = nil)
