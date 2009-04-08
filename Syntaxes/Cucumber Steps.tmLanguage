@@ -26,7 +26,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.quoted.ruby</string>
+					<string>string.quoted.double.ruby</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -42,6 +42,10 @@
 			<string>((\1))</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_ruby</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#regex_sub</string>
@@ -56,7 +60,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.quoted.ruby</string>
+					<string>string.quoted.single.ruby</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -75,6 +79,10 @@
 				<dict>
 					<key>include</key>
 					<string>#regex_sub</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_ruby</string>
 				</dict>
 			</array>
 		</dict>
@@ -145,6 +153,138 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>escaped_char</key>
+		<dict>
+			<key>match</key>
+			<string>\\(?:[0-7]{1,3}|x[\da-fA-F]{1,2}|.)</string>
+			<key>name</key>
+			<string>constant.character.escape.ruby</string>
+		</dict>
+		<key>interpolated_ruby</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.ruby</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>source.ruby.embedded.source.empty</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>#\{(\})</string>
+					<key>name</key>
+					<string>source.ruby.embedded.source</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>#\{</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.ruby</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\}</string>
+					<key>name</key>
+					<string>source.ruby.embedded.source</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#nest_curly_and_self</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>source.ruby</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.variable.ruby</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(#@)[a-zA-Z_]\w*</string>
+					<key>name</key>
+					<string>variable.other.readwrite.instance.ruby</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.variable.ruby</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(#@@)[a-zA-Z_]\w*</string>
+					<key>name</key>
+					<string>variable.other.readwrite.class.ruby</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.variable.ruby</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(#\$)[a-zA-Z_]\w*</string>
+					<key>name</key>
+					<string>variable.other.readwrite.global.ruby</string>
+				</dict>
+			</array>
+		</dict>
+		<key>nest_curly_and_self</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>\{</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.scope.ruby</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\}</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#nest_curly_and_self</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>source.ruby</string>
+				</dict>
+			</array>
+		</dict>
 		<key>regex_sub</key>
 		<dict>
 			<key>patterns</key>
