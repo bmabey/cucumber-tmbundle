@@ -117,5 +117,5 @@ The Cucumber TM Bundle is currently be maintained by Ben Mabey and Dr. Nic.
 * **Ben Wiseley** - Fix for FileUtils bug
 * **Ashley Moran** - Improved Align Table Cells command
 * **Jari Bakken** - Syntax Highlighting improvements, include support for @tags.
-
+* **Chris Hoffman** - Improved Step Definition grammar to handle string interpolation when calling other steps.
 
