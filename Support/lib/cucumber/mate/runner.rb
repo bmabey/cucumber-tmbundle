@@ -6,11 +6,12 @@ module Cucumber
 
     class Runner
 
-      def initialize(output, project_directory, full_file_path, cucumber_opts=nil)
+      def initialize(output, project_directory, full_file_path, cucumber_bin = nil, cucumber_opts=nil)
         @file = Files::Base.create_from_file_path(full_file_path)
         @output = output
         @project_directory = project_directory
         @filename_opts = ""
+        @cucumber_bin = cucumber_bin || "cucumber"
         @cucumber_opts = cucumber_opts || "--format=html"
         @cucumber_opts << " --profile=#{@file.profile}" if @file.profile
       end
@@ -51,7 +52,7 @@ module Cucumber
       end
       
       def cucumber_cmd
-        File.exists?(script = "#{@project_directory}/script/cucumber") ? script : "cucumber"
+        File.exists?(script = "#{@project_directory}/script/cucumber") ? script : @cucumber_bin
       end
 
       def in_project_dir(&block)
