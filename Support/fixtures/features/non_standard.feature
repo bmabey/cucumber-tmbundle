@@ -7,6 +7,3 @@ Feature: some feature
   As a role
   I want feature
   So that value
-  
-  When 
-  

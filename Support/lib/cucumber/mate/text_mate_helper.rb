@@ -18,7 +18,7 @@ module Cucumber
         def display_select_list(options)
           ninja_search = "/Applications/NinjaSearch.app/Contents/MacOS/NinjaSearch"
           if File.exists?(ninja_search)
-            data = options.join("\n")
+            data = options.join("\n") # TODO escape single quotes OR store in file
             res = %x{NINJA_DATA='#{data}' #{e_sh ninja_search}  2>/dev/console}
             options.index(res.strip)
           else
