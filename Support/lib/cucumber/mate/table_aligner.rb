@@ -10,7 +10,7 @@ module Cucumber
           just_cells.split('|').map{|cell| cell.strip }
         end
 
-        max_lengths = table_data.transpose.map { |col| col.map { |cell| cell.length }.max }.flatten
+        max_lengths = table_data.transpose.map { |col| col.map { |cell| cell.unpack("U*").length }.max }.flatten
 
         table_data.map do |line|
           initial_space[0..-2].to_s + \
@@ -22,3 +22,4 @@ module Cucumber
     end
   end
 end
+
