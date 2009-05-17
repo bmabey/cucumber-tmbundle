@@ -8,6 +8,13 @@ module Cucumber
         unaligned = "   |    a |b|\n|c|  d   |"
         TableAligner.new.align(unaligned).should == "   | a | b |\n   | c | d |"
       end
+      
+      it "should align a table with multi-byte UTF8 values" do
+        unaligned = "   | a |b|\n" +
+                    "   |÷|  d  |"
+        TableAligner.new.align(unaligned).should == "   | a | b |\n" +
+                                                    "   | ÷ | d |"
+      end
     end
   end
 end
