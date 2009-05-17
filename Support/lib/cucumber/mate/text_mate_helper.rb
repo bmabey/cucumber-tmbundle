@@ -16,7 +16,14 @@ module Cucumber
         end
         
         def display_select_list(options)
-          TextMate::UI.menu(options)
+          ninja_search = "/Applications/NinjaSearch.app/Contents/MacOS/NinjaSearch"
+          if File.exists?(ninja_search)
+            data = options.join("\n")
+            res = %x{NINJA_DATA='#{data}' #{e_sh ninja_search}  2>/dev/console}
+            options.index(res.strip)
+          else
+            TextMate::UI.menu(options)
+          end
         end
         
         def alert(options = {})
