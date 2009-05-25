@@ -9,10 +9,14 @@ class SyntaxGenerator
     feature_keywords_array  = []
     line_keywords_array     = []
 
-    Cucumber.languages.map{|lang| Cucumber.load_language(lang) }.each do |words|
+    Cucumber::LANGUAGES.each do |_, words|
       scenario_keywords_array << words.delete('scenario')
       feature_keywords_array << words.delete('feature')
       scenario_outline_keywords_array << words.delete('scenario_outline')
+
+      # Remove words we're not interested in
+      %w{name native encoding space_after_keyword}.each{|key| words.delete(key)}
+
       line_keywords_array.concat(words.values)
     end
     
