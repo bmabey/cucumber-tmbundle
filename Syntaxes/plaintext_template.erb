@@ -18,10 +18,6 @@
 	<array>
 		<dict>
 			<key>include</key>
-			<string>#scenario_outline_keyword</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#scenario_keyword</string>
 		</dict>
 		<dict>
@@ -42,7 +38,11 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#strings</string>
+			<string>#strings_single_quote</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#strings_double_quote</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -62,7 +62,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>comment</string>
+					<string>comment.line.number-sign</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -115,7 +115,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(<%= line_keywords %>)\b</string>
+			<string>\b(<%= line_keywords %>)\b</string>>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -171,18 +171,31 @@
 			<key>match</key>
 			<string>\b(<%= scenario_outline_keywords %>)(.*)</string>
 		</dict>
-		<key>strings</key>
+		<key>strings_double_quote</key>
 		<dict>
 			<key>captures</key>
 			<dict>
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>string</string>
+					<string>string.quoted.double</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\s+[''"]([^''"]+)[''"][\b\s]+</string>
+			<string>\s+"([^"]+)"[\b\s]+</string>
+		</dict>
+		<key>strings_single_quote</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>string.quoted.single</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\s+'([^']+)'[\b\s]+</string>
 		</dict>
 		<key>tags</key>
 		<dict>
@@ -194,8 +207,8 @@
 					<string>storage.type.tag.cucumber</string>
 				</dict>
 			</dict>
-		 <key>match</key>
-		 <string>(@[^@]+)\b</string>
+			<key>match</key>
+			<string>(@[^@]+)\b</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
