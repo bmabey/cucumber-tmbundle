@@ -102,7 +102,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(<%= feature_keywords %>:)(.*)\b</string>
+			<string>^\s*(<%= feature_keywords %>:)(.*)\b</string>
 		</dict>
 		<key>line_keyword</key>
 		<dict>
@@ -115,7 +115,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(<%= line_keywords %>)\b</string>>
+			<string>^\s*(<%= line_keywords %>)\b</string>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -133,7 +133,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Pending)(.*)\b</string>
+			<string>^\s*(Pending)(.*)\b</string>
 		</dict>
 		<key>scenario_keyword</key>
 		<dict>
@@ -151,7 +151,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(<%= scenario_keywords %>:)(.*)</string>
+			<string>^\s*(<%= scenario_keywords %>:)(.*)</string>
 		</dict>
 		<key>scenario_outline_keyword</key>
 		<dict>
@@ -169,7 +169,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(<%= scenario_outline_keywords %>)(.*)</string>
+			<string>^\s*(<%= scenario_outline_keywords %>)(.*)</string>
 		</dict>
 		<key>strings_double_quote</key>
 		<dict>
