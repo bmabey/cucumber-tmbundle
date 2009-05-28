@@ -1,6 +1,7 @@
 require "#{ENV['TM_SUPPORT_PATH']}/lib/textmate"
 require "#{ENV['TM_SUPPORT_PATH']}/lib/ui"
 require "#{ENV['TM_SUPPORT_PATH']}/lib/exit_codes"
+require "tempfile"
 
 module Cucumber
   module Mate
@@ -17,12 +18,18 @@ module Cucumber
         
         def display_select_list(options)
           ninja_search = "/Applications/NinjaSearch.app/Contents/MacOS/NinjaSearch"
-          if File.exists?(ninja_search)
-            data = options.join("\n") # TODO escape single quotes OR store in file
-            res = %x{NINJA_DATA='#{data}' #{e_sh ninja_search}  2>/dev/console}
-            options.index(res.strip)
+          list = options
+          if list.size > too_many_to_select && File.exists?(ninja_search)
+            data = list.join("\n") # TODO escape single quotes OR store in file
+            res = nil
+            Tempfile.open("ninjasearch-cucumber") do |f|
+              f << data
+              f.flush
+              res = %x{NINJA_DATA='#{f.path}' #{e_sh ninja_search}  2>/dev/console}
+            end
+            list.index(res.strip)
           else
-            TextMate::UI.menu(options)
+            TextMate::UI.menu(list)
           end
         end
         
@@ -51,6 +58,10 @@ module Cucumber
           `osascript &>/dev/null -e 'tell app "SystemUIServer" to activate' -e 'tell app "TextMate" to activate'`
           escaped_content = text.gsub("\n","\\n").gsub('$','\\$').gsub('"','\\\\\\\\\\\\"')
           `osascript &>/dev/null -e "tell app \\"TextMate\\" to insert \\"#{escaped_content}\\" as snippet true"`
+        end
+        
+        def too_many_to_select
+          9
         end
       end
     end
