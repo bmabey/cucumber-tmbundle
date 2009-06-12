@@ -108,7 +108,7 @@ The Cucumber TM Bundle is currently be maintained by Ben Mabey and Dr. Nic.
 * **Dr. Nic** - Main contributor (Snippet and grammar updates, updated 'Run Focused Scenario' command, Autocomplete Step command, Scenario Folding, Choose Alternate File, and more stuff)
 * **John Thornton** - Co-Author of original RSpec Story Runner Bundle
 * **Andre Foeken** - "Original color syntax highlighting":http://movesonrails.com/articles/2007/11/06/rspec-plain-text-stories
-* **Tim Harper** - Update Bundle Command, file detection bug fixes
+* **Tim Harper** - Update Bundle Command, file detection bug fixes, go to step definition fixes
 * **Aslak Hellesøy** - Rake task improvement, snippet updates, Cucumber! 
 * **Pedro Visintin** - Syntax fix
 * **Joseph Wilk** - Syntax extentions for 'Scenario Outline'
