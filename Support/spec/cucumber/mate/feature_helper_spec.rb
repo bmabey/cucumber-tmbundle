@@ -191,7 +191,7 @@ module Cucumber
 
               it "should prompt to create the runner file" do
                 # expects
-                TextMateHelper.should_receive('request_confirmation').twice # once for the runner file, once for the steps file
+                TextMateHelper.should_receive('request_confirmation').once # once for the steps file
                 # when
                 @feature_helper.goto_current_step(1)
               end

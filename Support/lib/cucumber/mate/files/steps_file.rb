@@ -13,7 +13,7 @@ module Cucumber
 
           def create_steps(steps_to_create, already_included_snippet_selection = true)
             sorted_steps = steps_to_create.inject({'Given' => [], 'When' => [], 'Then' => []}) do |steps_so_far, current_step_info|
-              steps_so_far[current_step_info[:step_type]] << current_step_info[:step_name]
+              steps_so_far[current_step_info[:step_type] || 'Then'] << current_step_info[:step_name]
               steps_so_far
             end
 
@@ -59,7 +59,20 @@ module Cucumber
           if File.file?(full_file_path)
             @steps = []
             @file_contents = File.read(full_file_path)
-            @file_contents.gsub!(/^(include|require).*$/, "") # we just want the Given/When/Then steps processed
+            lines = @file_contents.split("\n")
+            lines.each do |line|
+              case line
+              when /\s*(When|Given|Then).+do\s*(\|[^\|]+\|){0,1}\s*(#.+|$)/
+                line << "; end"
+              when /\s*(When|Given|Then)\s*\(.+\)\s*\{\s*.+\s*\}\s*(#.+|$)/
+              when /\s*(When|Given|Then)\s*\(.+\)\s*\{\s*(\|[^\|]+\|){0,1}\s*(#.+|$)/
+                line.gsub!(/#[^#]+$/, '') if $2
+                line << "}"
+              else
+                line.insert(0, "# ")
+              end
+            end
+            @file_contents = lines * "\n"
             instance_eval(@file_contents, full_file_path, 1)
             @steps
           else
