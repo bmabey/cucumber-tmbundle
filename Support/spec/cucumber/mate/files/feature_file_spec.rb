@@ -86,7 +86,8 @@ module Cucumber
                 {:file_path=>"#{@fixtures_path}/features/non_standard_dir/step_definitions/non_standard_steps.rb", :name => 'non_standard'},
                 {:file_path=>"#{@fixtures_path}/features/step_definitions/additional_basic_steps.rb", :name => 'additional_basic'},
                 {:file_path=>"#{@fixtures_path}/features/step_definitions/basic_steps.rb", :name => 'basic'},
-                {:file_path=>"#{@fixtures_path}/features/step_definitions/global_steps.rb", :name => 'global'}
+                {:file_path=>"#{@fixtures_path}/features/step_definitions/global_steps.rb", :name => 'global'},
+                {:file_path=>"#{@fixtures_path}/features/step_definitions/unconventional_steps.rb", :name => 'unconventional'}
               ]
           end
         end
@@ -97,7 +98,7 @@ module Cucumber
           end
           
           it "should return the step information if the line contains a valid step" do
-            @feature_file.step_information_for_line(8).should == {:step_name => 'Basic step (given)'}
+            @feature_file.step_information_for_line(8).should == {:step_name => 'Basic step (given)', :step_type => "Given"}
           end
           
         end
@@ -114,6 +115,13 @@ module Cucumber
               StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [{:pattern => /string pattern/, :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic_steps.rb'}], :full_file_path => '/path/to/basic_steps.rb', :name => 'basic'))
               @feature_file.location_of_step({:step_name => 'string pattern'}).should ==
                 {:pattern => /string pattern/, :pattern_text => "string pattern", :line => 3, :file_path => '/path/to/basic_steps.rb'}
+            end
+
+            it "matches $ tokens in strings" do
+              step = {:pattern => "it should have $count items", :pattern_text => "it should have $count items", :line => 3, :file_path => '/path/to/basic_steps.rb'}
+              StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [step], :full_file_path => '/path/to/basic_steps.rb', :name => 'basic'))
+              @feature_file.location_of_step({:step_name => 'it should have 5 items'}).should ==
+                step
             end
           end
         end

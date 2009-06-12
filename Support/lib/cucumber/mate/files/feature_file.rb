@@ -42,9 +42,17 @@ module Cucumber
 
           line_text = content_lines[line_index]
           return unless line_text && line_text.strip!.match(/^(given|when|then|and)(.*)/i)
+          step_type = $1.capitalize
           source_step_name = $2.strip
+          if step_type == "And"
+            content_lines[0..(line_index - 1)].reverse.detect do |line|
+              if line.strip!.match(/^(given|when|then)(.*)/i)
+                step_type = $1.capitalize
+              end
+            end
+          end
 
-          return {:step_name => source_step_name}
+          return {:step_name => source_step_name, :step_type => step_type}
         end
 
         # Right now will return first matching step
@@ -53,10 +61,11 @@ module Cucumber
         def location_of_step(step_info)
           all_defined_steps.each do |step_def|
             if step_def[:pattern].is_a?(Regexp)
-              return step_def if step_def[:pattern] =~ step_info[:step_name]
+              pattern = step_def[:pattern]
             else
-              return step_def if step_def[:pattern] == step_info[:step_name]
+              pattern = Regexp.new(Regexp.escape(step_def[:pattern].gsub(/\$\w+/, "STRING_MATCHER_TOKEN")).gsub("STRING_MATCHER_TOKEN", "(.+)"))
             end
+            return step_def if pattern =~ step_info[:step_name]
           end
           nil
         end
