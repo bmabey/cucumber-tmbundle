@@ -215,7 +215,7 @@
 	<string>text.cucumber.feature</string>
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
-	<key>ﬁrstLineMatch</key>
+	<key>firstLineMatch</key>
 	<string>Arwedd|Característica|Crikey|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Funcionalidade|Functionalitate|Functionaliteit|Funcționalitate|Funkcionalitāte|Fīča|Funktionalität|Funzionalità|Jellemző|OH HAI|Omadus|Ominaisuus|Požadavek|Požiadavka|Savybė|Tính năng|Właściwość|Функционал|Функционалност|תכונה|خاصية|フィーチャ|機能|功能|기능(.*)</string>
 </dict>
 </plist>
