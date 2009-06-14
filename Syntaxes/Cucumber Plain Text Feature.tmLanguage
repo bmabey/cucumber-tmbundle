@@ -58,6 +58,10 @@
 			<key>include</key>
 			<string>#scenario_outline_variable</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#cucumber_table</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -73,6 +77,24 @@
 			</dict>
 			<key>match</key>
 			<string>\s*(#.*)</string>
+		</dict>
+		<key>cucumber_table</key>
+		<dict>
+			<key>begin</key>
+			<string>^\s*\|</string>
+			<key>end</key>
+			<string>\|\s*$</string>
+			<key>name</key>
+			<string>keyword.control.cucumber.table</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\w</string>
+					<key>name</key>
+					<string>source</string>
+				</dict>
+			</array>
 		</dict>
 		<key>description</key>
 		<dict>
