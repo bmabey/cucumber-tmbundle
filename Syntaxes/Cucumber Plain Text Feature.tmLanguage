@@ -54,6 +54,10 @@
 			<key>include</key>
 			<string>#tags</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#scenario_outline_variable</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -172,6 +176,15 @@
 			</dict>
 			<key>match</key>
 			<string>^\s*(Abstract Scenario|Abstrakt Scenario|All y'all|Blokes|Esquema de l\'escenari|Esquema del escenario|Esquema do Cenário|Esquema do Cenario|Forgatókönyv vázlat|Khung tình huống|Khung kịch bản|MISHUN SRSLY|Náčrt Scenáru|Náčrt Scénáře|Plan du Scénario|Raamstsenaarium|Scenarijaus šablonas|Scenario Outline|Scenārijs pēc parauga|Schema dello scenario|Skenario konsep|Szablon scenariusza|Szenariogrundriss|Tapausaihio|Рамка на сценарий|Структура сценария|תבנית תרחיש|سيناريو مخطط|シナリオアウトライン|シナリオテンプレート|テンプレ|シナリオテンプレ|场景大纲|場景大綱|劇本大綱|시나리오 개요)(.*)</string>
+		</dict>
+		<key>scenario_outline_variable</key>
+		<dict>
+			<key>begin</key>
+			<string>&lt;</string>
+			<key>end</key>
+			<string>&gt;</string>
+			<key>name</key>
+			<string>variable.other</string>
 		</dict>
 		<key>strings_double_quote</key>
 		<dict>
