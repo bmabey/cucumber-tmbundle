@@ -6,6 +6,8 @@
 	<array>
 		<string>feature</string>
 	</array>
+	<key>firstLineMatch</key>
+	<string>Arwedd|Característica|Crikey|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Funcionalidade|Functionalitate|Functionaliteit|Funcționalitate|Funkcionalitāte|Fīča|Funktionalität|Funzionalità|Jellemző|OH HAI|Omadus|Ominaisuus|Požadavek|Požiadavka|Savybė|Tính năng|Właściwość|Функционал|Функционалност|תכונה|خاصية|フィーチャ|機能|功能|기능(.*)</string>
 	<key>foldingStartMarker</key>
 	<string>^\s*\b(Cenário|Cenario|Escenari|Escenario|Forgatókönyv|MISHUN|Mate|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scenár|Scenārijs|Scénario|Scénář|Skenario|Stsenaarium|Szenario|Tapaus|Tình huống|Kịch bản|Сценарий|תרחיש|سيناريو|シナリオ|场景|場景|劇本|시나리오:)</string>
 	<key>foldingStopMarker</key>
@@ -173,29 +175,39 @@
 		</dict>
 		<key>strings_double_quote</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double</string>
+			<key>patterns</key>
+			<array>
 				<dict>
+					<key>match</key>
+					<string>\\.</string>
 					<key>name</key>
-					<string>string.quoted.double</string>
+					<string>constant.character.escape.untitled</string>
 				</dict>
-			</dict>
-			<key>match</key>
-			<string>\s+"([^"]+)"[\b\s]+</string>
+			</array>
 		</dict>
 		<key>strings_single_quote</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
+			<key>begin</key>
+			<string>'</string>
+			<key>end</key>
+			<string>'</string>
+			<key>name</key>
+			<string>string.quoted.single</string>
+			<key>patterns</key>
+			<array>
 				<dict>
+					<key>match</key>
+					<string>\\.</string>
 					<key>name</key>
-					<string>string.quoted.single</string>
+					<string>constant.character.escape</string>
 				</dict>
-			</dict>
-			<key>match</key>
-			<string>\s+'([^']+)'[\b\s]+</string>
+			</array>
 		</dict>
 		<key>tags</key>
 		<dict>
@@ -215,7 +227,5 @@
 	<string>text.cucumber.feature</string>
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
-	<key>firstLineMatch</key>
-	<string>Arwedd|Característica|Crikey|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Funcionalidade|Functionalitate|Functionaliteit|Funcționalitate|Funkcionalitāte|Fīča|Funktionalität|Funzionalità|Jellemző|OH HAI|Omadus|Ominaisuus|Požadavek|Požiadavka|Savybė|Tính năng|Właściwość|Функционал|Функционалност|תכונה|خاصية|フィーチャ|機能|功能|기능(.*)</string>
 </dict>
 </plist>
