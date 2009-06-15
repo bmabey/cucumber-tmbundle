@@ -123,6 +123,12 @@ module Cucumber
               @feature_file.location_of_step({:step_name => 'it should have 5 items'}).should ==
                 step
             end
+
+            it "enforces beginning and end matching with string steps" do
+              step = {:pattern => "it should have $count items", :pattern_text => "it should have $count items", :line => 3, :file_path => '/path/to/basic_steps.rb'}
+              StepsFile.stub!(:new).and_return(@steps = mock('steps file', :step_definitions => [step], :full_file_path => '/path/to/basic_steps.rb', :name => 'basic'))
+              @feature_file.location_of_step({:step_name => 'it should have 5 items and some cheese'}).should == nil
+            end
           end
         end
         

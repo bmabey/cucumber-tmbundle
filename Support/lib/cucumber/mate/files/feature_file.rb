@@ -63,7 +63,7 @@ module Cucumber
             if step_def[:pattern].is_a?(Regexp)
               pattern = step_def[:pattern]
             else
-              pattern = Regexp.new(Regexp.escape(step_def[:pattern].gsub(/\$\w+/, "STRING_MATCHER_TOKEN")).gsub("STRING_MATCHER_TOKEN", "(.+)"))
+              pattern = %r(^#{Regexp.escape(step_def[:pattern].gsub(/\$\w+/, "STRING_MATCHER_TOKEN")).gsub("STRING_MATCHER_TOKEN", "(.+)")}$)
             end
             return step_def if pattern =~ step_info[:step_name]
           end
