@@ -6,6 +6,8 @@
 	<array>
 		<string>feature</string>
 	</array>
+	<key>firstLineMatch</key>
+	<string><%= feature_keywords %>(.*)</string>
 	<key>foldingStartMarker</key>
 	<string>^\s*\b(<%= scenario_keywords %>:)</string>
 	<key>foldingStopMarker</key>
@@ -38,6 +40,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#strings_triple_quote</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#strings_single_quote</string>
 		</dict>
 		<dict>
@@ -51,6 +57,14 @@
 		<dict>
 			<key>include</key>
 			<string>#tags</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#scenario_outline_variable</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#cucumber_table</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -67,6 +81,24 @@
 			</dict>
 			<key>match</key>
 			<string>\s*(#.*)</string>
+		</dict>
+		<key>cucumber_table</key>
+		<dict>
+			<key>begin</key>
+			<string>^\s*\|</string>
+			<key>end</key>
+			<string>\|\s*$</string>
+			<key>name</key>
+			<string>keyword.control.cucumber.table</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\w</string>
+					<key>name</key>
+					<string>source</string>
+				</dict>
+			</array>
 		</dict>
 		<key>description</key>
 		<dict>
@@ -171,31 +203,59 @@
 			<key>match</key>
 			<string>^\s*(<%= scenario_outline_keywords %>)(.*)</string>
 		</dict>
+		<key>scenario_outline_variable</key>
+		<dict>
+			<key>begin</key>
+			<string>&lt;</string>
+			<key>end</key>
+			<string>&gt;</string>
+			<key>name</key>
+			<string>variable.other</string>
+		</dict>
 		<key>strings_double_quote</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double</string>
+			<key>patterns</key>
+			<array>
 				<dict>
+					<key>match</key>
+					<string>\\.</string>
 					<key>name</key>
-					<string>string.quoted.double</string>
+					<string>constant.character.escape.untitled</string>
 				</dict>
-			</dict>
-			<key>match</key>
-			<string>\s+"([^"]+)"[\b\s]+</string>
+			</array>
 		</dict>
 		<key>strings_single_quote</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
+			<key>begin</key>
+			<string>'</string>
+			<key>end</key>
+			<string>'</string>
+			<key>name</key>
+			<string>string.quoted.single</string>
+			<key>patterns</key>
+			<array>
 				<dict>
+					<key>match</key>
+					<string>\\.</string>
 					<key>name</key>
-					<string>string.quoted.single</string>
+					<string>constant.character.escape</string>
 				</dict>
-			</dict>
-			<key>match</key>
-			<string>\s+'([^']+)'[\b\s]+</string>
+			</array>
+		</dict>
+		<key>strings_triple_quote</key>
+		<dict>
+			<key>begin</key>
+			<string>"""</string>
+			<key>end</key>
+			<string>"""</string>
+			<key>name</key>
+			<string>string.quoted.single</string>
 		</dict>
 		<key>tags</key>
 		<dict>
@@ -208,14 +268,12 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(@[^@]+)\b</string>
+			<string>(@[^@]+?)\b</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
 	<string>text.cucumber.feature</string>
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
-	<key>ﬁrstLineMatch</key>
-	<string><%= feature_keywords %>(.*)</string>
 </dict>
 </plist>
