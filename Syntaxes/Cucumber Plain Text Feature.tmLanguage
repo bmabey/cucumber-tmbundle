@@ -40,6 +40,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#strings_triple_quote</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#strings_single_quote</string>
 		</dict>
 		<dict>
@@ -243,6 +247,15 @@
 					<string>constant.character.escape</string>
 				</dict>
 			</array>
+		</dict>
+		<key>strings_triple_quote</key>
+		<dict>
+			<key>begin</key>
+			<string>"""</string>
+			<key>end</key>
+			<string>"""</string>
+			<key>name</key>
+			<string>string.quoted.single</string>
 		</dict>
 		<key>tags</key>
 		<dict>
