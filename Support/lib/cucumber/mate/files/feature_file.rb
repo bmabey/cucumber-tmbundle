@@ -46,7 +46,7 @@ module Cucumber
           source_step_name = $2.strip
           if step_type == "And"
             content_lines[0..(line_index - 1)].reverse.detect do |line|
-              if line.strip!.match(/^(given|when|then)(.*)/i)
+              if line.match(/^\s*(given|when|then)(.*)/i)
                 step_type = $1.capitalize
               end
             end
