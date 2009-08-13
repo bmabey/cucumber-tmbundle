@@ -99,11 +99,12 @@ module Cucumber
         end
         
         def After
-          
         end
         
         def Before
-          
+        end
+        
+        def at_exit
         end
       end
       
