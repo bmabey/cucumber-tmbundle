@@ -97,6 +97,14 @@ module Cucumber
         def Then(pattern)
           add_step('Then', pattern)
         end
+        
+        def After
+          
+        end
+        
+        def Before
+          
+        end
       end
       
     end
