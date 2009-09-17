@@ -98,6 +98,9 @@ module Cucumber
           add_step('Then', pattern)
         end
         
+        def World(helpers)
+        end
+        
         def After
         end
         
