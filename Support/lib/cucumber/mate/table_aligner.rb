@@ -20,21 +20,22 @@ module Cucumber
         lines.each do |line|
           if line.match(/\s*\|/)
             if(!current_table.empty? && line.split('|').size != current_table.last.split('|').size)
-              grouped << current_table
+              grouped << current_table unless current_table.empty?
               current_table = []
             end
             
             current_table << line
           else
-            grouped << current_table
+            grouped << current_table unless current_table.empty?
             grouped << line
             current_table = []
           end
         end
 
-        grouped << current_table
+        grouped << current_table unless current_table.empty?
         grouped
       end
+      
 
       def align_table(table)
         table_data = table.map{|line| line.strip.split('|').map{|cell| cell.strip}}

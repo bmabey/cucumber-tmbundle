@@ -40,13 +40,17 @@ module Cucumber
       
       it "should not throw if number of columns are different" do
         unaligned = [
+          "",
           " |a|b|",
-          " |x|y|z"
+          " |x|y|z",
+          ""
         ]
         
         expected = [
+          "",
           " | a | b |",
-          " | x | y | z |"
+          " | x | y | z |",
+          ""
         ]
         
         TableAligner.new.align(unaligned).should == expected
