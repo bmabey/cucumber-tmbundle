@@ -37,6 +37,20 @@ module Cucumber
 
         TableAligner.new.align(unaligned).should == expected
       end
+      
+      it "should not throw if number of columns are different" do
+        unaligned = [
+          " |a|b|",
+          " |x|y|z"
+        ]
+        
+        expected = [
+          " | a | b |",
+          " | x | y | z |"
+        ]
+        
+        TableAligner.new.align(unaligned).should == expected
+      end
 
       it "should align a table with multi-byte UTF8 values" do
         unaligned = [
