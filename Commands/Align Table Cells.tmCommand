@@ -10,12 +10,12 @@ cat &lt;&lt;'RUBYEOF' &gt; /tmp/cucumber-$$.rb
 
 require ENV['TM_BUNDLE_SUPPORT'] + "/lib/cucumber/mate/table_aligner"
 
-puts(Cucumber::Mate::TableAligner.new.align(ENV['TM_SELECTED_TEXT']))
+puts(Cucumber::Mate::TableAligner.new.align(STDIN.readlines))
 RUBYEOF
 
 ${TM_RUBY:-ruby} -w -Ku /tmp/cucumber-$$.rb; exit_status=$?; rm /tmp/cucumber-$$.rb; exit $exit_status</string>
 	<key>fallbackInput</key>
-	<string>none</string>
+	<string>document</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>

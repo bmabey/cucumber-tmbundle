@@ -1,21 +1,17 @@
 module Cucumber
   module Mate
     class TableAligner
-      def align(table_text)
-        align_all(table_text.split("\n")).join("\n")
-      end
-
-      private
-
-      def align_all(lines)
+      def align(lines)
         group_by_tables(lines).map do |group|
           if(group.is_a? Array)
             align_table(group)
           else
             group
           end
-        end
+        end.flatten
       end
+
+      private
 
       def group_by_tables(lines)
         current_table = []
