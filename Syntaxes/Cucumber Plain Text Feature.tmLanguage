@@ -6,8 +6,10 @@
 	<array>
 		<string>feature</string>
 	</array>
+	<key>firstLineMatch</key>
+	<string>Arwedd|Característica|Crikey|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Funcionalidade|Functionalitate|Functionaliteit|Funcționalitate|Funkcionalitāte|Fīča|Funktionalität|Funzionalità|Jellemző|OH HAI|Omadus|Ominaisuus|Požadavek|Požiadavka|Savybė|Tính năng|Właściwość|Функционал|Функционалност|תכונה|خاصية|フィーチャ|機能|功能|기능(.*)</string>
 	<key>foldingStartMarker</key>
-	<string>^\s*\b(Cenário|Escenario|MISHUN|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scénario|Skenario|Stsenaarium|Szenario|Tapaus|Сценарий|سيناريو|シナリオ|场景|예:)</string>
+	<string>^\s*\b(Cenário|Cenario|Escenari|Escenario|Forgatókönyv|MISHUN|Mate|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scenár|Scenārijs|Scénario|Scénář|Skenario|Stsenaarium|Szenario|Tapaus|Tình huống|Kịch bản|Сценарий|תרחיש|سيناريو|シナリオ|场景|場景|劇本|시나리오:)</string>
 	<key>foldingStopMarker</key>
 	<string>^\s*$</string>
 	<key>keyEquivalent</key>
@@ -38,6 +40,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#strings_triple_quote</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#strings_single_quote</string>
 		</dict>
 		<dict>
@@ -47,6 +53,18 @@
 		<dict>
 			<key>include</key>
 			<string>#comments</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#tags</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#scenario_outline_variable</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#cucumber_table</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -63,6 +81,24 @@
 			</dict>
 			<key>match</key>
 			<string>\s*(#.*)</string>
+		</dict>
+		<key>cucumber_table</key>
+		<dict>
+			<key>begin</key>
+			<string>^\s*\|</string>
+			<key>end</key>
+			<string>\|\s*$</string>
+			<key>name</key>
+			<string>keyword.control.cucumber.table</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\w</string>
+					<key>name</key>
+					<string>source</string>
+				</dict>
+			</array>
 		</dict>
 		<key>description</key>
 		<dict>
@@ -98,7 +134,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Arwedd|Funcionalidade|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Functionalitate|Functionaliteit|Funcționalitate|Funktionalität|Funzionalità|OH HAI|Omadus|Ominaisuus|Sąvybė|Właściwość|Функционал|خاصية|フィーチャ|功能|기능:)(.*)\b</string>
+			<string>^\s*(Arwedd|Característica|Crikey|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Funcionalidade|Functionalitate|Functionaliteit|Funcționalitate|Funkcionalitāte|Fīča|Funktionalität|Funzionalità|Jellemző|OH HAI|Omadus|Ominaisuus|Požadavek|Požiadavka|Savybė|Tính năng|Właściwość|Функционал|Функционалност|תכונה|خاصية|フィーチャ|機能|功能|기능:)(.*)\b</string>
 		</dict>
 		<key>line_keyword</key>
 		<dict>
@@ -111,7 +147,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(A|AN|Aber|Abstrakt Scenario|Ale|Allora|Alors|Als|And|And y'all|Antecedentes|Arabic|Atunci|B4|BUT|Background|Baggrund|Bahasa Indonesia|Bakgrund|Bakgrunn|Beispiele|Bet|But|But y'all|Cand|Chinese simplified|Contoh|Cuando|Cymraeg|Când|DEN|Daca|Dacă|Dado|Dan|Dane|Danish|Dann|Dar|Dato|Dengan|Deutsch|Duota|Dutch|E|EXAMPLZ|Eeldades|Ejemplos|Eksempler|En|Enghreifftiau|English|Entonces|Então|Esquema del escenario|Estonian|Et|Etant donné|Examples|Exempel|Exemples|Finnish|French|GIVN|Gegeben sei|Gegeven|German|Gitt|Given|Given y'all|Givet|Indonesian|Ir|Italian|Ja|Japanese|Jeżeli|Kai|Ketika|Korean|Kui|Kuid|Kun|LOLCAT|Lithuanian|Lorsque|MISHUN SRSLY|Ma|Maar|Mais|Maka|Mas|Men|Mutta|Nederlands|Niin|Norwegian|När|Når|Och|Og|Oletetaan|Ond|Oraz|Pavyzdžių|Pero|Più esempi|Polish|Portuguese|Pryd|Quando|Romanian|Romanian (diacritical)|Russian|Scenario Outline|Scénario esquisse|Shift_JIS|Si|Siis|Skenario konsep|Spanish|Svenska|Swedish|Szenariogrundriss|Så|Tada|Tapaukset|Tapausaihio|Tapi|Texan|Then|Then y'all|UTF-8|Und|WEN|Welsh|Wenn|When|When y'all|Wtedy|Y|Yna|anrhegedig a|dansk|eesti keel|español|français|italiano|lietuvių kalba|norsk|polski|português|română|română (diacritical)|suomi|Și|Если|И|Но|Сначала|То|русский язык|اذاً|العربية|بفرض|لكن|متى|و|かつ|しかし|ならば|もし|中文|他のサンプル|但是|假如|前提|当|日本語|而且|那么|그러면|그리고|만일|조건|하지만|한국어)\b</string>
+			<string>^\s*(A|AN|Aber|Achtergrond|Akkor|Ale|Aleshores|Allora|Alors|Als|And|And y'all|Antecedentes|Atunci|B4|BUT|Background|Baggrund|Bakgrund|Bakgrunn|Beispiele|Bet|Biết|Cho|But|But y'all|Bối cảnh|Cand|Cept|Cobber|Contesto|Contexte|Contexto|Contoh|Cuando|Când|DEN|Daca|Dacă|Dado|Dan|Dann|Dar|Dasar|Dato|De|Dengan|Donat|Duota|Dữ liệu|E|EXAMPLZ|Eeldades|Ejemplos|Eksempler|En|Enghreifftiau|Entonces|Então|Entao|Esempi|Et|Examples|Examples|Scenarios|Exempel|Exemples|Exemplos|Gegeben sei|Gegeven|Gitt|Given|Given y'all|Givet|Grundlage|Ha|Háttér|I|I CAN HAZ|Ir|Ja|Jeżeli|Juhtumid|Kad|Kai|Když|Ketika|Keď|Khi|Kontekstas|Konteksts|Situācija|Kui|Kuid|Kun|Lorsque|Ma|Maar|Mais|Majd|Maka|Mas|Men|Mutta|N|Nhưng|Niin|När|Når|Och|Og|Oletetaan|Ond|Oraz|Pak|Pavyzdžiai|Scenarijai|Variantai|Pero|Però|Piemēri|Paraugs|Pokiaľ|Pokud|Pozadie|Pozadí|Pryd|Przykłady|Príklady|Példák|Příklady|Quan|Quando|Rerefons|Si|Siis|Soit|Så|Tad|Tada|Tak|Tapaukset|Tapi|Taust|Tausta|Then|Then y'all|Thì|Un|Und|Voorbeelden|Và|WEN|Wenn|When|When y'all|Wtedy|Y|Ya gotta|Ya know how|Yna|Zakładając|Założenia|anrhegedig a|És|Și|Дадено|Допустим|Если|Значения|И|И|К тому же|Когато|Но|Но|А|Предистория|Предыстория|Примери|То|אבל|אז|אזי|בהינתן|דוגמאות|וגם|כאשר|רקע|اذاً|ثم|الخلفية|امثلة|بفرض|لكن|متى|عندما|و|かつ|しかし|但し|ならば|もし|但是|例|サンプル|例子|假如|假設|前提|当|當|而且|而且|並且|背景|那么|那麼|그러면|그리고|만일|배경|예|조건|하지만)\b</string>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -129,7 +165,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Pending)(.*)\b</string>
+			<string>^\s*(Pending)(.*)\b</string>
 		</dict>
 		<key>scenario_keyword</key>
 		<dict>
@@ -147,40 +183,97 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(Cenário|Escenario|MISHUN|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scénario|Skenario|Stsenaarium|Szenario|Tapaus|Сценарий|سيناريو|シナリオ|场景|예:)(.*)\b</string>
+			<string>^\s*(Cenário|Cenario|Escenari|Escenario|Forgatókönyv|MISHUN|Mate|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scenár|Scenārijs|Scénario|Scénář|Skenario|Stsenaarium|Szenario|Tapaus|Tình huống|Kịch bản|Сценарий|תרחיש|سيناريو|シナリオ|场景|場景|劇本|시나리오:)(.*)</string>
+		</dict>
+		<key>scenario_outline_keyword</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.language.cucumber.feature.scenario_outline</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>string.language.cucumber.feature.scenario_outline.title</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*(Abstract Scenario|Abstrakt Scenario|All y'all|Blokes|Esquema de l\'escenari|Esquema del escenario|Esquema do Cenário|Esquema do Cenario|Forgatókönyv vázlat|Khung tình huống|Khung kịch bản|MISHUN SRSLY|Náčrt Scenáru|Náčrt Scénáře|Plan du Scénario|Raamstsenaarium|Scenarijaus šablonas|Scenario Outline|Scenārijs pēc parauga|Schema dello scenario|Skenario konsep|Szablon scenariusza|Szenariogrundriss|Tapausaihio|Рамка на сценарий|Структура сценария|תבנית תרחיש|سيناريو مخطط|シナリオアウトライン|シナリオテンプレート|テンプレ|シナリオテンプレ|场景大纲|場景大綱|劇本大綱|시나리오 개요)(.*)</string>
+		</dict>
+		<key>scenario_outline_variable</key>
+		<dict>
+			<key>begin</key>
+			<string>&lt;</string>
+			<key>end</key>
+			<string>&gt;</string>
+			<key>name</key>
+			<string>variable.other</string>
 		</dict>
 		<key>strings_double_quote</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double</string>
+			<key>patterns</key>
+			<array>
 				<dict>
+					<key>match</key>
+					<string>\\.</string>
 					<key>name</key>
-					<string>string.quoted.double</string>
+					<string>constant.character.escape.untitled</string>
 				</dict>
-			</dict>
-			<key>match</key>
-			<string>\s+"([^"]+)"[\b\s]+</string>
+			</array>
 		</dict>
 		<key>strings_single_quote</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;![a-zA-Z"])'</string>
+			<key>end</key>
+			<string>'(?![a-zA-Z])</string>
+			<key>name</key>
+			<string>string.quoted.single</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>constant.character.escape</string>
+				</dict>
+			</array>
+		</dict>
+		<key>strings_triple_quote</key>
+		<dict>
+			<key>begin</key>
+			<string>"""</string>
+			<key>end</key>
+			<string>"""</string>
+			<key>name</key>
+			<string>string.quoted.single</string>
+		</dict>
+		<key>tags</key>
 		<dict>
 			<key>captures</key>
 			<dict>
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>string.quoted.single</string>
+					<string>storage.type.tag.cucumber</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\s+'([^']+)'[\b\s]+</string>
+			<string>(@[^@]+?)\b</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
 	<string>text.cucumber.feature</string>
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
-	<key>ﬁrstLineMatch</key>
-	<string>Arwedd|Característica|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Functionalitate|Functionaliteit|Funcționalitate|Funktionalität|Funzionalità|OH HAI|Omadus|Ominaisuus|Sąvybė|Właściwość|Функционал|خاصية|フィーチャ|功能|기능(.*)</string>
 </dict>
 </plist>

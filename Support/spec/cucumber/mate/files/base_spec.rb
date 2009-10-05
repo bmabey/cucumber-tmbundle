@@ -120,7 +120,9 @@ module Cucumber
                 non_standard_dir/step_definitions/non_standard_steps.rb
                 step_definitions/additional_basic_steps.rb
                 step_definitions/basic_steps.rb
-                step_definitions/global_steps.rb]
+                step_definitions/global_steps.rb
+                step_definitions/unconventional_steps.rb
+                ]
               expected.map! { |path| StepsFile.new(File.join(project_root, "features", path)) }
               @file.all(:steps).should == expected
             end
