@@ -15,27 +15,29 @@ module Cucumber
 
       def group_by_tables(lines)
         current_table = []
-        grouped = []
+        groups = []
 
         lines.each do |line|
           if line.match(/\s*\|/)
             if(!current_table.empty? && line.split('|').size != current_table.last.split('|').size)
-              grouped << current_table unless current_table.empty?
-              current_table = []
+              current_table = new_table(groups, current_table)
             end
             
             current_table << line
           else
-            grouped << current_table unless current_table.empty?
-            grouped << line
-            current_table = []
+            current_table = new_table(groups, current_table)
+            groups << line
           end
         end
 
-        grouped << current_table unless current_table.empty?
-        grouped
+        new_table(groups, current_table)
+        groups
       end
       
+      def new_table(groups, current_table)
+        groups << current_table unless current_table.empty?
+        []
+      end
 
       def align_table(table)
         table_data = table.map{|line| line.strip.split('|').map{|cell| cell.strip}}
