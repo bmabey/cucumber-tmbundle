@@ -62,9 +62,10 @@ module Cucumber
                 {:pattern => "Basic step (given)", :pattern_text => "Basic step (given)", :line => 1, :file_path => @steps_file.full_file_path},
                 {:pattern => "another basic step", :pattern_text => "another basic step", :line => 5, :file_path => @steps_file.full_file_path},
                 {:pattern => %r{Basic regexp (.*) with multiple (.*) groups}, :pattern_text => "Basic regexp (.*) with multiple (.*) groups", :line => 9, :file_path => @steps_file.full_file_path},
-                {:pattern => /classic regexp/, :pattern_text => "classic regexp", :line => 13, :file_path => @steps_file.full_file_path},
-                {:pattern => "Basic when", :pattern_text => "Basic when", :line => 17, :file_path => @steps_file.full_file_path},
-                {:pattern => "Basic then", :pattern_text => "Basic then", :line => 21, :file_path => @steps_file.full_file_path},
+                {:pattern => /Some quoted regexp "(.*)" and '(.*)'/, :pattern_text => "Some quoted regexp \"(.*)\" and '(.*)'", :line => 13, :file_path => @steps_file.full_file_path},
+                {:pattern => /classic regexp/, :pattern_text => "classic regexp", :line => 17, :file_path => @steps_file.full_file_path},
+                {:pattern => "Basic when", :pattern_text => "Basic when", :line => 21, :file_path => @steps_file.full_file_path},
+                {:pattern => "Basic then", :pattern_text => "Basic then", :line => 25, :file_path => @steps_file.full_file_path},
               ]
           end
           
