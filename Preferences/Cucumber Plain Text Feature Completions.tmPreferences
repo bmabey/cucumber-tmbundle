@@ -18,7 +18,6 @@
 			<string>Scenario:</string>
 			<string>Scenario Outline:</string>
 			<string>Given</string>
-			<string>GivenScenario</string>
 			<string>Then</string>
 			<string>When</string>
 			<string>And</string>

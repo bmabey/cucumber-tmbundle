@@ -580,32 +580,6 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Cucumber Feature description keywords</string>
-			<key>scope</key>
-			<string>keyword.language.cucumber.feature.description</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>italic</string>
-				<key>foreground</key>
-				<string>#A9CCEA</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Cucumber Feature description strings</string>
-			<key>scope</key>
-			<string>string.language.cucumber.feature.description</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>italic</string>
-				<key>foreground</key>
-				<string>#A9CCEA</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
 			<string>Cucumber Scenario Keyword</string>
 			<key>scope</key>
 			<string>keyword.language.cucumber.feature.scenario</string>

@@ -104,24 +104,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>description</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.language.cucumber.feature.description</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>string.language.cucumber.feature.description</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(As an|As a|I want|So that|In order)(.*)</string>
-		</dict>
 		<key>feature_keyword</key>
 		<dict>
 			<key>captures</key>
