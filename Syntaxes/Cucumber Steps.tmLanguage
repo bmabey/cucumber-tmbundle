@@ -160,7 +160,7 @@
 			<key>comment</key>
 			<string>embedded Cucumber feature</string>
 			<key>contentName</key>
-			<string>text.sql.embedded.ruby</string>
+			<string>text.cucumber.embedded.ruby</string>
 			<key>end</key>
 			<string>\s*CUCUMBER$</string>
 			<key>endCaptures</key>
