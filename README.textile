@@ -20,14 +20,13 @@ h3. Bundle Features:
 * Run a feature with HTML output.
 * Run a single scenario with HTML output.
 
+For a better HTML output please see "this plugin":http://robaldred.co.uk/2009/08/cucumber-pretty-html-formatter-for-textmate/.
+
+
+
 h3. TODO:
-* Add Textmate formatter with a clickable backtrace.
-**  "Pending new Cucumber Developer HTML format.":https://rspec.lighthouseapp.com/projects/16211/tickets/264-developer-html-output#ticket-264-1
 * Rethink Alternative-File Command to avoid encouraging "feature coupled steps.":http://wiki.github.com/aslakhellesoy/cucumber/feature-coupled-steps-antipattern
-* Background support (the new feature in Cucumber.)
-* Syntax Highlighting for multistrings.(""")
 * Navigation Commands
-** Goto step definition from feature file. (just need to implement StepDetector.)
 ** From a step definition be able to pull up a list of features using that step and to jump to them.
 * Automatically create template step file with pending steps based on the steps used in the feature.
 ** Use Cucumber's built in functionality to do this and clean out the story bundle's way.
@@ -108,10 +107,10 @@ The Cucumber TM Bundle is currently be maintained by Ben Mabey and Dr. Nic.
 * **Dr. Nic** - Main contributor (Snippet and grammar updates, updated 'Run Focused Scenario' command, Autocomplete Step command, Scenario Folding, Choose Alternate File, and more stuff)
 * **John Thornton** - Co-Author of original RSpec Story Runner Bundle
 * **Andre Foeken** - "Original color syntax highlighting":http://movesonrails.com/articles/2007/11/06/rspec-plain-text-stories
-* **Tim Harper** - Update Bundle Command, file detection bug fixes, go to step definition fixes, step grammer enhancements.
+* **Tim Harper** - Update Bundle Command, file detection bug fixes, go to step definition fixes, step grammar enhancements.
 * **Aslak Hellesøy** - Rake task improvement, snippet updates, Cucumber! 
 * **Pedro Visintin** - Syntax fix
-* **Joseph Wilk** - Syntax extentions for 'Scenario Outline'
+* **Joseph Wilk** - Syntax extensions for 'Scenario Outline'
 * **Sam Livingston-Gray** - Align Table Cells command
 * **Grant Hollingworth** - Improved step grammar - regexps syntax highlighting, more precise string and comment scopes. Ignore includes for step completion.
 * **Ben Wiseley** - Fix for FileUtils bug
