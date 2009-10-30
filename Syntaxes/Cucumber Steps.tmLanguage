@@ -147,6 +147,41 @@
 			</array>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>(?&gt;&lt;&lt;-CUCUMBER\b)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.ruby</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>embedded Cucumber feature</string>
+			<key>contentName</key>
+			<string>text.sql.embedded.ruby</string>
+			<key>end</key>
+			<string>\s*CUCUMBER$</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.ruby</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.unquoted.embedded.cucumber.feature</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>text.cucumber.feature</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
 			<key>include</key>
 			<string>source.ruby</string>
 		</dict>
