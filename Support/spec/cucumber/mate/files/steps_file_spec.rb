@@ -70,12 +70,12 @@ module Cucumber
           
           it "should parse unconventional step definitions" do
             StepsFile.new(File.expand_path(File.join(@fixtures_path, %w[features step_definitions unconventional_steps.rb]))).step_definitions.should == [
-              {:pattern_text => "one liner with comment",           :pattern => "one liner with comment", :file_path => "/Users/timcharper/Library/Application Support/TextMate/Bundles/Cucumber.tmbundle/Support/fixtures/features/step_definitions/unconventional_steps.rb", :line => 1},
-              {:pattern_text => "one liner with trailing space",    :pattern => "one liner with trailing space", :file_path => "/Users/timcharper/Library/Application Support/TextMate/Bundles/Cucumber.tmbundle/Support/fixtures/features/step_definitions/unconventional_steps.rb", :line => 3},
-              {:pattern_text => "one liner with no trailing space", :pattern => "one liner with no trailing space", :file_path => "/Users/timcharper/Library/Application Support/TextMate/Bundles/Cucumber.tmbundle/Support/fixtures/features/step_definitions/unconventional_steps.rb", :line => 5},
-              {:pattern_text => "braces with a comment",            :pattern => "braces with a comment", :file_path => "/Users/timcharper/Library/Application Support/TextMate/Bundles/Cucumber.tmbundle/Support/fixtures/features/step_definitions/unconventional_steps.rb", :line => 7},
-              {:pattern_text => "braces with a trailing space",     :pattern => "braces with a trailing space", :file_path => "/Users/timcharper/Library/Application Support/TextMate/Bundles/Cucumber.tmbundle/Support/fixtures/features/step_definitions/unconventional_steps.rb", :line => 10},
-              {:pattern_text => "braces no trailing space",         :pattern => "braces no trailing space", :file_path => "/Users/timcharper/Library/Application Support/TextMate/Bundles/Cucumber.tmbundle/Support/fixtures/features/step_definitions/unconventional_steps.rb", :line => 13}
+              {:pattern_text => "one liner with comment",           :pattern => "one liner with comment", :file_path => "#{@fixtures_path}/features/step_definitions/unconventional_steps.rb", :line => 1},
+              {:pattern_text => "one liner with trailing space",    :pattern => "one liner with trailing space", :file_path => "#{@fixtures_path}/features/step_definitions/unconventional_steps.rb", :line => 3},
+              {:pattern_text => "one liner with no trailing space", :pattern => "one liner with no trailing space", :file_path => "#{@fixtures_path}/features/step_definitions/unconventional_steps.rb", :line => 5},
+              {:pattern_text => "braces with a comment",            :pattern => "braces with a comment", :file_path => "#{@fixtures_path}/features/step_definitions/unconventional_steps.rb", :line => 7},
+              {:pattern_text => "braces with a trailing space",     :pattern => "braces with a trailing space", :file_path => "#{@fixtures_path}/features/step_definitions/unconventional_steps.rb", :line => 10},
+              {:pattern_text => "braces no trailing space",         :pattern => "braces no trailing space", :file_path => "#{@fixtures_path}/features/step_definitions/unconventional_steps.rb", :line => 13}
             ]
           end
         end
