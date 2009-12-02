@@ -47,7 +47,7 @@ module Cucumber
         table_data.map do |line|
           initial_space[0..-2].to_s + \
           line.zip(max_lengths).map { |cell, max_length|
-            "%-#{ max_length }s" % cell
+            cell + " " * (max_length - cell.unpack("U*").length)
           }.join(' | ') + ' |'
         end
       end

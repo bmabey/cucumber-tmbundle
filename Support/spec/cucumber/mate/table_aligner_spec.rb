@@ -58,13 +58,13 @@ module Cucumber
 
       it "should align a table with multi-byte UTF8 values" do
         unaligned = [
-          "   | a |b|",
+          "   | aa |b|",
           "   |÷|  d  |"
         ]
         
         expected = [
-          "   | a | b |",
-          "   | ÷ | d |"
+          "   | aa | b |",
+          "   | ÷  | d |"
         ]
         
         TableAligner.new.align(unaligned).should == expected
