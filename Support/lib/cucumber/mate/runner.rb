@@ -41,11 +41,11 @@ module Cucumber
         argv = []
         if @file.rake_task
           command = RAKE_BIN
-          argv << "FEATURE=#{@file.feature_file_path}"
+          argv << "FEATURE=#{@file.full_file_path}"
           argv << %Q{CUCUMBER_OPTS="#{@cucumber_opts}"}
         else
           command = cucumber_cmd
-          argv << "#{@file.feature_file_path}#{@filename_opts}"
+          argv << "#{@file.full_file_path}#{@filename_opts}"
           argv << @cucumber_opts
         end
         in_project_dir do
