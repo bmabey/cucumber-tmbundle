@@ -37,7 +37,7 @@ module Cucumber
 
         TableAligner.new.align(unaligned).should == expected
       end
-      
+
       it "should not throw if number of columns are different" do
         unaligned = [
           "",
@@ -45,14 +45,14 @@ module Cucumber
           " |x|y|z",
           ""
         ]
-        
+
         expected = [
           "",
           " | a | b |",
           " | x | y | z |",
           ""
         ]
-        
+
         TableAligner.new.align(unaligned).should == expected
       end
 
@@ -61,12 +61,26 @@ module Cucumber
           "   | aa |b|",
           "   |÷|  d  |"
         ]
-        
+
         expected = [
           "   | aa | b |",
           "   | ÷  | d |"
         ]
-        
+
+        TableAligner.new.align(unaligned).should == expected
+      end
+
+      it "should align a table that has cells with no content" do
+        unaligned = [
+          "   |a|b|",
+          "   |||"
+        ]
+
+        expected = [
+          "   | a | b |",
+          "   |   |   |"
+        ]
+
         TableAligner.new.align(unaligned).should == expected
       end
     end
