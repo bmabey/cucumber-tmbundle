@@ -19,28 +19,22 @@ module Cucumber
 
         lines.each do |line|
           if line.match(/\s*\|/)
-            if(!current_table.empty? && split_line(line).size != split_line(current_table.last).size)
-              current_table = new_table(groups, current_table)
-            end
-
             current_table << line
           else
-            current_table = new_table(groups, current_table)
+            groups << current_table unless current_table.empty?
             groups << line
+            current_table = []
           end
         end
 
-        new_table(groups, current_table)
-        groups
-      end
-
-      def new_table(groups, current_table)
         groups << current_table unless current_table.empty?
-        []
+        groups
       end
 
       def align_table(table)
         table_data = table.map{|line| split_line(line).map{|cell| cell.strip}}
+        max_columns = table_data.inject(0) {|memo, row| memo > row.size ? memo : row.size}
+        table_data = table_data.map{|row| row.concat([""] * (max_columns - row.size))}
         max_lengths =  table_data.transpose.map { |col| col.map { |cell| cell.unpack("U*").length }.max }.flatten
         initial_space = table.first.match(/(\s*)|/)[1]
 

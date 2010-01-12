@@ -38,18 +38,20 @@ module Cucumber
         TableAligner.new.align(unaligned).should == expected
       end
 
-      it "should not throw if number of columns are different" do
+      it "should pad short rows out to the longest row" do
         unaligned = [
           "",
           " |a|b|",
           " |x|y|z",
+          " |",
           ""
         ]
 
         expected = [
           "",
-          " | a | b |",
+          " | a | b |   |",
           " | x | y | z |",
+          " |   |   |   |",
           ""
         ]
 
