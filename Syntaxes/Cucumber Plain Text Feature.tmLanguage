@@ -9,7 +9,7 @@
 	<key>firstLineMatch</key>
 	<string>Arwedd|Característica|Crikey|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Funcionalidade|Functionalitate|Functionaliteit|Funcționalitate|Funkcionalitāte|Fīča|Funktionalität|Funzionalità|Jellemző|OH HAI|Omadus|Ominaisuus|Požadavek|Požiadavka|Savybė|Tính năng|Właściwość|Функционал|Функционалност|תכונה|خاصية|フィーチャ|機能|功能|기능(.*)</string>
 	<key>foldingStartMarker</key>
-	<string>^\s*\b(Cenário|Cenario|Escenari|Escenario|Forgatókönyv|MISHUN|Mate|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scenár|Scenārijs|Scénario|Scénář|Skenario|Stsenaarium|Szenario|Tapaus|Tình huống|Kịch bản|Сценарий|תרחיש|سيناريو|シナリオ|场景|場景|劇本|시나리오:)</string>
+	<string>^\s*\b(Cenário|Cenario|Escenari|Escenario|Forgatókönyv|MISHUN|Mate|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scenár|Scenārijs|Scénario|Scénář|Skenario|Stsenaarium|Szenario|Tapaus|Tình huống|Kịch bản|Сценарий|תרחיש|سيناريو|シナリオ|场景|場景|劇本|시나리오)</string>
 	<key>foldingStopMarker</key>
 	<string>^\s*$</string>
 	<key>keyEquivalent</key>
@@ -21,6 +21,10 @@
 		<dict>
 			<key>include</key>
 			<string>#scenario_keyword</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#scenario_outline_keyword</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -134,7 +138,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(Arwedd|Característica|Crikey|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Funcionalidade|Functionalitate|Functionaliteit|Funcționalitate|Funkcionalitāte|Fīča|Funktionalität|Funzionalità|Jellemző|OH HAI|Omadus|Ominaisuus|Požadavek|Požiadavka|Savybė|Tính năng|Właściwość|Функционал|Функционалност|תכונה|خاصية|フィーチャ|機能|功能|기능:)(.*)\b</string>
+			<string>^\s*(Arwedd|Característica|Crikey|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Funcionalidade|Functionalitate|Functionaliteit|Funcționalitate|Funkcionalitāte|Fīča|Funktionalität|Funzionalità|Jellemző|OH HAI|Omadus|Ominaisuus|Požadavek|Požiadavka|Savybė|Tính năng|Właściwość|Функционал|Функционалност|תכונה|خاصية|フィーチャ|機能|功能|기능):(.*)\b</string>
 		</dict>
 		<key>line_keyword</key>
 		<dict>
@@ -183,7 +187,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(Cenário|Cenario|Escenari|Escenario|Forgatókönyv|MISHUN|Mate|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scenár|Scenārijs|Scénario|Scénář|Skenario|Stsenaarium|Szenario|Tapaus|Tình huống|Kịch bản|Сценарий|תרחיש|سيناريو|シナリオ|场景|場景|劇本|시나리오:)(.*)</string>
+			<string>^\s*(Cenário|Cenario|Escenari|Escenario|Forgatókönyv|MISHUN|Mate|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scenár|Scenārijs|Scénario|Scénář|Skenario|Stsenaarium|Szenario|Tapaus|Tình huống|Kịch bản|Сценарий|תרחיש|سيناريو|シナリオ|场景|場景|劇本|시나리오):(.*)</string>
 		</dict>
 		<key>scenario_outline_keyword</key>
 		<dict>
@@ -201,7 +205,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(Abstract Scenario|Abstrakt Scenario|All y'all|Blokes|Esquema de l\'escenari|Esquema del escenario|Esquema do Cenário|Esquema do Cenario|Forgatókönyv vázlat|Khung tình huống|Khung kịch bản|MISHUN SRSLY|Náčrt Scenáru|Náčrt Scénáře|Plan du Scénario|Raamstsenaarium|Scenarijaus šablonas|Scenario Outline|Scenārijs pēc parauga|Schema dello scenario|Skenario konsep|Szablon scenariusza|Szenariogrundriss|Tapausaihio|Рамка на сценарий|Структура сценария|תבנית תרחיש|سيناريو مخطط|シナリオアウトライン|シナリオテンプレート|テンプレ|シナリオテンプレ|场景大纲|場景大綱|劇本大綱|시나리오 개요)(.*)</string>
+			<string>^\s*(Abstract Scenario|Abstrakt Scenario|All y'all|Blokes|Esquema de l\'escenari|Esquema del escenario|Esquema do Cenário|Esquema do Cenario|Forgatókönyv vázlat|Khung tình huống|Khung kịch bản|MISHUN SRSLY|Náčrt Scenáru|Náčrt Scénáře|Plan du Scénario|Raamstsenaarium|Scenarijaus šablonas|Scenario Outline|Scenārijs pēc parauga|Schema dello scenario|Skenario konsep|Szablon scenariusza|Szenariogrundriss|Tapausaihio|Рамка на сценарий|Структура сценария|תבנית תרחיש|سيناريو مخطط|シナリオアウトライン|シナリオテンプレート|テンプレ|シナリオテンプレ|场景大纲|場景大綱|劇本大綱|시나리오 개요):(.*)</string>
 		</dict>
 		<key>scenario_outline_variable</key>
 		<dict>
