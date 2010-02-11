@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>nop</string>
+	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>#!/usr/bin/env sh
 cat &lt;&lt;'RUBYEOF' &gt; /tmp/cucumber-$$.rb
@@ -19,11 +19,13 @@ ${TM_RUBY:-ruby} -w -Ku /tmp/cucumber-$$.rb; exit_status=$?; rm /tmp/cucumber-$$
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string>~@\</string>
+	<string>@s</string>
 	<key>name</key>
-	<string>Align Table Cells</string>
+	<string>Save &amp; Align Table Cells</string>
 	<key>output</key>
 	<string>replaceSelectedText</string>
+	<key>scope</key>
+	<string>text.cucumber.feature</string>
 	<key>uuid</key>
 	<string>C210145E-4123-4FC5-BFB3-BC7D8B884F4A</string>
 </dict>
