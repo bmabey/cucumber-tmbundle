@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>Cucumber(&lt;&lt;-CUCUMBER)
+	<string>steps &lt;&lt;-CUCUMBER
 ${1:`pbpaste`}
 CUCUMBER</string>
 	<key>name</key>
@@ -11,7 +11,7 @@ CUCUMBER</string>
 	<key>scope</key>
 	<string>source.ruby.rspec.cucumber.steps</string>
 	<key>tabTrigger</key>
-	<string>cuke</string>
+	<string>steps</string>
 	<key>uuid</key>
 	<string>3581F175-2C48-46A5-9DFB-4A8F5B8A82AE</string>
 </dict>
