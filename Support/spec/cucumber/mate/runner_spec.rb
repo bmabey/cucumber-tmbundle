@@ -3,9 +3,7 @@ require File.dirname(__FILE__) + '/../../../lib/cucumber/mate/runner'
 
 module Cucumber
   module Mate
-
     describe "a run command", :shared => true do
-
       it "should run with the cucumber command by default" do
         expect_system_call_to_be_made_with(%r[#{Cucumber::Mate::Runner::CUCUMBER_BIN}])
         when_run_is_called
@@ -81,16 +79,19 @@ module Cucumber
           when_run_is_called("--format=custom")
         end
       end
-
     end
 
     describe Runner do
-
-
       before(:each) do
         Files::Base.stub!(:create_from_file_path).and_return(
-          @file = mock("feature file", :rake_task => nil, :profile => nil,
-                        :feature_file_path => 'path_to_feature.feature', :relative_path => 'relative_path.feature'))
+          @file = mock("feature file", 
+            :rake_task => nil, 
+            :profile => nil,
+            :feature_file_path => 'path_to_feature.feature',
+            :relative_path => 'relative_path.feature',
+            :full_file_path => '/foo/bar/relative_path.feature'
+          )
+        )
         Dir.stub!(:chdir).and_yield
         Kernel.stub!(:system)
         File.stub!(:exists?).and_return(false)
@@ -116,11 +117,9 @@ module Cucumber
         alias :when_run_is_called :when_run_feature_is_called
 
         it_should_behave_like "a run command"
-
       end
 
       describe "#run_scenario" do
-
         def when_run_scenario_is_called(cucumber_options=nil, cucumber_bin = nil)
           Runner.new(output=StringIO.new, "/project/path", "/project/path/feature_file", cucumber_bin, cucumber_options).run_scenario(12)
           output
@@ -138,7 +137,6 @@ module Cucumber
           # when
           runner.run_scenario(42)
         end
-
       end
 
       describe "#format_feature" do
@@ -152,10 +150,6 @@ module Cucumber
           runner.autoformat_feature
         end
       end
-
-
-
     end
-
   end
 end
