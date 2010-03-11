@@ -254,7 +254,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(@[^@]+?)\b</string>
+			<string>(@[^@\r\n\t ]+)</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
