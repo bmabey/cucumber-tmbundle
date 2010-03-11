@@ -102,7 +102,7 @@ module Cucumber
 
       it "should create a new Files::Base from the passed in file path" do
         # expect
-        Files::Base.should_receive(:create_from_file_path).with("/path/to/file").and_return(stub_everything)
+        Files::Base.should_receive(:create_from_file_path).with("/path/to/file").and_return(stub('file').as_null_object)
         # when
         Runner.new(nil, "/path","/path/to/file")
       end
