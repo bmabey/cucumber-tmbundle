@@ -7,9 +7,9 @@
 		<string>feature</string>
 	</array>
 	<key>firstLineMatch</key>
-	<string>Arwedd|Característica|Crikey|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Funcionalidade|Functionalitate|Functionaliteit|Funcționalitate|Funkcionalitāte|Fīča|Funktionalität|Funzionalità|Jellemző|OH HAI|Omadus|Ominaisuus|Požadavek|Požiadavka|Savybė|Tính năng|Właściwość|Функционал|Функционалност|תכונה|خاصية|フィーチャ|機能|功能|기능(.*)</string>
+	<string>기능|機能|功能|フィーチャ|خاصية|תכונה|Функционалност|Функционал|Особина|Могућност|Özellik|Właściwość|Tính năng|Savybė|Požiadavka|Požadavek|Osobina|Ominaisuus|Omadus|OH HAI|Mogućnost|Mogucnost|Jellemző|Fīča|Funzionalità|Funktionalität|Funkcionalnost|Funkcionalitāte|Funcționalitate|Functionaliteit|Functionalitate|Funcionalitat|Funcionalidade|Fonctionnalité|Fitur|Feature|Egenskap|Egenskab|Crikey|Característica|Arwedd(.*)</string>
 	<key>foldingStartMarker</key>
-	<string>^\s*\b(Cenário|Cenario|Escenari|Escenario|Forgatókönyv|MISHUN|Mate|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scenár|Scenārijs|Scénario|Scénář|Skenario|Stsenaarium|Szenario|Tapaus|Tình huống|Kịch bản|Сценарий|תרחיש|سيناريو|シナリオ|场景|場景|劇本|시나리오)</string>
+	<string>^\s*\b(예|시나리오 개요|시나리오|배경|背景|場景大綱|場景|场景大纲|场景|劇本大綱|劇本|例子|例|テンプレ|シナリオテンプレート|シナリオテンプレ|シナリオアウトライン|シナリオ|サンプル|سيناريو مخطط|سيناريو|امثلة|الخلفية|תרחיש|תבנית תרחיש|רקע|דוגמאות|Тарих|Сценарији|Сценарио|Сценарий структураси|Сценарий|Структура сценарија|Структура сценария|Скица|Рамка на сценарий|Примери|Пример|Предыстория|Предистория|Позадина|Основа|Мисоллар|Концепт|Контекст|Значения|Örnekler|Założenia|Voorbeelden|Variantai|Tình huống|Tausta|Taust|Tapausaihio|Tapaus|Tapaukset|Szenariogrundriss|Szenario|Szablon scenariusza|Stsenaarium|Struktura scenarija|Skica|Skenario konsep|Skenario|Situācija|Senaryo taslağı|Senaryo|Scénář|Scénario|Schema dello scenario|Scenārijs pēc parauga|Scenārijs|Scenár|Scenariusz|Scenariul de şablon|Scenariul de sablon|Scenariu|Scenarios|Scenario Outline|Scenario Amlinellol|Scenario|Scenarijus|Scenariji|Scenarijaus šablonas|Scenarijai|Scenarij|Scenarie|Rerefons|Raamstsenaarium|Příklady|Példák|Príklady|Przykłady|Primjeri|Primeri|Primer|Pozadí|Pozadina|Pozadie|Plan du scénario|Plan du Scénario|Piemēri|Pavyzdžiai|Paraugs|Osnova scénáře|Osnova|Náčrt Scénáře|Náčrt Scenáru|Mate|MISHUN SRSLY|MISHUN|Kịch bản|Kontext|Konteksts|Kontekstas|Kontekst|Koncept|Khung tình huống|Khung kịch bản|Juhtumid|Háttér|Grundlage|Geçmiş|Forgatókönyv vázlat|Forgatókönyv|Exemplos|Exemples|Exemplele|Exempel|Examples|Esquema do Cenário|Esquema do Cenario|Esquema del escenario|Esquema de l\'escenari|Esempi|Escenario|Escenari|Enghreifftiau|Eksempler|Ejemplos|EXAMPLZ|Dữ liệu|Dasar|Contoh|Contexto|Contexte|Contesto|Condiţii|Conditii|Cobber|Cenário|Cenario|Cefndir|Bối cảnh|Blokes|Beispiele|Bakgrunn|Bakgrund|Baggrund|Background|B4|Antecedents|Antecedentes|All y\'all|Achtergrond|Abstrakt Scenario|Abstract Scenario)</string>
 	<key>foldingStopMarker</key>
 	<string>^\s*$</string>
 	<key>keyEquivalent</key>
@@ -24,10 +24,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#scenario_outline_keyword</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#description</string>
 		</dict>
 		<dict>
@@ -36,7 +32,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#line_keyword</string>
+			<string>#step_keyword</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -120,9 +116,9 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(Arwedd|Característica|Crikey|Egenskab|Egenskap|Feature|Fitur|Fonctionnalité|Funcionalidade|Functionalitate|Functionaliteit|Funcționalitate|Funkcionalitāte|Fīča|Funktionalität|Funzionalità|Jellemző|OH HAI|Omadus|Ominaisuus|Požadavek|Požiadavka|Savybė|Tính năng|Właściwość|Функционал|Функционалност|תכונה|خاصية|フィーチャ|機能|功能|기능):(.*)\b</string>
+			<string>^\s*(기능|機能|功能|フィーチャ|خاصية|תכונה|Функционалност|Функционал|Особина|Могућност|Özellik|Właściwość|Tính năng|Savybė|Požiadavka|Požadavek|Osobina|Ominaisuus|Omadus|OH HAI|Mogućnost|Mogucnost|Jellemző|Fīča|Funzionalità|Funktionalität|Funkcionalnost|Funkcionalitāte|Funcționalitate|Functionaliteit|Functionalitate|Funcionalitat|Funcionalidade|Fonctionnalité|Fitur|Feature|Egenskap|Egenskab|Crikey|Característica|Arwedd):(.*)\b</string>
 		</dict>
-		<key>line_keyword</key>
+		<key>step_keyword</key>
 		<dict>
 			<key>captures</key>
 			<dict>
@@ -133,7 +129,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(A|AN|Aber|Achtergrond|Akkor|Ale|Aleshores|Allora|Alors|Als|And|And y'all|Antecedentes|Atunci|B4|BUT|Background|Baggrund|Bakgrund|Bakgrunn|Beispiele|Bet|Biết|Cho|But|But y'all|Bối cảnh|Cand|Cept|Cobber|Contesto|Contexte|Contexto|Contoh|Cuando|Când|DEN|Daca|Dacă|Dado|Dan|Dann|Dar|Dasar|Dato|De|Dengan|Donat|Duota|Dữ liệu|E|EXAMPLZ|Eeldades|Ejemplos|Eksempler|En|Enghreifftiau|Entonces|Então|Entao|Esempi|Et|Examples|Examples|Scenarios|Exempel|Exemples|Exemplos|Gegeben sei|Gegeven|Gitt|Given|Given y'all|Givet|Grundlage|Ha|Háttér|I|I CAN HAZ|Ir|Ja|Jeżeli|Juhtumid|Kad|Kai|Když|Ketika|Keď|Khi|Kontekstas|Konteksts|Situācija|Kui|Kuid|Kun|Lorsque|Ma|Maar|Mais|Majd|Maka|Mas|Men|Mutta|N|Nhưng|Niin|När|Når|Och|Og|Oletetaan|Ond|Oraz|Pak|Pavyzdžiai|Scenarijai|Variantai|Pero|Però|Piemēri|Paraugs|Pokiaľ|Pokud|Pozadie|Pozadí|Pryd|Przykłady|Príklady|Példák|Příklady|Quan|Quando|Rerefons|Si|Siis|Soit|Så|Tad|Tada|Tak|Tapaukset|Tapi|Taust|Tausta|Then|Then y'all|Thì|Un|Und|Voorbeelden|Và|WEN|Wenn|When|When y'all|Wtedy|Y|Ya gotta|Ya know how|Yna|Zakładając|Założenia|anrhegedig a|És|Și|Дадено|Допустим|Если|Значения|И|И|К тому же|Когато|Но|Но|А|Предистория|Предыстория|Примери|То|אבל|אז|אזי|בהינתן|דוגמאות|וגם|כאשר|רקע|اذاً|ثم|الخلفية|امثلة|بفرض|لكن|متى|عندما|و|かつ|しかし|但し|ならば|もし|但是|例|サンプル|例子|假如|假設|前提|当|當|而且|而且|並且|背景|那么|那麼|그러면|그리고|만일|배경|예|조건|하지만)\b</string>
+			<string>^\s*(하지만|조건|먼저|만일|만약|단|그리고|그러면|那麼|那么|而且|當|当|前提|假設|假如|但是|但し|並且|もし|ならば|ただし|しかし|かつ|و |متى |لكن |عندما |ثم |بفرض |اذاً |כאשר |וגם |בהינתן |אזי |אז |אבל |Унда |То |Онда |Но |Лекин |Когато |Када |Кад |К тому же |И |Задато |Задати |Задате |Если |Допустим |Дадено |Ва |Бирок |Аммо |Али |Агар |А |Și |És |anrhegedig a |Zatati |Zakładając |Zadato |Zadate |Zadano |Zadani |Zadan |Yna |Ya know how |Ya gotta |Y |Wtedy |When y\'all |When |Wenn |WEN |Và |Ve |Und |Un |Thì |Then y\'all |Then |Tapi |Tak |Tada |Tad |Så |Stel |Soit |Siis |Si |Quando |Quand |Quan |Pryd |Pokud |Pokiaľ |Però |Pero |Pak |Oraz |Onda |Ond |Oletetaan |Og |Och |O zaman |Når |När |Niin |Nhưng |N |Mutta |Men |Mas |Maka |Majd |Mais |Maar |Ma |Lorsque |Lorsqu\'|Kun |Kuid |Kui |Khi |Keď |Ketika |Když |Kai |Kada |Kad |Jeżeli |Ja |Ir |I CAN HAZ |I |Ha |Givet |Given y\'all |Given |Gitt |Gegeven |Gegeben sei |Fakat |Eğer ki |Etant donné |Et |Então |Entonces |Entao |En |Eeldades |E |Duota |Donat |Donada |Diyelim ki |Dengan |De |Dato |Dar |Dann |Dan |Dado |Dacă |Daca |DEN |Când |Cuando |Cho |Cept |Cand |Cal |But y\'all |But |Biết |Bet |BUT |Atès |Atunci |Atesa |Angenommen |And y\'all |And |Ama |Als |Alors |Allora |Ali |Aleshores |Ale |Akkor |Aber |AN |A také |A |\* )</string>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -169,25 +165,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(Cenário|Cenario|Escenari|Escenario|Forgatókönyv|MISHUN|Mate|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Scenár|Scenārijs|Scénario|Scénář|Skenario|Stsenaarium|Szenario|Tapaus|Tình huống|Kịch bản|Сценарий|תרחיש|سيناريو|シナリオ|场景|場景|劇本|시나리오):(.*)</string>
-		</dict>
-		<key>scenario_outline_keyword</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.language.cucumber.feature.scenario_outline</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>string.language.cucumber.feature.scenario_outline.title</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(Abstract Scenario|Abstrakt Scenario|All y'all|Blokes|Esquema de l\'escenari|Esquema del escenario|Esquema do Cenário|Esquema do Cenario|Forgatókönyv vázlat|Khung tình huống|Khung kịch bản|MISHUN SRSLY|Náčrt Scenáru|Náčrt Scénáře|Plan du Scénario|Raamstsenaarium|Scenarijaus šablonas|Scenario Outline|Scenārijs pēc parauga|Schema dello scenario|Skenario konsep|Szablon scenariusza|Szenariogrundriss|Tapausaihio|Рамка на сценарий|Структура сценария|תבנית תרחיש|سيناريو مخطط|シナリオアウトライン|シナリオテンプレート|テンプレ|シナリオテンプレ|场景大纲|場景大綱|劇本大綱|시나리오 개요):(.*)</string>
+			<string>^\s*(예|시나리오 개요|시나리오|배경|背景|場景大綱|場景|场景大纲|场景|劇本大綱|劇本|例子|例|テンプレ|シナリオテンプレート|シナリオテンプレ|シナリオアウトライン|シナリオ|サンプル|سيناريو مخطط|سيناريو|امثلة|الخلفية|תרחיש|תבנית תרחיש|רקע|דוגמאות|Тарих|Сценарији|Сценарио|Сценарий структураси|Сценарий|Структура сценарија|Структура сценария|Скица|Рамка на сценарий|Примери|Пример|Предыстория|Предистория|Позадина|Основа|Мисоллар|Концепт|Контекст|Значения|Örnekler|Założenia|Voorbeelden|Variantai|Tình huống|Tausta|Taust|Tapausaihio|Tapaus|Tapaukset|Szenariogrundriss|Szenario|Szablon scenariusza|Stsenaarium|Struktura scenarija|Skica|Skenario konsep|Skenario|Situācija|Senaryo taslağı|Senaryo|Scénář|Scénario|Schema dello scenario|Scenārijs pēc parauga|Scenārijs|Scenár|Scenariusz|Scenariul de şablon|Scenariul de sablon|Scenariu|Scenarios|Scenario Outline|Scenario Amlinellol|Scenario|Scenarijus|Scenariji|Scenarijaus šablonas|Scenarijai|Scenarij|Scenarie|Rerefons|Raamstsenaarium|Příklady|Példák|Príklady|Przykłady|Primjeri|Primeri|Primer|Pozadí|Pozadina|Pozadie|Plan du scénario|Plan du Scénario|Piemēri|Pavyzdžiai|Paraugs|Osnova scénáře|Osnova|Náčrt Scénáře|Náčrt Scenáru|Mate|MISHUN SRSLY|MISHUN|Kịch bản|Kontext|Konteksts|Kontekstas|Kontekst|Koncept|Khung tình huống|Khung kịch bản|Juhtumid|Háttér|Grundlage|Geçmiş|Forgatókönyv vázlat|Forgatókönyv|Exemplos|Exemples|Exemplele|Exempel|Examples|Esquema do Cenário|Esquema do Cenario|Esquema del escenario|Esquema de l\'escenari|Esempi|Escenario|Escenari|Enghreifftiau|Eksempler|Ejemplos|EXAMPLZ|Dữ liệu|Dasar|Contoh|Contexto|Contexte|Contesto|Condiţii|Conditii|Cobber|Cenário|Cenario|Cefndir|Bối cảnh|Blokes|Beispiele|Bakgrunn|Bakgrund|Baggrund|Background|B4|Antecedents|Antecedentes|All y\'all|Achtergrond|Abstrakt Scenario|Abstract Scenario):(.*)</string>
 		</dict>
 		<key>scenario_outline_variable</key>
 		<dict>

@@ -24,10 +24,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#scenario_outline_keyword</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#description</string>
 		</dict>
 		<dict>
@@ -36,7 +32,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#line_keyword</string>
+			<string>#step_keyword</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -122,7 +118,7 @@
 			<key>match</key>
 			<string>^\s*(<%= feature_keywords %>):(.*)\b</string>
 		</dict>
-		<key>line_keyword</key>
+		<key>step_keyword</key>
 		<dict>
 			<key>captures</key>
 			<dict>
@@ -133,7 +129,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(<%= line_keywords %>)\b</string>
+			<string>^\s*(<%= step_keywords %>)</string>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -170,24 +166,6 @@
 			</dict>
 			<key>match</key>
 			<string>^\s*(<%= scenario_keywords %>):(.*)</string>
-		</dict>
-		<key>scenario_outline_keyword</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.language.cucumber.feature.scenario_outline</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>string.language.cucumber.feature.scenario_outline.title</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(<%= scenario_outline_keywords %>):(.*)</string>
 		</dict>
 		<key>scenario_outline_variable</key>
 		<dict>
@@ -254,7 +232,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(@[^@]+?)\b</string>
+			<string>(@[^@\r\n\t ]+)</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>

@@ -2,28 +2,27 @@ class SyntaxGenerator
   def generate
     require 'yaml'
     require 'erb'
-    require 'cucumber'
+    require 'gherkin'
 
-    scenario_keywords_array = []
-    scenario_outline_keywords_array = []
     feature_keywords_array  = []
-    line_keywords_array     = []
+    scenario_keywords_array = []
+    examples_keywords_array = []
+    step_keywords_array     = []
 
-    Cucumber::LANGUAGES.each do |_, words|
-      scenario_keywords_array << words.delete('scenario')
-      feature_keywords_array << words.delete('feature')
-      scenario_outline_keywords_array << words.delete('scenario_outline')
+    Gherkin::I18n.all.each do |lang|
+      feature_keywords_array << lang.feature_keywords
 
-      # Remove words we're not interested in
-      %w{name native encoding space_after_keyword}.each{|key| words.delete(key)}
+      scenario_keywords_array << lang.scenario_keywords
+      scenario_keywords_array << lang.scenario_outline_keywords
+      scenario_keywords_array << lang.background_keywords
+      scenario_keywords_array << lang.examples_keywords
 
-      line_keywords_array.concat(words.values)
+      step_keywords_array << lang.step_keywords
     end
     
-    scenario_keywords = scenario_keywords_array.uniq.compact.sort.join('|')
-    scenario_outline_keywords = scenario_outline_keywords_array.uniq.compact.sort.join('|')
-    feature_keywords  = feature_keywords_array.uniq.compact.sort.join('|')
-    line_keywords     = line_keywords_array.uniq.compact.sort.join('|')
+    feature_keywords  = escape(feature_keywords_array.flatten.compact.sort.reverse.uniq.join('|'))
+    scenario_keywords = escape(scenario_keywords_array.flatten.compact.sort.reverse.uniq.join('|'))
+    step_keywords     = escape(step_keywords_array.flatten.compact.sort.reverse.uniq.join('|'))
 
     template    = ERB.new(IO.read(File.dirname(__FILE__) + '/../../Syntaxes/plaintext_template.erb'))
     syntax      = template.result(binding)
@@ -32,13 +31,14 @@ class SyntaxGenerator
     File.open(syntax_file, "w") do |io|
       io.write(syntax)
     end
-        
+  end
+  
+  def escape(s)
+    s.gsub(/'/, "\\\\'").gsub(/\*/, "\\\\*")
   end
 end
 
-namespace :syntax do
-  desc 'Generates the plain text syntax file for all languages supported by Cucumber'
-  task :generate do
-    SyntaxGenerator.new.generate
-  end
+desc 'Generates the plain text syntax file for all languages supported by Cucumber'
+task :generate do
+  SyntaxGenerator.new.generate
 end
