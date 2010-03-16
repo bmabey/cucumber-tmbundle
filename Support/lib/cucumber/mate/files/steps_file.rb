@@ -63,6 +63,7 @@ module Cucumber
             lines.each do |line|
               case line
               when /\s*(When|Given|Then).+do\s*(\|[^\|]+\|){0,1}\s*(#.+|$)/
+                line.gsub!($3, "") if $3
                 line << "; end"
               when /\s*(When|Given|Then)\s*\(.+\)\s*\{\s*.+\s*\}\s*(#.+|$)/
               when /\s*(When|Given|Then)\s*\(.+\)\s*\{\s*(\|[^\|]+\|){0,1}\s*(#.+|$)/
