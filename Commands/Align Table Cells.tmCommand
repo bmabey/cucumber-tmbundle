@@ -9,8 +9,17 @@
 cat &lt;&lt;'RUBYEOF' &gt; /tmp/cucumber-$$.rb
 
 require ENV['TM_BUNDLE_SUPPORT'] + "/lib/cucumber/mate/table_aligner"
+TM_DISCARD = 200
 
-puts(Cucumber::Mate::TableAligner.new.align(STDIN.readlines))
+input = STDIN.read.split("\n")
+output = Cucumber::Mate::TableAligner.new.align(input)
+
+if input == output
+  exit TM_DISCARD
+else
+  puts(output)
+end
+
 RUBYEOF
 
 ${TM_RUBY:-ruby} -w -Ku /tmp/cucumber-$$.rb; exit_status=$?; rm /tmp/cucumber-$$.rb; exit $exit_status</string>
