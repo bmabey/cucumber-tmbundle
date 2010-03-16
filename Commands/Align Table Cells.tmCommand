@@ -28,7 +28,7 @@ ${TM_RUBY:-ruby} -w -Ku /tmp/cucumber-$$.rb; exit_status=$?; rm /tmp/cucumber-$$
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string>~@\</string>
+	<string>@|</string>
 	<key>name</key>
 	<string>Align Table Cells</string>
 	<key>output</key>
