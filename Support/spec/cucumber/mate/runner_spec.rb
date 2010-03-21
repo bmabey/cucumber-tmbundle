@@ -21,7 +21,7 @@ module Cucumber
       end
 
       it "should run the single feature" do
-        expect_system_call_to_be_made_with(/ #{@file.feature_file_path}/)
+        expect_system_call_to_be_made_with(/ #{@file.full_file_path}/)
         when_run_is_called
       end
 
@@ -65,7 +65,7 @@ module Cucumber
         end
 
         it "should run the single feature with the rake syntax" do
-          expect_system_call_to_be_made_with(/FEATURE=#{@file.feature_file_path}/)
+          expect_system_call_to_be_made_with(/FEATURE=#{@file.full_file_path}/)
           when_run_is_called
         end
 
@@ -130,9 +130,9 @@ module Cucumber
 
         it "should pass the line number in the cucumber options" do
           # given
-          runner = Runner.new(output=StringIO.new, "/project/path", "/project/path/feature_file")
+          runner = Runner.new(output=StringIO.new, "/project/path", @file.full_file_path)
 
-          expect_system_call_to_be_made_with(%r{path_to_feature.feature:42 --format=html})
+          expect_system_call_to_be_made_with(%r{#{@file.full_file_path}:42 --format=html})
 
           # when
           runner.run_scenario(42)
