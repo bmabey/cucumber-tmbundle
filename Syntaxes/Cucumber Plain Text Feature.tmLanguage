@@ -36,10 +36,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#pending_keyword</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#strings_triple_quote</string>
 		</dict>
 		<dict>
@@ -130,24 +126,6 @@
 			</dict>
 			<key>match</key>
 			<string>^\s*(하지만|조건|먼저|만일|만약|단|그리고|그러면|那麼|那么|而且|當|当|前提|假設|假如|但是|但し|並且|もし|ならば|ただし|しかし|かつ|و |متى |لكن |عندما |ثم |بفرض |اذاً |כאשר |וגם |בהינתן |אזי |אז |אבל |Унда |То |Онда |Но |Лекин |Когато |Када |Кад |К тому же |И |Задато |Задати |Задате |Если |Допустим |Дадено |Ва |Бирок |Аммо |Али |Агар |А |Și |És |anrhegedig a |Zatati |Zakładając |Zadato |Zadate |Zadano |Zadani |Zadan |Yna |Ya know how |Ya gotta |Y |Wtedy |When y\'all |When |Wenn |WEN |Và |Ve |Und |Un |Thì |Then y\'all |Then |Tapi |Tak |Tada |Tad |Så |Stel |Soit |Siis |Si |Quando |Quand |Quan |Pryd |Pokud |Pokiaľ |Però |Pero |Pak |Oraz |Onda |Ond |Oletetaan |Og |Och |O zaman |Når |När |Niin |Nhưng |N |Mutta |Men |Mas |Maka |Majd |Mais |Maar |Ma |Lorsque |Lorsqu\'|Kun |Kuid |Kui |Khi |Keď |Ketika |Když |Kai |Kada |Kad |Jeżeli |Ja |Ir |I CAN HAZ |I |Ha |Givet |Given y\'all |Given |Gitt |Gegeven |Gegeben sei |Fakat |Eğer ki |Etant donné |Et |Então |Entonces |Entao |En |Eeldades |E |Duota |Donat |Donada |Diyelim ki |Dengan |De |Dato |Dar |Dann |Dan |Dado |Dacă |Daca |DEN |Când |Cuando |Cho |Cept |Cand |Cal |But y\'all |But |Biết |Bet |BUT |Atès |Atunci |Atesa |Angenommen |And y\'all |And |Ama |Als |Alors |Allora |Ali |Aleshores |Ale |Akkor |Aber |AN |A také |A |\* )</string>
-		</dict>
-		<key>pending_keyword</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.language.cucumber.feature.scenario.pending.line</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>string.language.cucumber.feature.scenario.pending.line</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(Pending)(.*)\b</string>
 		</dict>
 		<key>scenario_keyword</key>
 		<dict>

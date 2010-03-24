@@ -36,10 +36,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#pending_keyword</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#strings_triple_quote</string>
 		</dict>
 		<dict>
@@ -130,24 +126,6 @@
 			</dict>
 			<key>match</key>
 			<string>^\s*(<%= Gherkin::I18n.keyword_regexp(:step) %>)</string>
-		</dict>
-		<key>pending_keyword</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.language.cucumber.feature.scenario.pending.line</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>string.language.cucumber.feature.scenario.pending.line</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(Pending)(.*)\b</string>
 		</dict>
 		<key>scenario_keyword</key>
 		<dict>

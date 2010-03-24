@@ -522,36 +522,6 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Cucumber Feature pending keyword</string>
-			<key>scope</key>
-			<string>keyword.language.cucumber.feature.scenario.pending.line</string>
-			<key>settings</key>
-			<dict>
-				<key>background</key>
-				<string>#FFFFFF</string>
-				<key>fontStyle</key>
-				<string></string>
-				<key>foreground</key>
-				<string>#000000</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Cucumber Feature pending line</string>
-			<key>scope</key>
-			<string>string.language.cucumber.feature.scenario.pending.line</string>
-			<key>settings</key>
-			<dict>
-				<key>background</key>
-				<string>#FFFFFF</string>
-				<key>fontStyle</key>
-				<string></string>
-				<key>foreground</key>
-				<string>#000000</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
 			<string>Cucumber Scenario lines</string>
 			<key>scope</key>
 			<string>string.language.cucumber.feature.scenario.line</string>
