@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Cucumber Plain Text Feature Completions</string>
+	<string>Gherkin Completions</string>
 	<key>scope</key>
-	<string>text.cucumber.feature</string>
+	<string>text.gherkin.feature</string>
 	<key>settings</key>
 	<dict>
 		<key>completions</key>
@@ -21,6 +21,7 @@
 			<string>Then</string>
 			<string>When</string>
 			<string>And</string>
+			<string>But</string>
 		</array>
 	</dict>
 	<key>uuid</key>

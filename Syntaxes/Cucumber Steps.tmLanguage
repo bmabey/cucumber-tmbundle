@@ -177,7 +177,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>text.cucumber.feature</string>
+					<string>text.gherkin.feature</string>
 				</dict>
 			</array>
 		</dict>

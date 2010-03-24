@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>When Step Plaintext</string>
 	<key>scope</key>
-	<string>text.cucumber.feature</string>
+	<string>text.gherkin.feature</string>
 	<key>tabTrigger</key>
 	<string>whe</string>
 	<key>uuid</key>

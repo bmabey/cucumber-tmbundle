@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Comments</string>
 	<key>scope</key>
-	<string>text.cucumber.feature</string>
+	<string>text.gherkin.feature</string>
 	<key>settings</key>
 	<dict>
 		<key>shellVariables</key>

@@ -20,7 +20,7 @@
 	<array>
 		<dict>
 			<key>include</key>
-			<string>#scenario_keyword</string>
+			<string>#feature_element_keyword</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -60,7 +60,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#cucumber_table</string>
+			<string>#table</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -78,7 +78,7 @@
 			<key>match</key>
 			<string>\s*(#.*)</string>
 		</dict>
-		<key>cucumber_table</key>
+		<key>table</key>
 		<dict>
 			<key>begin</key>
 			<string>^\s*\|</string>
@@ -103,12 +103,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.cucumber.feature</string>
+					<string>keyword.language.gherkin.feature</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>string.language.cucumber.feature.title</string>
+					<string>string.language.gherkin.feature.title</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -121,25 +121,25 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.cucumber.feature.scenario.line</string>
+					<string>keyword.language.gherkin.feature.step</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^\s*(하지만|조건|먼저|만일|만약|단|그리고|그러면|那麼|那么|而且|當|当|前提|假設|假如|但是|但し|並且|もし|ならば|ただし|しかし|かつ|و |متى |لكن |عندما |ثم |بفرض |اذاً |כאשר |וגם |בהינתן |אזי |אז |אבל |Унда |То |Онда |Но |Лекин |Когато |Када |Кад |К тому же |И |Задато |Задати |Задате |Если |Допустим |Дадено |Ва |Бирок |Аммо |Али |Агар |А |Și |És |anrhegedig a |Zatati |Zakładając |Zadato |Zadate |Zadano |Zadani |Zadan |Yna |Ya know how |Ya gotta |Y |Wtedy |When y\'all |When |Wenn |WEN |Và |Ve |Und |Un |Thì |Then y\'all |Then |Tapi |Tak |Tada |Tad |Så |Stel |Soit |Siis |Si |Quando |Quand |Quan |Pryd |Pokud |Pokiaľ |Però |Pero |Pak |Oraz |Onda |Ond |Oletetaan |Og |Och |O zaman |Når |När |Niin |Nhưng |N |Mutta |Men |Mas |Maka |Majd |Mais |Maar |Ma |Lorsque |Lorsqu\'|Kun |Kuid |Kui |Khi |Keď |Ketika |Když |Kai |Kada |Kad |Jeżeli |Ja |Ir |I CAN HAZ |I |Ha |Givet |Given y\'all |Given |Gitt |Gegeven |Gegeben sei |Fakat |Eğer ki |Etant donné |Et |Então |Entonces |Entao |En |Eeldades |E |Duota |Donat |Donada |Diyelim ki |Dengan |De |Dato |Dar |Dann |Dan |Dado |Dacă |Daca |DEN |Când |Cuando |Cho |Cept |Cand |Cal |But y\'all |But |Biết |Bet |BUT |Atès |Atunci |Atesa |Angenommen |And y\'all |And |Ama |Als |Alors |Allora |Ali |Aleshores |Ale |Akkor |Aber |AN |A také |A |\* )</string>
 		</dict>
-		<key>scenario_keyword</key>
+		<key>feature_element_keyword</key>
 		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.cucumber.feature.scenario</string>
+					<string>keyword.language.gherkin.feature.scenario</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>string.language.cucumber.feature.scenario.title</string>
+					<string>string.language.gherkin.scenario.title.title</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -214,7 +214,7 @@
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>text.cucumber.feature</string>
+	<string>text.gherkin.feature</string>
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
 </dict>

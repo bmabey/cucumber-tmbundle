@@ -27,7 +27,7 @@ ${TM_RUBY:-ruby} /tmp/cucumber-$$.rb; exit_status=$?; rm /tmp/cucumber-$$.rb; ex
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
-	<string>text.cucumber.feature</string>
+	<string>text.gherkin.feature</string>
 	<key>uuid</key>
 	<string>7B92D0E5-FCF2-4CE0-A900-821E7EA000C7</string>
 </dict>

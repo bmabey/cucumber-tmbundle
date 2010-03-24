@@ -25,7 +25,7 @@ end</string>
 	<key>output</key>
 	<string>insertAsSnippet</string>
 	<key>scope</key>
-	<string>text.cucumber.feature</string>
+	<string>text.gherkin.feature</string>
 	<key>uuid</key>
 	<string>46204E4A-2DA4-4107-9742-60F13EED58B8</string>
 </dict>

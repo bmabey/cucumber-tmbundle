@@ -16,7 +16,7 @@
 	<key>name</key>
 	<string>Feature</string>
 	<key>scope</key>
-	<string>text.cucumber.feature</string>
+	<string>text.gherkin.feature</string>
 	<key>tabTrigger</key>
 	<string>fea</string>
 	<key>uuid</key>

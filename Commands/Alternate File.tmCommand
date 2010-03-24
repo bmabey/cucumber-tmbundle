@@ -27,7 +27,7 @@ ${TM_RUBY:-ruby} /tmp/cucumber-$$.rb; exit_status=$?; rm /tmp/cucumber-$$.rb; ex
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>text.cucumber.feature, source.ruby.rspec.cucumber.steps</string>
+	<string>text.gherkin.feature, source.ruby.rspec.cucumber.steps</string>
 	<key>uuid</key>
 	<string>6AD6154B-3EE8-43D1-B87F-6261C859AD07</string>
 </dict>

@@ -15,12 +15,12 @@
 	<key>keyEquivalent</key>
 	<string>^~C</string>
 	<key>name</key>
-	<string>Cucumber Plain Text Feature</string>
+	<string>Gherkin</string>
 	<key>patterns</key>
 	<array>
 		<dict>
 			<key>include</key>
-			<string>#scenario_keyword</string>
+			<string>#feature_element_keyword</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -60,7 +60,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#cucumber_table</string>
+			<string>#table</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -78,7 +78,7 @@
 			<key>match</key>
 			<string>\s*(#.*)</string>
 		</dict>
-		<key>cucumber_table</key>
+		<key>table</key>
 		<dict>
 			<key>begin</key>
 			<string>^\s*\|</string>
@@ -103,12 +103,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.cucumber.feature</string>
+					<string>keyword.language.gherkin.feature</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>string.language.cucumber.feature.title</string>
+					<string>string.language.gherkin.feature.title</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -121,25 +121,25 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.cucumber.feature.scenario.line</string>
+					<string>keyword.language.gherkin.feature.step</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^\s*(<%= Gherkin::I18n.keyword_regexp(:step) %>)</string>
 		</dict>
-		<key>scenario_keyword</key>
+		<key>feature_element_keyword</key>
 		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.language.cucumber.feature.scenario</string>
+					<string>keyword.language.gherkin.feature.scenario</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>string.language.cucumber.feature.scenario.title</string>
+					<string>string.language.gherkin.scenario.title.title</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -214,7 +214,7 @@
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>text.cucumber.feature</string>
+	<string>text.gherkin.feature</string>
 	<key>uuid</key>
 	<string>85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8</string>
 </dict>

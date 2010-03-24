@@ -9,7 +9,7 @@ $0
 	<key>name</key>
 	<string>Scenario (heading only)</string>
 	<key>scope</key>
-	<string>text.cucumber.feature</string>
+	<string>text.gherkin.feature</string>
 	<key>tabTrigger</key>
 	<string>sc</string>
 	<key>uuid</key>

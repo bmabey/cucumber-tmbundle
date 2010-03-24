@@ -457,61 +457,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Cucumber Feature keyword</string>
+			<string>Gherkin Feature keyword</string>
 			<key>scope</key>
-			<string>keyword.language.cucumber.feature</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>underline</string>
-				<key>foreground</key>
-				<string>#FFFFFF</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Cucumber Feature title</string>
-			<key>scope</key>
-			<string>string.language.cucumber.feature.title</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>underline</string>
-				<key>foreground</key>
-				<string>#FFFFFF</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Cucumber Scenario Keyword</string>
-			<key>scope</key>
-			<string>keyword.language.cucumber.feature.scenario</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>underline</string>
-				<key>foreground</key>
-				<string>#FFFFFF</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Cucumber Scenario Outline Keyword</string>
-			<key>scope</key>
-			<string>keyword.language.cucumber.feature.scenario_outline</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>underline</string>
-				<key>foreground</key>
-				<string>#FFFFFF</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Cucumber Scenario keywords</string>
-			<key>scope</key>
-			<string>keyword.language.cucumber.feature.scenario.line</string>
+			<string>keyword.language.gherkin.feature</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -522,9 +470,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Cucumber Scenario lines</string>
+			<string>Gherkin Feature Title</string>
 			<key>scope</key>
-			<string>string.language.cucumber.feature.scenario.line</string>
+			<string>string.language.gherkin.feature.title</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -535,28 +483,52 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Cucumber Scenario title</string>
+			<string>Gherkin Scenario Keyword</string>
 			<key>scope</key>
-			<string>string.language.cucumber.feature.scenario</string>
+			<string>keyword.language.gherkin.feature.scenario</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string>underline</string>
+				<string></string>
+				<key>foreground</key>
+				<string>#FF6600</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Cucumber Scenario Title</string>
+			<key>scope</key>
+			<string>string.language.gherkin.scenario.title</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
 				<key>foreground</key>
 				<string>#FFFFFF</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Cucumber Scenario Outline title</string>
+			<string>Gherkin Step Keywords</string>
 			<key>scope</key>
-			<string>string.language.cucumber.feature.scenario_outline</string>
+			<string>keyword.language.gherkin.feature.step</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string>underline</string>
+				<string></string>
 				<key>foreground</key>
-				<string>#FFFFFF</string>
+				<string>#FF6600</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Gherkin Tag</string>
+			<key>scope</key>
+			<string>storage.type.tag.cucumber</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#339999</string>
 			</dict>
 		</dict>
 	</array>
