@@ -7,9 +7,9 @@
 		<string>feature</string>
 	</array>
 	<key>firstLineMatch</key>
-	<string><%= feature_keywords %>(.*)</string>
+	<string><%= Gherkin::I18n.keyword_regexp(:feature) %>(.*)</string>
 	<key>foldingStartMarker</key>
-	<string>^\s*\b(<%= scenario_keywords %>)</string>
+	<string>^\s*\b(<%= Gherkin::I18n.keyword_regexp(:background, :scenario, :scenario_outline, :examples) %>)</string>
 	<key>foldingStopMarker</key>
 	<string>^\s*$</string>
 	<key>keyEquivalent</key>
@@ -116,7 +116,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(<%= feature_keywords %>):(.*)\b</string>
+			<string>^\s*(<%= Gherkin::I18n.keyword_regexp(:feature) %>):(.*)\b</string>
 		</dict>
 		<key>step_keyword</key>
 		<dict>
@@ -129,7 +129,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(<%= step_keywords %>)</string>
+			<string>^\s*(<%= Gherkin::I18n.keyword_regexp(:step) %>)</string>
 		</dict>
 		<key>pending_keyword</key>
 		<dict>
@@ -165,7 +165,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(<%= scenario_keywords %>):(.*)</string>
+			<string>^\s*(<%= Gherkin::I18n.keyword_regexp(:background, :scenario, :scenario_outline, :examples) %>):(.*)</string>
 		</dict>
 		<key>scenario_outline_variable</key>
 		<dict>
