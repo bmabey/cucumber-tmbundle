@@ -8,7 +8,7 @@
 	<string>cd "$TM_BUNDLE_PATH"
 
 echo "&lt;pre&gt;"
-[ -d ".git" ] &amp;&amp; git remote rename origin old-origin &amp;&amp; git remote add origin git://github.com/aslakhellesoy/cucumber-tmbundle.git &amp;&amp; git fetch origin &amp;&amp; git config branch.master.remote origin &amp;&amp; git config branch.master.merge refs/heads/master &amp;&amp; git pull &amp;&amp; echo -e "\n\nHi, I (Ben Mabey) am no longer maintaining the Cucumber Bundle (vim convert).\nYour git origin is now set to track Aslak Hellesøy's fork as he \nand Dr. Nic are now in charge of maintaining/improving the project. Please \nuse Aslak's GitHub issue tracker if you have any problems.\n\n" &amp;&amp; echo So long, and thanks for all the fish\!
+[ -d ".git" ] &amp;&amp; git remote rename origin old-origin &amp;&amp; git remote add origin git://github.com/aslakhellesoy/cucumber-tmbundle.git &amp;&amp; git fetch origin &amp;&amp; git checkout -b old-master &amp;&amp; git branch -d master &amp;&amp; git checkout origin/master &amp;&amp; git checkout -b master &amp;&amp; git config branch.master.remote origin &amp;&amp; git config branch.master.merge refs/heads/master &amp;&amp; git checkout master &amp;&amp; git pull &amp;&amp; echo -e "\n\nHi, I (Ben Mabey) am no longer maintaining the Cucumber Bundle (vim convert).\nYour git origin is now set to track Aslak Hellesøy's fork as he \nand Dr. Nic are now in charge of maintaining/improving the project. Please \nuse Aslak's GitHub issue tracker if you have any problems.\n\n" &amp;&amp; echo So long, and thanks for all the fish\!
 [ ! -d .git ] &amp;&amp; echo "Hmm.. we didn't find any git files in your bundle.  Please re-install manually for an update."
 
 osascript -e 'tell app "TextMate" to reload bundles'
