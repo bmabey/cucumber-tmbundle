@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>cd "$TM_BUNDLE_PATH"
+
+echo "&lt;pre&gt;"
+[ -d ".git" ] &amp;&amp; git remote rename origin old-origin &amp;&amp; git remote add origin git://github.com/aslakhellesoy/cucumber-tmbundle.git &amp;&amp; git fetch origin &amp;&amp; git config branch.master.remote origin &amp;&amp; git config branch.master.merge refs/heads/master &amp;&amp; git pull &amp;&amp; echo -e "\n\nHi, I (Ben Mabey) am no longer maintaining the Cucumber Bundle (vim convert).\nYour git origin is now set to track Aslak Hellesøy's fork as he \nand Dr. Nic are now in charge of maintaining/improving the project. Please \nuse Aslak's GitHub issue tracker if you have any problems.\n\n" &amp;&amp; echo So long, and thanks for all the fish\!
+[ ! -d .git ] &amp;&amp; echo "Hmm.. we didn't find any git files in your bundle.  Please re-install manually for an update."
+
+osascript -e 'tell app "TextMate" to reload bundles'
+
+echo "&lt;/pre&gt;"</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>Switch to New Canonical Fork and Update</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>E7E79650-2A87-44A0-8226-3113A94FCE53</string>
+</dict>
+</plist>
