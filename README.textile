@@ -14,3 +14,17 @@ are still avid TextMate users and will give it the proper attention and love it 
 So long, and thanks for all the fish!
 
 -Ben
+
+
+P.S.
+Some people with older git versions installed have had trouble with the "Switch to New Canonical Fork" command.
+If the command doesn't work for you the bundle will need to be reinstalled manually. Assuming you used the
+original install directions this should work for you:
+
+<pre>
+    cd ~/Library/Application\ Support/TextMate/Bundles
+    rm -rf Cucumber.tmbundle 
+    git clone git://github.com/aslakhellesoy/cucumber-tmbundle.git Cucumber.tmbundle
+    osascript -e 'tell app "TextMate" to reload bundles'
+</pre>
+
