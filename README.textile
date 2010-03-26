@@ -1,120 +1,16 @@
 h1. Textmate Bundle for Cucumber
 
-This is a fork of the "rspec-story-tmbundle":http://github.com/bmabey/rspec-story-tmbundle.
-The goal is to keep the same functionality that the original bundle had but make it compatible with Cucumber and also take advantage of the benefits that Cucumber offers.
+Hi,
+Aslak Hellesøy and Dr. Nic Williams are now maintaining this project.
 
-So far the basic file switching and syntax highlighting is working.  You can also run a feature. (See below.)
-File creation and more advanced step generation commands have not yet been ported fully.  Feel free to help out. :)
+Please install and refer to "Aslak's fork":http://github.com/aslakhellesoy/cucumber-tmbundle for updates/tickets.
+If you already have the bundle installed with my fork you can use the "Update Cucumber Bundle" menu item followed
+by the "Switch to New Canonical Fork" item once it is updated.
 
-If you are doing ruby development with webrat you may also want the "webrat bundle":http://github.com/bmabey/webrat-tmbundle/.
+I have been working on this project since May 2008 (originally for the RSpec Story Runner) and it has been
+a lot of fun and rewarding.  I no longer use TextMate though so I decided to hand it over to people who
+are still avid TextMate users and will give it the proper attention and love it deserves. :)
 
-h3. Bundle Features:
+So long, and thanks for all the fish!
 
-* Color highlighting for plain text features (supports all the languages that Cucumber does)
-* Snippets for plain text features and step files.
-* Auto-completion of steps in features (Alt+Escape)
-* Predefined completions (escape key) for common feature keywords.
-* Spellchecking turned on by default for the plain text features.
-* Switch between plain text feature and corresponding step matcher file. Shft+Ctrl+Down
-* Choose to go any file of opposite kind (step <-> feature) Shft+Ctrl+Up
-* Run a feature with HTML output.
-* Run a single scenario with HTML output.
-
-For a better HTML output please see "this plugin":http://robaldred.co.uk/2009/08/cucumber-pretty-html-formatter-for-textmate/.
-
-
-
-h3. TODO:
-* Rethink Alternative-File Command to avoid encouraging "feature coupled steps.":http://wiki.github.com/aslakhellesoy/cucumber/feature-coupled-steps-antipattern
-* Navigation Commands
-** From a step definition be able to pull up a list of features using that step and to jump to them.
-* Automatically create template step file with pending steps based on the steps used in the feature.
-** Use Cucumber's built in functionality to do this and clean out the story bundle's way.
-* Snippets for tables.
-* Multi-language support for the snippets?
-
-h2. Installation
-
-<pre>
-mkdir -p ~/Library/Application\ Support/TextMate/Bundles/
-cd ~/Library/Application\ Support/TextMate/Bundles
-git clone git://github.com/bmabey/cucumber-tmbundle.git Cucumber.tmbundle
-osascript -e 'tell app "TextMate" to reload bundles'
-</pre>
-
-* In TextMate: From your drop down menu, select Bundles -> Bundle Editor -> Reload Bundles.
-* To install the color themes for the syntax highlighting:
-** Click on the themes found in the color_themes dir by clicking on them in Finder.
-
-h3. Migrating from RSpec Story Runner Bundle
-
-To avoid file detection collisions with the RSpec Story bundle I would suggest you turn it off when using the Cucumber bundle and vice-versa. You can do this by clicking on the 'Filter List' button in the Bundle Editor section of Textmate.
-(Warning: Switching to the Cucumber color themes will clobber the Story runner color themes when you reinstall the theme.)
-
-h2. Updating
-
-Update your bundle by running the "Update Cucumber Bundle" command. (Thanks to Tim Harper for this.)
-
-h2. Running Features
-
-The bundle uses the 'cucumber' command by default to run the features.  If you have a "script/cucumber" located in youre project (i.e. you're using cucumber as a rails plugin) it will use that local version instead.  You may override the default running options a number of ways.  To change them globally you can set a TM_CUCUMBER_OPTS variable in textmate.
-
-If you have cucumber profiles defined in your cucumber.yml file you can direct the bundle to run a certain feature with that profile by annotating the feature with a comment like so:
-<pre>
-# profile watir  
-</pre>
-The above annotation would run "cucumber file.feature --profile watir".
-
-To run a feature with a cucumber rake task instead of the cucumber command you may similarly annotate the feature directing which task to use:
-<pre>
-# rake features:watir
-</pre>
-Rake is generally loads slower than the stand-alone cucumber command so this option is not the recommend.
-
-
-h2. Switching Between Features and Step files
-
-The file switching relies on the following directory structure convention:
-<pre>
-     Basic features (no sub-directories):
-     
-       /project_root/features
-   		   |- basic_feature.feature (extension must be .feature)
-   		   |- support
-   		      |- env.rb
-   		   |- step_definitions
-   		       |- basic_feature_steps.rb
-     
-     Using feature sub-directories:
-     
-       /project_root/features
-  		   |- feature_one
-  		   |   |- some_feature.feature
-  		   |   |- step_definitions
-  		   |       |- some_feature_steps.rb
-  		   |
-  		   |- feature_two
-  		   | .....
-</pre>
-
-These directory structures can be used together (basic features can reside in the root features directory, and feature sets can be put in sub directories).
-
-h2. Credits
-
-The Cucumber TM Bundle is currently be maintained by Ben Mabey and Dr. Nic.
-
-* **Ben Mabey** - Author/Main contributor (stuff)
-* **Dr. Nic** - Main contributor (Snippet and grammar updates, updated 'Run Focused Scenario' command, Autocomplete Step command, Scenario Folding, Choose Alternate File, and more stuff)
-* **John Thornton** - Co-Author of original RSpec Story Runner Bundle
-* **Andre Foeken** - "Original color syntax highlighting":http://movesonrails.com/articles/2007/11/06/rspec-plain-text-stories
-* **Tim Harper** - Update Bundle Command, file detection bug fixes, go to step definition fixes, step grammar enhancements.
-* **Aslak Hellesøy** - Rake task improvement, snippet updates, Cucumber! 
-* **Pedro Visintin** - Syntax fix
-* **Joseph Wilk** - Syntax extensions for 'Scenario Outline'
-* **Sam Livingston-Gray** - Align Table Cells command
-* **Grant Hollingworth** - Improved step grammar - regexps syntax highlighting, more precise string and comment scopes. Ignore includes for step completion.
-* **Ben Wiseley** - Fix for FileUtils bug
-* **Ashley Moran** - Improved Align Table Cells command
-* **Jari Bakken** - Syntax Highlighting improvements, include support for @tags.
-* **Chris Hoffman** - Improved Step Definition grammar to handle string interpolation when calling other steps.
-
+-Ben
