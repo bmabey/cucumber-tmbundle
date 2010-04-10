@@ -5,10 +5,10 @@ if ENV['TM_PROJECT_DIRECTORY']
   rspec_rails_plugin = File.join(ENV['TM_PROJECT_DIRECTORY'],'vendor','plugins','rspec','lib')
   rspec_merb_gem = (merb_dir = (Dir["#{ENV['TM_PROJECT_DIRECTORY']}/gems/gems/rspec*"].first || '')) && File.join(merb_dir, "lib")
   bundler_gemfile = File.join(ENV['TM_PROJECT_DIRECTORY'], 'Gemfile')
-   if File.exists?(bundler_gemfile)
-     bundle_path = (File.read(bundler_gemfile) =~ (/bundle_path[ (]+['"](.*?)['"]/) && $1) || ".bundle"
-     require File.join(ENV['TM_PROJECT_DIRECTORY'], bundle_path, "environment")
-   elsif File.directory?(rspec_rails_plugin)
+  if File.exists?(bundler_gemfile)
+    bundle_path = (File.read(bundler_gemfile) =~ (/bundle_path[ (]+['"](.*?)['"]/) && $1) || ".bundle"
+    require File.join(ENV['TM_PROJECT_DIRECTORY'], bundle_path, "environment")
+  elsif File.directory?(rspec_rails_plugin)
     $LOAD_PATH.unshift(rspec_rails_plugin)
   elsif File.directory?(rspec_merb_gem)
     $LOAD_PATH.unshift(rspec_merb_gem)
