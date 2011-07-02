@@ -24,7 +24,7 @@ original install directions this should work for you:
 <pre>
     cd ~/Library/Application\ Support/TextMate/Bundles
     rm -rf Cucumber.tmbundle 
-    git clone git://github.com/aslakhellesoy/cucumber-tmbundle.git Cucumber.tmbundle
+    git clone git://github.com/bmabey/cucumber-tmbundle.git Cucumber.tmbundle
     osascript -e 'tell app "TextMate" to reload bundles'
 </pre>
 
