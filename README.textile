@@ -3,7 +3,7 @@ h1. Textmate Bundle for Cucumber
 Hi,
 Aslak Hellesøy and Dr. Nic Williams are now maintaining this project.
 
-Please install and refer to "Aslak's fork":http://github.com/aslakhellesoy/cucumber-tmbundle for updates/tickets.
+Please install and refer to "the canonical fork":http://github.com/cucumber/cucumber-tmbundle for updates/tickets.
 If you already have the bundle installed with my fork you can use the "Update Cucumber Bundle" menu item followed
 by the "Switch to New Canonical Fork" item once it is updated.
 
@@ -24,7 +24,7 @@ original install directions this should work for you:
 <pre>
     cd ~/Library/Application\ Support/TextMate/Bundles
     rm -rf Cucumber.tmbundle 
-    git clone git://github.com/aslakhellesoy/cucumber-tmbundle.git Cucumber.tmbundle
+    git clone git://github.com/cucumber/cucumber-tmbundle.git Cucumber.tmbundle
     osascript -e 'tell app "TextMate" to reload bundles'
 </pre>
 
