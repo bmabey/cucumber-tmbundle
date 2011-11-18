@@ -47,13 +47,14 @@ module Cucumber
       end
 
       def split_line(line)
+        line = line.gsub('\|', '__ESCAPED_PIPE__') # catch escaped pipes and replace them so split is happy
         cells = line.strip.split("|", -1)
 
         if(cells.last.strip == "")
           cells.delete_at(cells.size - 1) if line =~ /\|\s*$/
         end
 
-        cells
+        cells.map { |cell| cell.gsub('__ESCAPED_PIPE__', '\|') } # put back the escaped pipes
       end
     end
   end
